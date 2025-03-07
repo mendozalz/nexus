@@ -1,0 +1,171 @@
+/* Directivas de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colores dorados */
+  --color-dorado: #e9c764;
+  --color-dorado-oscuro: #c2a150;
+  --color-dorado-profundo: #a07d36;
+
+  /* Colores secundarios */
+  --color-celeste: #3ec1d5;
+
+  /* Escala de grises */
+  --color-gris: #686868;
+  --color-gris-oscuro: #282828;
+  --color-transparente: #af4b2f00;
+  --color-blanco: #ffffff;
+
+  /* Colores semánticos */
+  --color-fondo-principal: var(--color-blanco);
+  --color-fondo-secundario: var(--color-gris);
+  --color-fondo-newsletter: var(--color-gris);
+  --color-texto-principal: var(--color-gris-oscuro);
+  --color-texto-inverso: var(--color-blanco);
+  --color-borde: var(--color-gris);
+  --color-enlace: var(--color-celeste);
+  --color-enlace-hover: var(--color-dorado-oscuro);
+  --color-boton-dorado: var(--color-dorado);
+  --color-boton-dorado-hover: var(--color-dorado-oscuro);
+
+  /* Las fuentes */
+  --Heebo: var(--heebo);
+  --Proxima: var(--proxima);
+
+  /* Tamaños de fuente */
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1362,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  /* -p-2: 12.5px → 12.8px */
+  --font--2: clamp(0.7813rem, 0.7755rem + 0.0288vw, 0.8rem);
+  /* -p-1: 15px → 16px */
+  --font--1: clamp(0.9375rem, 0.9183rem + 0.096vw, 1rem);
+  /* Parrafos: 16px → 18px */
+  --font-0: clamp(1rem, 0.8438rem + 0.5vw, 1.125rem);
+  /* H1: 21.6px → 25px */
+  --font-1: clamp(1.35rem, 1.2847rem + 0.3263vw, 1.5625rem);
+  /* H2: 25.92px → 31.25px */
+  --font-2: clamp(1.62rem, 1.5177rem + 0.5115vw, 1.9531rem);
+  /* H3: 31.104px → 39.0625px */
+  --font-3: clamp(1.944rem, 1.7912rem + 0.7638vw, 2.4414rem);
+  /* H2: 37.3248px → 48.8281px */
+  --font-4: clamp(2.3328rem, 2.112rem + 1.104vw, 3.0518rem);
+  /* H1: 44.7898px → 61.0352px */
+  --font-5: clamp(2.7994rem, 2.4875rem + 1.5591vw, 3.8147rem);
+
+  /* Espaciado */
+  /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1362,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  /* Eespacio 3xs: 5px → 5px */
+  --espacio-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  /* Eespacio 2xs: 9px → 10px */
+  --espacio-2xs: clamp(0.5625rem, 0.5433rem + 0.096vw, 0.625rem);
+  /* Eespacio xs: 14px → 15px */
+  --espacio-xs: clamp(0.875rem, 0.8558rem + 0.096vw, 0.9375rem);
+  /* Eespacio s: 18px → 20px */
+  --espacio-s: clamp(1.125rem, 1.0866rem + 0.1919vw, 1.25rem);
+  /* Eespacio m: 27px → 30px */
+  --espacio-m: clamp(1.6875rem, 1.6299rem + 0.2879vw, 1.875rem);
+  /* Eespacio l: 36px → 40px */
+  --espacio-l: clamp(2.25rem, 2.1732rem + 0.3839vw, 2.5rem);
+  /* Eespacio xl: 54px → 60px */
+  --espacio-xl: clamp(3.375rem, 3.2598rem + 0.5758vw, 3.75rem);
+  /* Eespacio 2xl: 72px → 80px */
+  --espacio-2xl: clamp(4.5rem, 4.3464rem + 0.7678vw, 5rem);
+  /* Eespacio 3xl: 108px → 120px */
+  --espacio-3xl: clamp(6.75rem, 6.5197rem + 1.1516vw, 7.5rem);
+
+  /* One-up pairs */
+  /* Eespacio 3xs-2xs: 5px → 10px */
+  --espacio-3xs-2xs: clamp(0.3125rem, 0.2165rem + 0.4798vw, 0.625rem);
+  /* Eespacio 2xs-xs: 9px → 15px */
+  --espacio-2xs-xs: clamp(0.5625rem, 0.4473rem + 0.5758vw, 0.9375rem);
+  /* Eespacio xs-s: 14px → 20px */
+  --espacio-xs-s: clamp(0.875rem, 0.7598rem + 0.5758vw, 1.25rem);
+  /* Eespacio s-m: 18px → 30px */
+  --espacio-s-m: clamp(1.125rem, 0.8947rem + 1.1516vw, 1.875rem);
+  /* Eespacio m-l: 27px → 40px */
+  --espacio-m-l: clamp(1.6875rem, 1.438rem + 1.2476vw, 2.5rem);
+  /* Eespacio l-xl: 36px → 60px */
+  --espacio-l-xl: clamp(2.25rem, 1.7893rem + 2.3033vw, 3.75rem);
+  /* Eespacio xl-2xl: 54px → 80px */
+  --espacio-xl-2xl: clamp(3.375rem, 2.876rem + 2.4952vw, 5rem);
+  /* Eespacio 2xl-3xl: 72px → 120px */
+  --espacio-2xl-3xl: clamp(4.5rem, 3.5787rem + 4.6065vw, 7.5rem);
+
+  /* Custom pairs */
+  /* Eespacio s-l: 18px → 40px */
+  --espacio-s-l: clamp(1.125rem, 0.7027rem + 2.1113vw, 2.5rem);
+
+  /* Contenedor maximo */
+
+  /* @link https://utopia.fyi/grid/calculator?c=320,18,1.2,1362,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  /* Una estructura de 12 columnas */
+
+  --grid-max-width: 85.125rem; /* Ancho máximo */
+  /* 18px - 40px */
+  --grid-gutter: var(
+    --espacio-s-l,
+    clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem)
+  ); /* Gutter - Espacio de canales */
+  --grid-columns: 12;
+
+  /* Tipografías */
+
+  /* Las tipografías estan agregadas en el LAyout con las mejores practicas de ASTRO */
+
+  /* Pesos de fuente */
+  --peso-ultraligero: 100;
+  --peso-ligero: 300;
+  --peso-regular: 400;
+  --peso-medio: 500;
+  --peso-semibold: 600;
+  --peso-bold: 700;
+
+  /* Bordes y radios */
+  --radio-sm: 0.25rem; /* 4px */
+  --radio-md: 0.5rem; /* 8px */
+  --radio-lg: 1rem; /* 16px */
+  --radio-full: 9999px; /* Botones circulares */
+
+  /* Clases de utilidad */
+  --fluid-16-48: clamp(1rem, 0.3858rem + 3.071vw, 3rem); /* 16px a 48px */
+
+  /* Barra de scroll */
+  --thumbScroll: #64db4c;
+  --backGroundScroll: red;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 1px solid blue; */
+}
+
+/* Estilos para la barra de scroll */
+::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra vertical */
+  height: 8px; /* Ancho de la barra horizontal */
+  display: none;
+}
+
+/* Fondo verde para la barra de scroll */
+::-webkit-scrollbar-track {
+  background-color: var(--barraScroll);
+}
+
+/* Línea fina (thumb) de color naranja */
+::-webkit-scrollbar-thumb {
+  background-color: var(--backGroundScroll);
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid var(--thumbScroll); /* Espacio entre el track y el thumb */
+}
+
+/* Hover del thumb para mejor interacción */
+::-webkit-scrollbar-thumb:hover {
+  background-color: gray; /* Gris más oscuro cuando se pasa el ratón */
+}

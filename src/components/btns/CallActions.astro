@@ -1,0 +1,82 @@
+---
+interface Props {
+  text: string;
+  url: string;
+  _class: string;
+}
+
+const { text, url, _class } = Astro.props as Props;
+
+const btn = [
+  {
+    text: text,
+    url: url,
+    _class: _class,
+  },
+  {
+    text: text,
+    url: url,
+    _class: _class,
+  },
+];
+---
+
+<div class="button-group-inner">
+  <a href={url} class={`btn ${_class}`} target="_blank">
+    {text}
+  </a>
+</div>
+
+<style>
+  .button-group-inner {
+    margin-top: var(--espacio-3xs-2xs);
+    display: flex;
+    gap: 1rem;
+    font-family: var(--Heebo);
+    flex-grow: 1;
+  }
+
+  .btn {
+    padding: var(--espacio-xs) var(--espacio-l-xl);
+    border-radius: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline {
+    border: 2px solid #e5b94e;
+    color: #e5b94e;
+  }
+
+  .btn-outline:hover {
+    background-color: #e5b94e;
+    color: #fff;
+  }
+
+  .btn-primary {
+    background-color: #e5b94e;
+    color: #fff;
+    border: 2px solid #e5b94e;
+  }
+
+  .btn-primary:hover {
+    border: 2px solid #e5b94e;
+    background: transparent;
+    color: #e5b94e;
+  }
+
+  @container heroContainer (width < 768px) {
+    .button-group-inner {
+      justify-content: space-around;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .btn {
+      padding: var(--espacio-xs) var(--espacio-l);
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+import { Image } from "astro:assets";
+import logotipo from "../assets/logotipo.png";
+import broker from "../assets/broker-scaled.jpg";
+import CallActions from "./btns/CallActions.astro";
+import { getI18N } from "../i18n/";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const translatePath = useTranslatedPath(currentLang);
+
+const i18n = getI18N({ currentLocale: currentLang });
+
+const btn = [
+  {
+    text: t("nav.btnPrimary"),
+    url: "https://wa.me/573006214037?text=Quiero%20Invertir",
+    _class: "btn-primary",
+  },
+];
+---
+
+<section class="about">
+  <div class="main-container">
+    <div class="about__content u-grid">
+      <div class="about__text">
+        <div class="about__header">
+          <h1>{i18n.ABOUT_US.TITLE}</h1>
+          <h2>{i18n.ABOUT_US.ESLOGAN}</h2>
+        </div>
+
+        <div class="about__description">
+          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH1} />
+          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH2} />
+        </div>
+
+        <div class="button-group">
+          {
+            btn.map((boton) => (
+              <CallActions
+                text={boton.text}
+                url={boton.url}
+                _class={boton._class}
+              />
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="about__image">
+        <Image src={broker} alt="Broker" class="about__img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__content {
+    display: grid;
+    grid-template-columns: 60% 1fr !important;
+    gap: var(--espacio-xl);
+    align-items: center;
+  }
+
+  .about__logo {
+    margin-left: -5px;
+    margin-bottom: var(--espacio-m);
+  }
+
+  .about__header h1 {
+    font-size: var(--font-4);
+    color: var(--color-texto-principal);
+    font-weight: var(--peso-bold);
+    font-family: var(--Proxima);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .about__header h2 {
+    font-size: var(--font-1);
+    font-family: var(--Heebo);
+    color: var(--color-texto-principal);
+    font-weight: var(--peso-medium);
+    margin-top: var(--espacio-2xs);
+    margin-bottom: var(--espacio-l);
+  }
+
+  .about__description {
+    border-top: 1px solid var(--color-gris);
+    padding-top: var(--espacio-m);
+    margin-bottom: var(--espacio-l);
+  }
+
+  .about__description p {
+    font-size: var(--font-0);
+    font-family: var(--Proxima);
+    color: var(--color-texto-principal);
+    line-height: 1.6;
+    margin-bottom: var(--espacio-m);
+  }
+
+  .about__description p:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlight {
+    color: #000;
+    font-weight: var(--peso-semibold);
+  }
+
+  .about__buttons {
+    display: flex;
+    gap: var(--espacio-m);
+    font-family: var(--Heebo);
+  }
+
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    font-family: var(--Heebo);
+  }
+
+  .about__image {
+    border-radius: 100px 0 0 0;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .about__img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .about__content {
+      grid-template-columns: 1fr;
+      text-align: center;
+      margin-top: var(--espacio-2xl);
+      padding-block: var(--espacio-m);
+    }
+
+    .about__image {
+      display: none;
+    }
+
+    .about__buttons {
+      flex-direction: column;
+    }
+
+    .button {
+      text-align: center;
+    }
+  }
+</style>

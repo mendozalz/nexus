@@ -1,0 +1,144 @@
+---
+import { getI18N } from "../i18n/";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import CallActions from "./btns/CallActions.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+interface Props {
+  urlVideo: string;
+}
+
+const { urlVideo } = Astro.props as Props;
+
+const btn = [
+  {
+    text: t("nav.btnPrimary"),
+    url: "https://wa.me/573006214037?text=Quiero%20Invertir",
+    _class: "btn-primary",
+  },
+];
+
+const i18n = getI18N({ currentLocale: currentLang });
+---
+
+<section class="video-component">
+  <video class="video-component_video" src={urlVideo ?? ""} autoplay loop muted>
+  </video>
+  <div class="hero-content">
+    <div class="hero-content_interno">
+      <p class="subtitle">
+        {i18n.HERO_SMALL}
+      </p>
+      <h1 class="title">
+        {i18n.HERO_H1}
+      </h1>
+      <p class="description">
+        {i18n.HERO_H2}
+      </p>
+      <div class="button-group">
+        {
+          btn.map((boton) => (
+            <CallActions
+              text={boton.text}
+              url={boton.url}
+              _class={boton._class}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-component {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    container-type: inline-size;
+    container-name: heroContainer;
+  }
+  .video-component_video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .hero-content {
+    color: white;
+    max-width: var(--grid-max-width);
+    padding-inline: var(--grid-gutter);
+    margin-inline: auto;
+    z-index: 8;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .hero-content_interno {
+    max-width: var(--grid-max-width);
+    margin-right: 35%;
+  }
+
+  .subtitle {
+    color: #e5b94e;
+    font-size: var(--font--2);
+    font-weight: 600;
+    font-family: var(--Proxima);
+    line-height: 1.8;
+  }
+
+  .title {
+    font-size: var(--font-5);
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: var(--Heebo);
+    margin: 0;
+  }
+
+  .description {
+    font-size: var(--font-0);
+    line-height: 1.6;
+    color: #cccccc;
+    font-family: var(--Heebo);
+    margin-right: 15%;
+    color: #fff;
+  }
+
+  .button-group {
+    margin-top: var(--espacio-3xs-2xs);
+    display: flex;
+    gap: 1rem;
+    font-family: var(--Heebo);
+  }
+
+  @container heroContainer (width < 768px) {
+    .hero-content_interno {
+      margin-right: 0;
+      text-align: center;
+      margin: 0;
+    }
+    .title {
+      line-height: 1;
+    }
+    .description {
+      margin-right: 0;
+    }
+    .button-group {
+      justify-content: space-around;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    section.video-component {
+      height: 90vh !important;
+    }
+  }
+</style>

@@ -1,0 +1,196 @@
+---
+import { AcrodionAgTech } from "../../components/AcordionAgTech";
+import { HeroLamp } from "../../components/blocks/HeroLamp";
+import Sections from "../../components/Sections.astro";
+import SubHeroBody from "../../components/SubHeroBody.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getI18N } from "../../i18n/";
+import { getLangFromUrl } from "../../i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+
+const subHeroBody = [
+  {
+    title: "AgTech",
+    description: i18n.AGTECH.DESCRIPTION.PARRAGRAPH1,
+    descripttions2: i18n.AGTECH.DESCRIPTION.PARRAGRAPH2,
+  },
+];
+
+const data = {
+  features: [
+    {
+      id: 1,
+      title: i18n.AGTECH.ACCORDION.ITEM1.TITLE,
+      image: "https://shadcnblocks.com/images/block/placeholder-1.svg",
+      subtitle1: i18n.AGTECH.ACCORDION.ITEM1["How_it_works?"].TITLE,
+      description1: i18n.AGTECH.ACCORDION.ITEM1["How_it_works?"].DESCRIPTION,
+      subtitle2: i18n.AGTECH.ACCORDION.ITEM1["Use_Cases:"].TITLE,
+      description2: {
+        item1: i18n.AGTECH.ACCORDION.ITEM1["Use_Cases:"].LIST1,
+        item2: i18n.AGTECH.ACCORDION.ITEM1["Use_Cases:"].LIST2,
+        item3: i18n.AGTECH.ACCORDION.ITEM1["Use_Cases:"].LIST3,
+      },
+      subtitle3: i18n.AGTECH.ACCORDION.ITEM1["Investment_Opportunity:"].TITLE,
+      description3:
+        i18n.AGTECH.ACCORDION.ITEM1["Investment_Opportunity:"].DESCRIPTION,
+    },
+    {
+      id: 2,
+      title: i18n.AGTECH.ACCORDION.ITEM2.TITLE,
+      image: "https://shadcnblocks.com/images/block/placeholder-2.svg",
+      subtitle1: i18n.AGTECH.ACCORDION.ITEM2["How_it_works?"].TITLE,
+      description1:
+        i18n.AGTECH.ACCORDION.ITEM2["How_it_works?"].DESCRIPTION,
+      subtitle2: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].TITLE,
+      description2: {
+        item1: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST1,
+        item2:
+          i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST2,
+        item3: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST3,
+      },
+      subtitle3: i18n.AGTECH.ACCORDION.ITEM2["Investment_Opportunity:"].TITLE,
+      description3:
+        i18n.AGTECH.ACCORDION.ITEM2["Investment_Opportunity:"].DESCRIPTION,
+    },
+    {
+      id: 3,
+      title: i18n.AGTECH.ACCORDION.ITEM3.TITLE,
+      image: "https://shadcnblocks.com/images/block/placeholder-3.svg",
+      subtitle1: i18n.AGTECH.ACCORDION.ITEM3["How_it_works?"].TITLE,
+      description1:
+        i18n.AGTECH.ACCORDION.ITEM3["How_it_works?"].DESCRIPTION,
+      subtitle2: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].TITLE,
+      description2: {
+        item1: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST1,
+        item2:
+          i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST2,
+        item3: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST3,
+      },
+      subtitle3: i18n.AGTECH.ACCORDION.ITEM3["Investment_Opportunity:"].TITLE,
+      description3:
+        i18n.AGTECH.ACCORDION.ITEM3["Investment_Opportunity:"].DESCRIPTION,
+    },
+    {
+      id: 4,
+      title: i18n.AGTECH.ACCORDION.ITEM4.TITLE,
+      image: "https://shadcnblocks.com/images/block/placeholder-4.svg",
+      subtitle1: i18n.AGTECH.ACCORDION.ITEM4["How_it_works?"].TITLE,
+      description1:
+       i18n.AGTECH.ACCORDION.ITEM4["How_it_works?"].DESCRIPTION,
+      subtitle2: i18n.AGTECH.ACCORDION.ITEM4["Use_Cases:"].TITLE,
+      description2: {
+        item1: i18n.AGTECH.ACCORDION.ITEM4["Use_Cases:"].LIST1,
+        item2: i18n.AGTECH.ACCORDION.ITEM4["Use_Cases:"].LIST2,
+        item3: i18n.AGTECH.ACCORDION.ITEM4["Use_Cases:"].LIST3,
+      },
+      subtitle3: i18n.AGTECH.ACCORDION.ITEM4["Investment_Opportunity:"].TITLE,
+      description3:
+        i18n.AGTECH.ACCORDION.ITEM4["Investment_Opportunity:"].DESCRIPTION,
+    },
+    {
+      id: 5,
+      title: i18n.AGTECH.ACCORDION.ITEM5.TITLE,
+      image: "https://shadcnblocks.com/images/block/placeholder-5.svg",
+      subtitle1: i18n.AGTECH.ACCORDION.ITEM5["How_it_works?"].TITLE,
+      description1:
+        i18n.AGTECH.ACCORDION.ITEM5["How_it_works?"].DESCRIPTION,
+      subtitle2: i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].TITLE,
+      description2: {
+        item1:
+          i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST1,
+        item2:
+          i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST2,
+        item3: i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST3,
+      },
+      subtitle3: i18n.AGTECH.ACCORDION.ITEM5["Investment_Opportunity:"].TITLE,
+      description3:
+        i18n.AGTECH.ACCORDION.ITEM5["Investment_Opportunity:"].DESCRIPTION,
+    },
+    {
+      id: 6,
+      title: i18n.AGTECH.ACCORDION.ITEM6.TITLE,
+      image: "https://shadcnblocks.com/images/block/placeholder-6.svg",
+      subtitle1: i18n.AGTECH.ACCORDION.ITEM6["How_it_works?"].TITLE,
+      description1:
+        i18n.AGTECH.ACCORDION.ITEM6["How_it_works?"].DESCRIPTION,
+      subtitle2: i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].TITLE,
+      description2: {
+        item1:
+          i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST1,
+        item2:
+          i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST2,
+        item3:
+          i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST3,
+      },
+      subtitle3: i18n.AGTECH.ACCORDION.ITEM6["Investment_Opportunity:"].TITLE,
+      description3:
+        i18n.AGTECH.ACCORDION.ITEM6["Investment_Opportunity:"].DESCRIPTION,
+    },
+  ],
+};
+---
+
+<Layout title="About">
+  <!-- <AboutHero title="COMPANY" subtitle="We are the force that drives us" /> -->
+  <HeroLamp title={i18n.AGTECH.TITLE} subtitle={i18n.AGTECH.SUBTITLE} client:only="react" />
+  <section class="about-body">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-2xl);"
+    >
+      {
+        subHeroBody.map((item) => (
+          <SubHeroBody
+            title={item.title}
+            description={item.description}
+            description2={item.descripttions2}
+          />
+        ))
+      }
+    </Sections>
+  </section>
+  <section class="about-body">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter);"
+    >
+      <h2 class="title-agTech">{i18n.AGTECH.ACCORDION.TITLE}</h2>
+      <AcrodionAgTech {data} client:only="react" />
+    </Sections>
+  </section>
+  <section class="about-body">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-bottom: var(--espacio-3xl); padding-top: 0px !important;"
+    >
+      <h2 class="title-agTech">{i18n.AGTECH.JOIN_AGTECH.TITLE}</h2>
+      <p class="description-agTech" set:html={i18n.AGTECH.JOIN_AGTECH.DESCRIPTION}/>
+      <br>
+      <b class="description-agTech-b">{i18n.AGTECH.JOIN_AGTECH.MESSAGE}</b>
+    </Sections>
+  </section>
+</Layout>
+
+<style>
+  .title-agTech{
+    font-size: var(--font-3);
+    font-family: var(--Proxima);
+    font-weight: var(--peso-bold);
+    color: var(--color-gris-oscuro);
+    line-height: 1.2;
+    margin: var(--espacio-xs) 0;
+  }
+
+  .description-agTech{
+    font-size: var(--font-0);
+    font-weight: var(--peso-regular);
+    line-height: 1.6;
+    color: var(--color-gris);
+    margin-top: var(--espacio-xs);
+  }
+  .description-agTech-b{
+    text-align: center;
+    font-size: var(--font-0);
+    line-height: 1.6;
+    color: var(--color-gris);
+  }
+</style>

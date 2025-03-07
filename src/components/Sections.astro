@@ -1,0 +1,38 @@
+---
+interface Props {
+  title?: string;
+  _styles?: string;
+  video?: string;
+  text?: string;
+  url?: string;
+}
+const btn = [
+  {
+    text: "Quiero Inveritr",
+    url: "/",
+  },
+];
+
+const { title, _styles, video, text, url } = Astro.props;
+---
+
+<section id="container-sections" style={_styles} ;>
+  <slot />
+</section>
+
+<style>
+  #container-sections {
+    display: flex;
+    flex-direction: column;
+    max-width: var(--grid-max-width);
+    margin-inline: auto;
+    background-color: transparent;
+  }
+
+  @media screen and (max-width: 768px) {
+    #container-sections {
+      padding-block: var(--espacio-2xl) !important;
+      padding-top: var(--espacio-xl) !important;
+    }
+  }
+</style>

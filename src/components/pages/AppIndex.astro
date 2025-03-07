@@ -1,0 +1,26 @@
+---
+import SectionAbout from "../SectionAbout.astro";
+import Sections from "../Sections.astro";
+import VideoComponent from "../VideoComponent.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+/* const titleString = t('title');
+const descriptionString = t('descriptions'); */
+---
+
+<Layout title="HOME">
+  <VideoComponent
+    urlVideo="https://res.cloudinary.com/dvuyt52aq/video/upload/v1735056648/bot_hero_vgseez.mp4"
+  />
+  <section class="about">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+    >
+      <SectionAbout />
+    </Sections>
+  </section>
+</Layout>

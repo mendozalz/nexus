@@ -1,0 +1,232 @@
+{
+  "HERO_SMALL": "MÁS DE 300 INVERSORES CONFÍAN EN NUESTRAS SOLUCIONES AUTOMATIZADAS.",
+  "HERO_H1": "Potencia tus inversiones con tecnología de vanguardia.",
+  "HERO_H2": "Ofrecemos bots de trading automatizados que ejecutan operaciones con precisión, eficiencia y disciplina, ayudándote a alcanzar tus objetivos y metas, con total libertad financiera.",
+  "ABOUT_US": {
+    "TITLE": "SOBRE NOSOTROS",
+    "ESLOGAN": "INVENTEK INVESTMENT GROUP, INC.",
+    "WELCOME": {
+      "PARRAGRAPH1": "<b>Bienvenido a Inventek Investment Group</b>, tu socio de confianza en el trading automatizado. Nos dedicamos a empoderar a traders e inversionistas con bots de trading avanzados que aprovechan la tecnología para mejorar tu experiencia de trading y potencial rentabilidad.",
+      "PARRAGRAPH2": "En Inventek Investment Group, creemos que la tecnología puede revolucionar la forma en que traders e inversionistas operan en los mercados financieros. Nuestra visión es ofrecer a todos bots de trading inteligentes, confiables y fáciles de usar, que ejecuten operaciones con precisión, eficiencia y disciplina. Nos esforzamos por empoderar a inversionistas de todos los niveles para que tomen decisiones informadas y alcancen sus objetivos financieros a través del trading automatizado, incrementando así la consistencia y la rentabilidad."
+    },
+    "WHO_WE_ARE": {
+      "TITLE": "Quienes somos",
+      "DESCRIPTION": "Nuestra pasión por el desarrollo de software y los mercados financieros impulsa a nuestro equipo de profesionales. Combinamos esta dedicación con un amplio conocimiento del sector, una investigación rigurosa y disciplina para crear productos y servicios financieros de primer nivel que ayudan a los clientes a invertir de manera más fácil e inteligente, reduciendo el riesgo y ganando consistencia. Con años de experiencia y una profunda comprensión de los mercados, simplificamos las complejidades, permitiendo así que inversionistas y traders alcancen sus objetivos financieros."
+    },
+    "OUR_VISION": {
+      "TITLE": "Nuestra Visión",
+      "DESCRIPTION": "En Inventek Investment Group, creemos que la tecnología puede revolucionar la forma en que traders e inversionistas operan en los mercados financieros. Nuestra visión es ofrecer a todos bots de trading inteligentes, confiables y fáciles de usar, que ejecuten operaciones con precisión, eficiencia y disciplina. Nos esforzamos por empoderar a inversionistas de todos los niveles para que tomen decisiones informadas y alcancen sus objetivos financieros a través del trading automatizado, incrementando así la consistencia y la rentabilidad."
+    },
+    "PHILOSOPHY": {
+      "TITLE": "Filosofía de inversión",
+      "DESCRIPTION": "Nuestra filosofía de inversión se centra en operaciones basadas en el valor, utilizando una combinación de análisis técnico y fundamental, respaldada por una investigación exhaustiva, análisis algorítmico y una gestión prudente del riesgo. Nuestros bots de trading están diseñados para aprovechar la tecnología y obtener una ventaja que genere un rendimiento de inversión consistente y superior a largo plazo. Cada producto de software se prueba retrospectivamente para garantizar su rendimiento a lo largo de los años y bajo todas las condiciones del mercado. Además, se realizan pruebas prospectivas para asegurar la consistencia con los resultados históricos."
+    },
+    "WHY_CHOOSE_US": {
+      "TITLE": "¿Por qué elegirnos?",
+      "EXPERTISE": "<b>Experiencia y Pericia:</b> Nuestro equipo está compuesto por profesionales altamente capacitados con diversos antecedentes en finanzas, desarrollo de software y gestión de portafolios. Aportamos una gran cantidad de experiencia y conocimientos a nuestras estrategias de trading algorítmico, lo que nos permite navegar por diversas condiciones del mercado e identificar oportunidades de inversión prometedoras.",
+      "TAILORED": "<b>Soluciones de Inversión Personalizadas:</b> Entendemos que cada inversionista tiene objetivos financieros, tolerancia al riesgo y horizontes de tiempo únicos. Adoptamos un enfoque personalizado en la gestión de inversiones, recomendando bots de trading específicos que se alineen con tus metas y circunstancias particulares. Nuestras soluciones están diseñadas para hacer crecer y preservar tu patrimonio de manera efectiva.",
+      "RIGOROUS": "<b>Investigación Exhaustiva y Diligencia Debida:</b> Nuestro proceso de desarrollo de algoritmos se basa en una investigación amplia y una debida diligencia minuciosa. Diseñamos nuestro software para evaluar múltiples condiciones y buscar confluencias antes de ejecutar operaciones. Nuestro enfoque meticuloso, basado en la investigación, nos ayuda a identificar puntos de entrada y salida atractivos mientras gestionamos el riesgo de manera efectiva.",
+      "DIVERSIFICATION": "<b>Diversificación:</b> Creemos en el poder de la diversificación para reducir el riesgo y aumentar los rendimientos. Nuestros productos están cuidadosamente estructurados para ofrecer exposición a una amplia gama de clases de activos, sectores y geografías. Esta diversificación ayuda a mitigar el impacto de la volatilidad del mercado y garantiza un portafolio equilibrado.",
+      "TRANSPARENCY": "<b>Transparencia y Responsabilidad:</b> Priorizamos la transparencia y mantenemos una comunicación abierta con nuestros clientes. Puedes esperar reportes regulares, actualizaciones sobre el desempeño del portafolio, un boletín mensual y una comprensión clara de tus inversiones. Nos tomamos la responsabilidad en serio y siempre actuamos en tu mejor interés.",
+      "EXCEPTIONAL": "<b>Servicio al Cliente Excepcional:</b> Tu satisfacción y éxito son el centro de todo lo que hacemos. Nuestro equipo de servicio al cliente está siempre disponible para responder tus consultas, brindar orientación y ofrecer soporte personalizado. Buscamos construir relaciones a largo plazo con nuestros clientes, basadas en la confianza, la integridad y el respeto mutuo.",
+      "TAKE_THE_FIRST_STEPS": "<b>Da el primer paso hacia un futuro financiero seguro. Contáctanos hoy para explorar cómo nuestros bots de inversión pueden ayudarte a alcanzar tus metas y desbloquear tu potencial. Permítenos ser tu socio de confianza en el camino hacia el éxito financiero.</b>"
+    }
+  },
+  "AGTECH": {
+    "TITLE": "INVERSIONES EN AGTECH",
+    "SUBTITLE": "INNOVACIÓN Y RENTABILIDAD EN EL AGRO",
+    "DESCRIPTION": {
+      "PARRAGRAPH1": "En <b>Inventek Investments Group, Inc.</b>, entendemos que la tecnología está transformando cada industria, y el sector agrícola no es la excepción. La creciente demanda por eficiencia, sostenibilidad y rentabilidad nos ha llevado a diversificar nuestro portafolio con soluciones <b>AgTech (Agricultural Technology)</b>, combinando <b>Inteligencia Artificial, IoT, Blockchain, Automatización y Robótica</b> para revolucionar la producción agrícola y ganadera.",
+      "PARRAGRAPH2": "Nuestro enfoque se centra en la aplicación de tecnología de última generación para <b>mejorar los rendimientos, reducir costos operativos y optimizar la toma de decisiones</b>, creando un impacto positivo tanto en inversionistas como en el sector productivo."
+    },
+    "ACCORDION": {
+      "TITLE": "Áreas Estratégicas de Inversión en Tecnología Agrícola",
+      "ITEM1": {
+        "TITLE": "Agricultura de Precisión con IoT y Drones",
+        "How_it_works?": {
+          "TITLE": "¿Cómo funciona?",
+          "DESCRIPTION": "A través de sensores IoT, imágenes satelitales y drones equipados con cámaras multiespectrales, analizamos en tiempo real la salud de los cultivos, la calidad del suelo y la necesidad de riego."
+        },
+        "Use_Cases:": {
+          "TITLE": "Casos de uso:",
+          "LIST1": "Optimización del consumo de agua y fertilizantes",
+          "LIST2": "Monitoreo remoto de grandes extensiones de tierra",
+          "LIST3": "Reducción de plagas y enfermedades mediante alertas tempranas"
+        },
+        "Investment_Opportunity:": {
+          "TITLE": "Oportunidad de inversión:",
+          "DESCRIPTION": "Desarrollo de software de análisis de datos para agricultura y comercialización de servicios de monitoreo con drones."
+        }
+      },
+      "ITEM2": {
+        "TITLE": "Trazabilidad y Gestión de Ganado con RFID",
+        "How_it_works?": {
+          "TITLE": "¿Cómo funciona?",
+          "DESCRIPTION": "A través de dispositivos RFID (Identificación por Radiofrecuencia) y sensores inteligentes, cada animal tiene un código único que permite rastrear su alimentación, salud y ubicación en tiempo real."
+        },
+        "Use_Cases:": {
+          "TITLE": "Casos de uso:",
+          "LIST1": "Monitoreo del estado de salud y control de vacunaciones",
+          "LIST2": "Optimización de la alimentación para maximizar la producción de carne y leche",
+          "LIST3": "Reducción de pérdidas y robos mediante geolocalización"
+        },
+        "Investment_Opportunity:": {
+          "TITLE": "Oportunidad de inversión:",
+          "DESCRIPTION": "Implementación de plataformas de gestión ganadera basadas en datos, con modelos de suscripción o venta de hardware y software."
+        }
+      },
+      "ITEM3": {
+        "TITLE": "Robótica y Automatización en el Agro",
+        "How_it_works?": {
+          "TITLE": "¿Cómo funciona?",
+          "DESCRIPTION": "Los avances en inteligencia artificial permiten el uso de robots autónomos para la siembra, fertilización y cosecha, reduciendo la dependencia de mano de obra y mejorando la eficiencia en cada proceso."
+        },
+        "Use_Cases:": {
+          "TITLE": "Casos de uso:",
+          "LIST1": "Robots recolectores de frutas y hortalizas con visión artificial",
+          "LIST2": "Máquinas de siembra automatizadas con ajuste de profundidad y densidad",
+          "LIST3": "Equipos autónomos para control de maleza sin uso de pesticidas"
+        },
+        "Investment_Opportunity:": {
+          "TITLE": "Oportunidad de inversión:",
+          "DESCRIPTION": "Desarrollo y comercialización de tecnología para la mecanización agrícola de precisión."
+        }
+      },
+      "ITEM4": {
+        "TITLE": "Agricultura Vertical e Hidroponía Inteligente",
+        "How_it_works?": {
+          "TITLE": "¿Cómo funciona?",
+          "DESCRIPTION": "Mediante sistemas de cultivo hidropónico y granjas verticales con iluminación LED optimizada, se pueden producir alimentos en espacios reducidos sin necesidad de suelo agrícola."
+        },
+        "Use_Cases:": {
+          "TITLE": "Casos de uso:",
+          "LIST1": "Producción de alimentos en entornos urbanos sin pesticidas",
+          "LIST2": "Optimización del crecimiento de plantas con sensores de humedad y nutrientes",
+          "LIST3": "Reducción del consumo de agua en un 90% en comparación con cultivos tradicionales"
+        },
+        "Investment_Opportunity:": {
+          "TITLE": "Oportunidad de inversión:",
+          "DESCRIPTION": "Creación de granjas verticales modulares y desarrollo de tecnologías de control automatizado."
+        }
+      },
+      "ITEM5": {
+        "TITLE": "Blockchain para la Trazabilidad y Comercialización Agrícola",
+        "How_it_works?": {
+          "TITLE": "¿Cómo funciona?",
+          "DESCRIPTION": "Mediante blockchain, se crea un <b>registro inmutable</b> que certifica el origen, calidad y recorrido logístico de cada producto agrícola, asegurando transparencia y confianza en la cadena de suministro."
+        },
+        "Use_Cases:": {
+          "TITLE": "Casos de uso:",
+          "LIST1": "Certificación digital para exportaciones de café, cacao y otros productos premium",
+          "LIST2": "Reducción de intermediarios y venta directa a mercados internacionales",
+          "LIST3": "Creación de contratos inteligentes para agilizar pagos en el comercio agrícola"
+        },
+        "Investment_Opportunity:": {
+          "TITLE": "Oportunidad de inversión:",
+          "DESCRIPTION": "Desarrollo de plataformas de trazabilidad para productores, distribuidores y mercados internacionales."
+        }
+      },
+      "ITEM6": {
+        "TITLE": "Fintech Agrícola: Financiamiento y Seguros Inteligentes",
+        "How_it_works?": {
+          "TITLE": "¿Cómo funciona?",
+          "DESCRIPTION": "Las plataformas Fintech aplicadas al agro permiten otorgar créditos y seguros a productores basados en <b>datos en tiempo real</b>, reduciendo riesgos y facilitando el acceso al financiamiento."
+        },
+        "Use_Cases:": {
+          "TITLE": "Casos de uso:",
+          "LIST1": "Préstamos agrícolas con evaluación basada en datos climáticos y productivos",
+          "LIST2": "Seguros inteligentes que ajustan coberturas según eventos climáticos en tiempo real",
+          "LIST3": "Tokenización de activos agrícolas para inversión y crowdfunding"
+        },
+        "Investment_Opportunity:": {
+          "TITLE": "Oportunidad de inversión:",
+          "DESCRIPTION": "Desarrollo de plataformas de crédito y seguros inteligentes con modelos escalables."
+        }
+      }
+    },
+    "JOIN_AGTECH": {
+      "TITLE": "Únete a la Transformación del Agro con Inventek Investments",
+      "DESCRIPTION": "La revolución agrícola está en marcha, y en <b>Inventek Investments Group, Inc.</b> estamos liderando el cambio con inversiones estratégicas en tecnología. Nuestra misión es conectar <b>capital con innovación</b>, transformando la agricultura en un sector más productivo, eficiente y sostenible.",
+      "MESSAGE": "Si estás interesado en invertir en el futuro del agro, contáctanos para explorar las oportunidades disponibles."
+    }
+  },
+  "LEAR_MORE": {
+    "TITLE": "NUESTROS SERVICIOS",
+    "SUBTITLE": "INVENTEK INVESTMENT GROUP, INC."
+  },
+  "BOTS": {
+    "PORTFOLIO": "PORTAFOLIO",
+    "INBOT_HAWK": {
+      "TITLE": "INBOT HAWK",
+      "DESCRIPTION": "El Hawk utiliza VWAP y otros indicadores para detectar un cambio de impulso en el mercado. El producto está optimizado para Tesla, Apple, Microsoft y Amazon, y utiliza stops rígidos y take profits para garantizar una adecuada gestión del riesgo."
+    },
+    "INBOT_NTZ": {
+      "TITLE": "INBOT NTZ",
+      "DESCRIPTION": "Esta es una estrategia automatizada que utiliza el flujo de dinero para detectar la dirección del mercado. Una vez que el flujo de dinero se invierte, se cierra el contrato y se abre uno en sentido contrario. El bot opera en NinjaTrader versión 8 y está optimizado para contratos de futuros del Nasdaq (MNQ) y S&P 500 (MES)."
+    },
+    "INBOT_KSSL": {
+      "TITLE": "INBOT KSSL",
+      "DESCRIPTION": "Este bot utiliza una estrategia de continuación que combina Kijun y SSL, junto con otros indicadores, para aprovechar el desarrollo de una nueva tendencia. El bot opera en NinjaTrader versión 8 y está optimizado para contratos de futuros del Nasdaq (MNQ) y S&P 500 (MES)."
+    },
+    "INBOT_SRSI": {
+      "TITLE": "INBOT SRSI",
+      "DESCRIPTION": "El sistema de trading automatizado utiliza Stochastics, RSI y otros indicadores de impulso y dirección para detectar las condiciones del mercado. El bot emplea una estrategia de continuación. Inbot SRSI opera en la plataforma NinjaTrader versión 8 y está optimizado para contratos de futuros del Nasdaq (MNQ)."
+    },
+    "INBOT_BBBREAK": {
+      "TITLE": "INBOT BBBREAK",
+      "DESCRIPTION": "El sistema de trading automatizado utiliza Bandas de Bollinger para determinar el sentimiento del mercado y ejecutar operaciones. Inbot BBBreak opera en mercados laterales y abre una posición basada en un movimiento de impulso."
+    },
+    "INBOT_30BOTS": {
+      "TITLE": "30+ BOTS",
+      "DESCRIPTION": "Contamos con una colección de más de 38 bots que operan en futuros, acciones, opciones, commodities y forex. La idea de cada uno es diversificar cualquier portafolio y gestionar el riesgo adecuadamente."
+    }
+  },
+  "BOT_PURCHASE": {
+    "BTN_PURCHASE": "Comprar Bot",
+    "BTN_LEARN_MORE": "Aprender más",
+    "INBOT_IZY": {
+      "TITLE": "INBOT IZY",
+      "PLATFORM": "MetaTrader 5",
+      "INSTRUMENT": "EUR/USD (Forex)",
+      "TIMEFRAME": "1 Hora",
+      "DESCRIPTION": "InbotIZY es un bot de trading avanzado diseñado para MetaTrader 5, optimizado para operar en el par EUR/USD en un gráfico de 1 hora. El bot utiliza múltiples señales de entrada, combinando una variedad de indicadores y estrategias propias para maximizar las oportunidades de trading. Cada operación se gestiona con un robusto sistema de gestión de riesgos, que incluye un stop loss personalizable, un objetivo de beneficio y una opción de trailing stop para ajustes dinámicos de las operaciones. InbotIZY está diseñado para ser compatible con cuentas financiadas, incorporando un límite opcional de pérdida diaria máxima y un historial que mantiene un drawdown máximo por debajo del 10%, umbral comúnmente requerido por estas firmas. Además, el bot cierra automáticamente todas las posiciones los viernes para prevenir riesgos durante el fin de semana, asegurando un enfoque disciplinado en el trading."
+    },
+    "INBOT_NTZ": {
+      "TITLE": "INBOT NTZ",
+      "PLATFORM": "NinjaTrader 8",
+      "INSTRUMENT": "MNQ (Futuros del Nasdaq)",
+      "TIMEFRAME": "15 Minutos",
+      "DESCRIPTION": "InbotNTZ es un bot de trading sofisticado diseñado para NinjaTrader 8, optimizado para operar en MNQ (futuros del Nasdaq) en un gráfico de 15 minutos. El bot utiliza una combinación de algoritmos propios e indicadores técnicos estándar para identificar con precisión las tendencias del mercado y las oportunidades de trading. Cuando se genera una señal de compra o venta, el algoritmo se asegura de que la señal esté alineada con la tendencia general del mercado antes de ejecutar una operación. Cada operación está protegida con configuraciones personalizables de stop-loss y take-profit, ofreciendo una relación riesgo-recompensa equilibrada. Además, los usuarios pueden activar una función de trailing stop para una gestión dinámica de las operaciones, con parámetros personalizables para adaptar la estrategia a las preferencias individuales."
+    },
+    "INBOT_SCALPER": {
+      "TITLE": "INBOT SCALPER",
+      "PLATFORM": "MetaTrader 4",
+      "INSTRUMENT": "EUR/USD (Forex)",
+      "TIMEFRAME": "5 Minutos",
+      "DESCRIPTION": "InbotScalper es un bot de trading de alto rendimiento diseñado para MetaTrader 4, optimizado específicamente para el par EUR/USD en un gráfico de 5 minutos. Este bot es ideal para traders que buscan un crecimiento agresivo, utilizando una estrategia de trading en rejilla para promediar los costos de entrada y maximizar el potencial de beneficio. A pesar de su enfoque agresivo, InbotScalper cuenta con un sólido historial de preservación de la cuenta, sin llegar a quemarla. Ofrece características robustas de gestión de riesgos, incluyendo un porcentaje de pérdida máxima opcional, trailing stop y configuraciones personalizables de stop loss y take profit. InbotScalper combina estrategias poderosas con controles de riesgo avanzados, haciendo de él una opción atractiva para traders que buscan equilibrar altos retornos con un trading disciplinado."
+    }
+  },
+  "BANNER_FOOTER": "La tecnología es una herramienta. Cualquier implementación exitosa requiere una alineación entre las personas, el conocimiento y el proceso. Los robots de trading no son la excepción.",
+  "BANNER_FOOTER_AUTHOR": "Dr. Jaime Marulanda",
+  "SUSCRIBE_TEXT": "Suscríbete a nuestro boletín",
+  "SUSCRIBE_ACTION": "Enviar",
+  "ACCEPT_TERMS": "Acepto los términos y condiciones.",
+  "COPYRIGHT": "Copyright INVENTEK 2024 © Todos los derechos reservados",
+  "FOOTER": {
+    "INVESTMENTS": "Inversiones",
+    "LEARN_MORE": "Aprender más",
+    "ABOUT_US": "Sobre nosotros",
+    "AGTECH": "AgTech",
+    "SUSCRIBE_TEXT": "Suscríbete a nuestro boletín",
+    "SUSCRIBE_ACTION": "Enviar",
+    "ACCEPT_TERMS": "Acepto los términos y condiciones.",
+    "COPYRIGHT": "Copyright INVENTEK 2024 © Todos los derechos reservados"
+  },
+  "CONTACT": {
+    "TITLE": "Contacto",
+    "NAME": "Nombre",
+    "EMAIL": "Correo electrónico",
+    "MESSAGE": "Mensaje",
+    "SEND": "Enviar"
+  }
+}

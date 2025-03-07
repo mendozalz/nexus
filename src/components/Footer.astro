@@ -1,0 +1,615 @@
+---
+import { Image } from "astro:assets";
+import logotipo from "../assets/logotipo.jpg";
+import co from "../assets/icon_flags/co.svg";
+import us from "../assets/icon_flags/us.svg";
+import phone from "../assets/icon_flags/phone.svg";
+import { getI18N } from "../i18n/";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+const i18n = getI18N({ currentLocale: currentLang });
+
+const menuItems = {
+  investments: {
+    title: i18n.FOOTER.INVESTMENTS,
+    items: [
+      {
+        text: t("nav.btnPrimary"),
+        href: "https://wa.me/573006214037?text=Quiero%20Invertir",
+      },
+    ],
+  },
+  learnMore: {
+    title: i18n.FOOTER.LEARN_MORE,
+    items: [{ text: i18n.FOOTER.LEARN_MORE, href: "/learnmore" }],
+  },
+  account: {
+    title: i18n.FOOTER.ABOUT_US,
+    items: [{ text: i18n.FOOTER.ABOUT_US, href: "/about" }],
+  },
+  news: {
+    title: i18n.FOOTER.AGTECH,
+    items: [{ text: i18n.FOOTER.AGTECH, href: "/agtech" }],
+  },
+};
+
+const locations = {
+  colombia: {
+    title: "Colombia",
+    address: [
+      "Le Mont Comercio",
+      "Av. Las Palmas #Km 15 990,",
+      "Oficina 347",
+      "Envigado",
+    ],
+  },
+  usa: {
+    title: "USA",
+    address: ["West Palm Beach, FL"],
+  },
+};
+
+const phones = [
+  { country: "us", flag: us, icon: phone, number: "(+1)-561-530-8396" },
+  { country: "co", flag: co, icon: phone, number: "(+57)-123-456-7890" },
+];
+---
+
+<footer class="footer-container">
+  <div class="main-container">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <Image
+          class="footer__logo"
+          src={logotipo}
+          alt="Inventek Logo"
+          width="250"
+          height="0"
+        />
+
+        <div class="footer__locations">
+          {
+            Object.values(locations).map((location) => (
+              <div class="footer__location">
+                <h3 class="footer__location-title">{location.title}</h3>
+                <address class="footer__address">
+                  {location.address.map((line) => (
+                    <p>{line}</p>
+                  ))}
+                </address>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <nav class="footer__nav">
+        {
+          Object.values(menuItems).map((section) => (
+            <div class="footer__menu">
+              <h3 class="footer__menu-title">{section.title}</h3>
+              <ul class="footer__menu-list">
+                {section.items.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="footer__menu-link"
+                      target="_blank"
+                    >
+                      {item.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </nav>
+    </div>
+    <div class="footer__subscribe">
+      <h3 class="footer__subscribe-title" id="newsletter-title">
+        {i18n.FOOTER.SUSCRIBE_TEXT}
+      </h3>
+      <form
+        id="newsletter-form"
+        class="footer__form"
+        aria-labelledby="newsletter-title"
+        novalidate
+      >
+        <input
+          type="email"
+          id="newsletter"
+          name="Email"
+          placeholder="name@inventek.com"
+          class="footer__input"
+          aria-required="true"
+          required
+        />
+        <button type="submit" id="btnEnviar" class="footer__submit" disabled>
+          {i18n.FOOTER.SUSCRIBE_ACTION}
+        </button>
+        <label class="footer__checkbox-label">
+          <input
+            type="checkbox"
+            required
+            class="footer__checkbox"
+            id="terms"
+            name="terms"
+            aria-required="true"
+          />
+          <span>{i18n.FOOTER.ACCEPT_TERMS}</span>
+        </label>
+        <div
+          id="formStatus"
+          class="form-status"
+          role="alert"
+          aria-live="polite"
+        >
+        </div>
+      </form>
+      <div class="footer__phones">
+        {
+          phones.map((phone) => (
+            <a href={`tel:${phone.number}`} class="footer__phone">
+              {typeof phone.flag === "string" ? (
+                <span>{phone.flag}</span>
+              ) : (
+                <img src={phone.flag.src} alt="flag pais" class="phone_flag" />
+              )}
+              {typeof phone.icon === "string" ? (
+                <span>{phone.icon}</span>
+              ) : (
+                <img src={phone.icon.src} alt="icon phone" class="phone_icon" />
+              )}
+              <span class="footer__phone-number">{phone.number}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <div class="footer__phones__tablet">
+      {
+        phones.map((phone) => (
+          <a href={`tel:${phone.number}`} class="footer__phone">
+            {typeof phone.flag === "string" ? (
+              <span>{phone.flag}</span>
+            ) : (
+              <img src={phone.flag.src} alt="flag pais" class="phone_flag" />
+            )}
+            {typeof phone.icon === "string" ? (
+              <span>{phone.icon}</span>
+            ) : (
+              <img src={phone.icon.src} alt="icon phone" class="phone_icon" />
+            )}
+            <span class="footer__phone-number">{phone.number}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copyright">
+        {i18n.FOOTER.COPYRIGHT}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- <script>
+  interface NewsletterData {
+    email: string;
+    timestamp: string;
+    acceptedTerms: boolean;
+  }
+
+  interface FormElements extends HTMLFormControlsCollection {
+    Email: HTMLInputElement;
+    terms: HTMLInputElement;
+  }
+
+  class NewsletterForm {
+    private form: HTMLFormElement;
+    private emailInput: HTMLInputElement;
+    private submitButton: HTMLButtonElement;
+    private statusDiv: HTMLDivElement;
+    private readonly SCRIPT_URL =
+      "https://script.google.com/macros/s/AKfycbw_0oJ-XhEnPf1_67NgEu0fSd4EQaAHHFuuy5fLfumXJ4UydVlAeqFJbKm6pahwJt_4Ug/exec";
+
+    constructor() {
+      this.form = document.getElementById("newsletter-form") as HTMLFormElement;
+      this.emailInput = document.getElementById(
+        "newsletter"
+      ) as HTMLInputElement;
+      this.submitButton = document.getElementById(
+        "btnEnviar"
+      ) as HTMLButtonElement;
+      this.statusDiv = document.getElementById("formStatus") as HTMLDivElement;
+
+      if (this.form && this.emailInput && this.submitButton) {
+        this.initialize();
+      }
+    }
+
+    private initialize(): void {
+      this.emailInput.addEventListener("input", () => this.validateEmail());
+      this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+    }
+
+    private validateEmail(): void {
+      const isValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
+        this.emailInput.value
+      );
+      this.emailInput.setAttribute("aria-invalid", (!isValid).toString());
+      this.submitButton.disabled = !isValid;
+    }
+
+    private showStatus(message: string, isError = false): void {
+      if (!this.statusDiv) return;
+
+      this.statusDiv.textContent = message;
+      this.statusDiv.className = `form-status ${isError ? "error" : "success"}`;
+      this.statusDiv.style.display = "block";
+
+      // Scroll suave al mensaje
+      this.statusDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      setTimeout(() => {
+        this.statusDiv.style.display = "none";
+      }, 5000);
+    }
+
+    private async submitToGoogleSheets(data: NewsletterData): Promise<void> {
+      try {
+        // Crear FormData directamente
+        const formData = new FormData();
+        formData.append("Email", data.email);
+        formData.append("Timestamp", new Date().toLocaleString("es-ES"));
+        formData.append("AcceptedTerms", data.acceptedTerms ? "Sí" : "No");
+
+        document
+          .querySelector(".footer__submit")
+          .setAttribute("disabled", "true");
+
+        // Convertir FormData a URLSearchParams
+        const params = new URLSearchParams();
+        for (const pair of formData.entries()) {
+          params.append(pair[0], pair[1].toString());
+        }
+
+        const response = await fetch(this.SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: params,
+        });
+
+        return;
+      } catch (error) {
+        console.error("Error al enviar:", error);
+        throw new Error("Error al enviar el formulario");
+      } finally {
+        document.querySelector(".footer__submit").removeAttribute("disabled");
+      }
+    }
+
+    private async handleSubmit(event: Event): Promise<void> {
+      event.preventDefault();
+
+      try {
+        const formElements = this.form.elements as FormElements;
+        const email = formElements.Email.value.trim();
+        const terms = formElements.terms.checked;
+
+        if (!email) {
+          throw new Error("Por favor, ingresa tu correo electrónico");
+        }
+
+        if (!terms) {
+          throw new Error("Debes aceptar los términos y condiciones");
+        }
+
+        this.showStatus("Enviando...");
+
+        const data: NewsletterData = {
+          email,
+          timestamp: new Date().toISOString(),
+          acceptedTerms: terms,
+        };
+
+        await this.submitToGoogleSheets(data);
+
+        this.showStatus("¡Gracias por suscribirte! Te mantendremos informado.");
+        this.form.reset();
+      } catch (error) {
+        console.error("Error en el envío:", error);
+        this.showStatus(
+          error instanceof Error
+            ? error.message
+            : "Error al enviar el formulario",
+          true
+        );
+      }
+    }
+  }
+
+  // Inicializar el formulario cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => new NewsletterForm());
+</script> -->
+
+<style>
+  .footer-container {
+    padding-block: var(--espacio-xl);
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-principal);
+    font-family: var(--Proxima);
+    background: transparent;
+  }
+
+  .footer__content {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: var(--espacio-xl);
+    margin-bottom: var(--espacio-l);
+  }
+
+  .footer__locations {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-m);
+  }
+
+  .footer__location-title {
+    font-size: var(--font-1);
+    font-weight: var(--peso-semibold);
+    margin-bottom: var(--espacio-xs);
+  }
+
+  .footer__address {
+    font-style: normal;
+    font-size: var(--font--1);
+    line-height: 1.6;
+  }
+
+  .footer__address p {
+    margin: 0;
+  }
+
+  .footer__nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espacio-l);
+  }
+
+  .footer__menu-title {
+    font-size: var(--font-0);
+    font-weight: var(--peso-semibold);
+    margin-bottom: var(--espacio-m);
+    text-transform: uppercase;
+  }
+
+  .footer__menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer__menu-link {
+    color: var(--color-texto-principal);
+    text-decoration: none;
+    font-size: var(--font--1);
+    line-height: 2;
+    transition: color 0.3s ease;
+  }
+
+  .footer__menu-link:hover {
+    color: var(--color-dorado);
+  }
+
+  .footer__subscribe {
+    display: grid;
+    grid-template-columns: 18% 1fr 25%;
+    gap: var(--espacio-l);
+    margin-bottom: var(--espacio-l);
+  }
+
+  .footer__subscribe-title {
+    font-size: var(--font-0);
+    font-weight: var(--peso-semibold);
+    margin-bottom: var(--espacio-m);
+    text-transform: uppercase;
+  }
+
+  .footer__form {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--espacio-3xs);
+  }
+
+  .footer__input {
+    padding: var(--espacio-xs) var(--espacio-s);
+    background: transparent;
+    border-color: var(--color-gris-oscuro);
+    border-width: 0 0 1px 0;
+    font-size: var(--font--1);
+  }
+
+  #newsletter:focus-visible {
+    outline: none;
+  }
+
+  .footer__submit {
+    padding: var(--espacio-xs) var(--espacio-s);
+    background-color: transparent;
+    color: var(--color-gris-oscuro);
+    border: var(--color-gris-oscuro) 1px solid;
+    border-radius: var(--radio-full);
+    font-size: var(--font--1);
+    font-weight: var(--peso-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .footer__submit:hover {
+    background-color: var(--color-gris-oscuro);
+    color: var(--color-blanco);
+  }
+
+  .footer__submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .footer__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    font-size: var(--font--2);
+  }
+
+  .footer__checkbox {
+    margin: 0;
+  }
+
+  .form-status {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    display: none;
+    font-size: var(--font--2);
+  }
+
+  .form-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+
+  .form-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+
+  .footer__phones {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-xs);
+  }
+
+  .footer__phones__tablet {
+    display: none;
+  }
+
+  img.phone_icon {
+    width: 20px;
+    height: auto;
+  }
+
+  .footer__phone {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-xs);
+    color: var(--color-texto-principal);
+    text-decoration: none;
+    font-size: var(--font--1);
+  }
+
+  .footer__bottom {
+    padding-top: var(--espacio-m);
+    border-top: 1px solid var(--color-borde);
+    text-align: center;
+  }
+
+  .footer__copyright {
+    font-size: var(--font--2);
+    color: var(--color-texto-principal);
+    opacity: 0.8;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .footer__submit {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .footer-container {
+      overflow: hidden;
+    }
+
+    .footer__logo {
+      width: 230px;
+      height: auto;
+    }
+    .footer__content {
+      grid-auto-flow: row;
+      gap: var(--espacio-2xl-3xl);
+    }
+
+    .footer__nav {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--espacio-l);
+    }
+    .footer__subscribe {
+      grid-template-columns: 25% 1fr;
+      gap: var(--espacio-3xs);
+      padding-right: var(--espacio-3xs);
+    }
+    .footer__phones {
+      display: none;
+    }
+    .footer__phones__tablet {
+      display: flex;
+      justify-content: space-around;
+      gap: var(--espacio-xs);
+      margin-bottom: var(--espacio-l);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-container {
+      padding: 0px;
+    }
+    .footer__content {
+      grid-template-columns: 1fr;
+      gap: var(--espacio-xs);
+    }
+    .footer__brand {
+      display: grid;
+      place-items: center;
+      & img {
+        width: 80%;
+        height: auto;
+        margin-bottom: var(--espacio-m);
+      }
+      & .footer__locations {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .footer__subscribe {
+      grid-template-columns: 1fr;
+    }
+    .footer__form {
+      grid-template-columns: 70% 30%;
+    }
+  }
+</style>

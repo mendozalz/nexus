@@ -1,0 +1,335 @@
+---
+import { Image } from "astro:assets";
+import "../styles/global.css";
+import logotipo from "../assets/logotipo.jpg";
+import LanguageSelector from "./LanguageSelector.astro";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
+import { getI18N } from "../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+
+const links = [
+  {
+    name: t("nav.home"),
+    href: translatePath("/", lang),
+  },
+  {
+    name: t("nav.about"),
+    href: translatePath("/about", lang),
+  },
+  {
+    name: t("nav.agtech"),
+    href: translatePath("/agtech", lang),
+  },
+  {
+    name: t("nav.learnmore"),
+    href: translatePath("/learnmore", lang),
+  },
+  {
+    name: t("nav.contact"),
+    href: translatePath("/contact", lang),
+  },
+];
+
+const formContact = {
+  title: i18n.CONTACT.TITLE,
+  name: i18n.CONTACT.NAME,
+  email: i18n.CONTACT.EMAIL,
+  message: i18n.CONTACT.MESSAGE,
+  send: i18n.CONTACT.SEND,
+};
+---
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/">
+      <Image
+        class="logo"
+        src={logotipo}
+        alt="Inventek Logo"
+        width="200"
+        height="0"
+      />
+    </a>
+    <div class="menu-toggle mobile-menu-toggle" id="mobile-menu">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href}>{link.name}</a>
+          </li>
+        ))
+      }
+      <LanguageSelector />
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function setupNavbar() {
+    const navbar = document.querySelector("#navbar");
+    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Función para manejar el scroll
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        navbar?.classList.add("scrolled");
+      } else {
+        navbar?.classList.remove("scrolled");
+      }
+    }
+
+    // Función para cerrar el menú
+    function closeMenu() {
+      navLinks?.classList.remove("active");
+      menuIcon?.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    // Función para alternar el menú
+    function toggleMenu() {
+      const isOpen = navLinks?.classList.contains("active");
+
+      if (isOpen) {
+        closeMenu();
+      } else {
+        navLinks?.classList.add("active");
+        menuIcon?.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    // Inicializar el estado del scroll
+    handleScroll();
+
+    // Event Listeners
+    window.addEventListener("scroll", handleScroll);
+    mobileMenuToggle?.addEventListener("click", toggleMenu);
+
+    // Cerrar menú al hacer clic en enlaces
+    document
+      .querySelectorAll(".nav-links a, .nav-links-popover")
+      ?.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+
+    // Limpiar event listeners al desmontar
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      mobileMenuToggle?.removeEventListener("click", toggleMenu);
+      document
+        .querySelectorAll(".nav-links a, .nav-links-popover")
+        ?.forEach((link) => {
+          link.removeEventListener("click", closeMenu);
+        });
+    };
+  }
+
+  // Configurar la navegación inicial
+  let cleanup = setupNavbar();
+
+  // Manejar la navegación de Astro
+  document.addEventListener("astro:page-load", () => {
+    // Limpiar los event listeners anteriores
+    if (cleanup) cleanup();
+    // Configurar nueva navegación
+    cleanup = setupNavbar();
+  });
+
+  // Limpiar antes de la navegación
+  document.addEventListener("astro:before-swap", () => {
+    if (cleanup) cleanup();
+  });
+</script>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    color: #333;
+    transition: all 0.3s ease;
+    z-index: 9;
+    padding: var(--espacio-m) 0;
+    container-type: inline-size;
+    container-name: navbarContainer;
+  }
+
+  .navbar.scrolled {
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    padding: var(--espacio-s) 0;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    padding-inline: var(--grid-gutter);
+  }
+
+  .logo {
+    font-size: var(--font-0);
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+    margin-left: -5px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--espacio-s);
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-0);
+    font-family: var(--Proxima);
+    font-weight: 600;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #e5b94e;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .navbar.scrolled .nav-links a:hover {
+    transform: scale(1.1);
+  }
+
+  .content section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #e5b94e;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  .menu-icon span:nth-child(1) {
+    top: 0px;
+  }
+
+  .menu-icon span:nth-child(2) {
+    top: 8px;
+  }
+
+  .menu-icon span:nth-child(3) {
+    top: 16px;
+  }
+
+  .menu-icon.active span:nth-child(1) {
+    top: 8px;
+    transform: rotate(135deg);
+  }
+
+  .menu-icon.active span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  .menu-icon.active span:nth-child(3) {
+    top: 8px;
+    transform: rotate(-135deg);
+  }
+
+  @container navbarContainer (width < 1362px) {
+    .nav-container {
+      padding-inline: var(--grid-gutter);
+    }
+  }
+
+  @container navbarContainer (width < 1000px) {
+    .nav-container {
+      flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+      display: flex;
+      z-index: 1001;
+    }
+
+    .nav-links {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      height: 100vh;
+      justify-content: center;
+      z-index: 1000;
+      font-size: var(--font-2);
+    }
+
+    .nav-links-popover {
+      position: relative !important;
+      left: 0px !important;
+      height: 1px !important;
+      margin: var(--espacio-m) 0 !important;
+    }
+
+    .nav-links.active {
+      left: 0;
+    }
+
+    .nav-links li a {
+      margin: var(--espacio-2xs) 0;
+      font-size: var(--font-2);
+    }
+  }
+</style>

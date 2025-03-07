@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getI18N } from "../../i18n/";
+import { getLangFromUrl } from "../../i18n/utils";
+import { HeroLamp } from "../blocks/HeroLamp";
+import Sections from "../Sections.astro";
+import BotsSection from "../BotsSection.astro";
+import BotTabs from "../BotTabs.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+
+---
+<Layout title="Learn More">
+    <HeroLamp title={i18n.LEAR_MORE.TITLE} subtitle={i18n.LEAR_MORE.SUBTITLE} client:only="react" />
+    <section class="bots">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-2xl);"
+    >
+      <BotsSection />
+    </Sections>
+  </section>
+  <section class="botTabs">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-1xl);"
+    >
+      <BotTabs />
+    </Sections>
+  </section>
+</Layout>
