@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import pareja from "../assets/pareja.jpg";
 import CallActions from "./btns/CallActions.astro";
 import { getI18N } from "../i18n/";
 import {
@@ -27,13 +26,6 @@ const btn = [
 <section class="about">
   <div class="main-container">
     <div class="about__content u-grid">
-      <div class="about__image">
-        <Image
-          src={pareja}
-          alt="Pareja de hombre mujer interpretando datos"
-          class="about__img"
-        />
-      </div>
       <div class="about__text">
         <div class="about__header">
           <h1>{i18n.ABOUT_US.TITLE}</h1>
@@ -63,9 +55,6 @@ const btn = [
 
 <style>
   .about__content {
-    display: grid;
-    grid-template-columns: 40% 1fr !important;
-    gap: var(--espacio-xl);
     align-items: center;
   }
 

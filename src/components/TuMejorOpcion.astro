@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import pareja from "../assets/pareja.jpg";
+import opcion from "../assets/tu-mejor-opcion.jpg";
 import CallActions from "./btns/CallActions.astro";
 import { getI18N } from "../i18n/";
 import {
@@ -27,13 +27,6 @@ const btn = [
 <section class="about">
   <div class="main-container">
     <div class="about__content u-grid">
-      <div class="about__image">
-        <Image
-          src={pareja}
-          alt="Pareja de hombre mujer interpretando datos"
-          class="about__img"
-        />
-      </div>
       <div class="about__text">
         <div class="about__header">
           <h1>{i18n.ABOUT_US.TITLE}</h1>
@@ -57,6 +50,9 @@ const btn = [
           }
         </div>
       </div>
+      <div class="about__image">
+        <Image src={opcion} alt="Tu mejor opción" class="about__img" />
+      </div>
     </div>
   </div>
 </section>
@@ -64,7 +60,7 @@ const btn = [
 <style>
   .about__content {
     display: grid;
-    grid-template-columns: 40% 1fr !important;
+    grid-template-columns: 1fr 50% !important;
     gap: var(--espacio-xl);
     align-items: center;
   }
@@ -130,16 +126,12 @@ const btn = [
   .about__image {
     border-radius: 100px 0 0 0;
     overflow: hidden;
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .about__img {
     width: 100%;
-    height: 650px;
+    height: 100%;
     object-fit: cover;
-    display: block;
   }
 
   @media (max-width: 768px) {

@@ -4,6 +4,9 @@ import Sections from "../Sections.astro";
 import VideoComponent from "../VideoComponent.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import ImageHero from "../ImageHero.astro";
+import SectionPlanificar from "../SectionPlanificar.astro";
+import TuMejorOpcion from "../TuMejorOpcion.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,8 +16,10 @@ const descriptionString = t('descriptions'); */
 ---
 
 <Layout title="HOME">
-  <VideoComponent
-    urlVideo="https://res.cloudinary.com/dvuyt52aq/video/upload/v1735056648/bot_hero_vgseez.mp4"
+  <ImageHero
+    urlImgHero="https://res.cloudinary.com/dvuyt52aq/image/upload/t_Banner 16:9/v1741489469/hero_cobten.png"
+    overlayType="gradient"
+    overlayOpacity={0.7}
   />
   <section class="about">
     <Sections
@@ -23,4 +28,25 @@ const descriptionString = t('descriptions'); */
       <SectionAbout />
     </Sections>
   </section>
+  <section class="planificar">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+    >
+      <SectionPlanificar />
+    </Sections>
+  </section>
+  <section class="about">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+    >
+      <TuMejorOpcion />
+    </Sections>
+  </section>
 </Layout>
+
+<style>
+  .planificar {
+    background: url("../../assets/bg-section.png") no-repeat center center /
+      cover;
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logotipo from "../assets/logotipo.jpg";
+import logotipo from "../assets/logotipo-blanco.jpg";
 import co from "../assets/icon_flags/co.svg";
 import us from "../assets/icon_flags/us.svg";
 import phone from "../assets/icon_flags/phone.svg";
@@ -198,7 +198,7 @@ const phones = [
   </div>
 </footer>
 
-<!-- <script>
+<script>
   interface NewsletterData {
     email: string;
     timestamp: string;
@@ -221,10 +221,10 @@ const phones = [
     constructor() {
       this.form = document.getElementById("newsletter-form") as HTMLFormElement;
       this.emailInput = document.getElementById(
-        "newsletter"
+        "newsletter",
       ) as HTMLInputElement;
       this.submitButton = document.getElementById(
-        "btnEnviar"
+        "btnEnviar",
       ) as HTMLButtonElement;
       this.statusDiv = document.getElementById("formStatus") as HTMLDivElement;
 
@@ -240,7 +240,7 @@ const phones = [
 
     private validateEmail(): void {
       const isValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
-        this.emailInput.value
+        this.emailInput.value,
       );
       this.emailInput.setAttribute("aria-invalid", (!isValid).toString());
       this.submitButton.disabled = !isValid;
@@ -271,7 +271,7 @@ const phones = [
 
         document
           .querySelector(".footer__submit")
-          .setAttribute("disabled", "true");
+          ?.setAttribute("disabled", "true");
 
         // Convertir FormData a URLSearchParams
         const params = new URLSearchParams();
@@ -293,7 +293,7 @@ const phones = [
         console.error("Error al enviar:", error);
         throw new Error("Error al enviar el formulario");
       } finally {
-        document.querySelector(".footer__submit").removeAttribute("disabled");
+        document.querySelector(".footer__submit")?.removeAttribute("disabled");
       }
     }
 
@@ -331,7 +331,7 @@ const phones = [
           error instanceof Error
             ? error.message
             : "Error al enviar el formulario",
-          true
+          true,
         );
       }
     }
@@ -339,15 +339,13 @@ const phones = [
 
   // Inicializar el formulario cuando el DOM esté listo
   document.addEventListener("DOMContentLoaded", () => new NewsletterForm());
-</script> -->
+</script>
 
 <style>
   .footer-container {
     padding-block: var(--espacio-xl);
-    background-color: var(--color-fondo-principal);
-    color: var(--color-texto-principal);
     font-family: var(--Proxima);
-    background: transparent;
+    color: var(--color-blanco);
   }
 
   .footer__content {
@@ -399,7 +397,7 @@ const phones = [
   }
 
   .footer__menu-link {
-    color: var(--color-texto-principal);
+    color: var(--color-blanco);
     text-decoration: none;
     font-size: var(--font--1);
     line-height: 2;
@@ -434,7 +432,7 @@ const phones = [
   .footer__input {
     padding: var(--espacio-xs) var(--espacio-s);
     background: transparent;
-    border-color: var(--color-gris-oscuro);
+    border-color: var(--color-blanco);
     border-width: 0 0 1px 0;
     font-size: var(--font--1);
   }
@@ -446,8 +444,8 @@ const phones = [
   .footer__submit {
     padding: var(--espacio-xs) var(--espacio-s);
     background-color: transparent;
-    color: var(--color-gris-oscuro);
-    border: var(--color-gris-oscuro) 1px solid;
+    color: var(--color-blanco);
+    border: var(--color-blanco) 2px solid;
     border-radius: var(--radio-full);
     font-size: var(--font--1);
     font-weight: var(--peso-medium);
@@ -456,7 +454,7 @@ const phones = [
   }
 
   .footer__submit:hover {
-    background-color: var(--color-gris-oscuro);
+    background-color: var(--color-blanco);
     color: var(--color-blanco);
   }
 
@@ -515,7 +513,7 @@ const phones = [
     display: flex;
     align-items: center;
     gap: var(--espacio-xs);
-    color: var(--color-texto-principal);
+    color: var(--color-blanco);
     text-decoration: none;
     font-size: var(--font--1);
   }
@@ -528,7 +526,7 @@ const phones = [
 
   .footer__copyright {
     font-size: var(--font--2);
-    color: var(--color-texto-principal);
+    color: var(--color-blanco);
     opacity: 0.8;
   }
 
