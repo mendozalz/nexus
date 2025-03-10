@@ -41,13 +41,11 @@ const data = {
       title: i18n.AGTECH.ACCORDION.ITEM2.TITLE,
       image: "https://shadcnblocks.com/images/block/placeholder-2.svg",
       subtitle1: i18n.AGTECH.ACCORDION.ITEM2["How_it_works?"].TITLE,
-      description1:
-        i18n.AGTECH.ACCORDION.ITEM2["How_it_works?"].DESCRIPTION,
+      description1: i18n.AGTECH.ACCORDION.ITEM2["How_it_works?"].DESCRIPTION,
       subtitle2: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].TITLE,
       description2: {
         item1: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST1,
-        item2:
-          i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST2,
+        item2: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST2,
         item3: i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"].LIST3,
       },
       subtitle3: i18n.AGTECH.ACCORDION.ITEM2["Investment_Opportunity:"].TITLE,
@@ -59,13 +57,11 @@ const data = {
       title: i18n.AGTECH.ACCORDION.ITEM3.TITLE,
       image: "https://shadcnblocks.com/images/block/placeholder-3.svg",
       subtitle1: i18n.AGTECH.ACCORDION.ITEM3["How_it_works?"].TITLE,
-      description1:
-        i18n.AGTECH.ACCORDION.ITEM3["How_it_works?"].DESCRIPTION,
+      description1: i18n.AGTECH.ACCORDION.ITEM3["How_it_works?"].DESCRIPTION,
       subtitle2: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].TITLE,
       description2: {
         item1: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST1,
-        item2:
-          i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST2,
+        item2: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST2,
         item3: i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"].LIST3,
       },
       subtitle3: i18n.AGTECH.ACCORDION.ITEM3["Investment_Opportunity:"].TITLE,
@@ -77,8 +73,7 @@ const data = {
       title: i18n.AGTECH.ACCORDION.ITEM4.TITLE,
       image: "https://shadcnblocks.com/images/block/placeholder-4.svg",
       subtitle1: i18n.AGTECH.ACCORDION.ITEM4["How_it_works?"].TITLE,
-      description1:
-       i18n.AGTECH.ACCORDION.ITEM4["How_it_works?"].DESCRIPTION,
+      description1: i18n.AGTECH.ACCORDION.ITEM4["How_it_works?"].DESCRIPTION,
       subtitle2: i18n.AGTECH.ACCORDION.ITEM4["Use_Cases:"].TITLE,
       description2: {
         item1: i18n.AGTECH.ACCORDION.ITEM4["Use_Cases:"].LIST1,
@@ -94,14 +89,11 @@ const data = {
       title: i18n.AGTECH.ACCORDION.ITEM5.TITLE,
       image: "https://shadcnblocks.com/images/block/placeholder-5.svg",
       subtitle1: i18n.AGTECH.ACCORDION.ITEM5["How_it_works?"].TITLE,
-      description1:
-        i18n.AGTECH.ACCORDION.ITEM5["How_it_works?"].DESCRIPTION,
+      description1: i18n.AGTECH.ACCORDION.ITEM5["How_it_works?"].DESCRIPTION,
       subtitle2: i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].TITLE,
       description2: {
-        item1:
-          i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST1,
-        item2:
-          i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST2,
+        item1: i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST1,
+        item2: i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST2,
         item3: i18n.AGTECH.ACCORDION.ITEM5["Use_Cases:"].LIST3,
       },
       subtitle3: i18n.AGTECH.ACCORDION.ITEM5["Investment_Opportunity:"].TITLE,
@@ -113,16 +105,12 @@ const data = {
       title: i18n.AGTECH.ACCORDION.ITEM6.TITLE,
       image: "https://shadcnblocks.com/images/block/placeholder-6.svg",
       subtitle1: i18n.AGTECH.ACCORDION.ITEM6["How_it_works?"].TITLE,
-      description1:
-        i18n.AGTECH.ACCORDION.ITEM6["How_it_works?"].DESCRIPTION,
+      description1: i18n.AGTECH.ACCORDION.ITEM6["How_it_works?"].DESCRIPTION,
       subtitle2: i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].TITLE,
       description2: {
-        item1:
-          i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST1,
-        item2:
-          i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST2,
-        item3:
-          i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST3,
+        item1: i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST1,
+        item2: i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST2,
+        item3: i18n.AGTECH.ACCORDION.ITEM6["Use_Cases:"].LIST3,
       },
       subtitle3: i18n.AGTECH.ACCORDION.ITEM6["Investment_Opportunity:"].TITLE,
       description3:
@@ -134,7 +122,11 @@ const data = {
 
 <Layout title="About">
   <!-- <AboutHero title="COMPANY" subtitle="We are the force that drives us" /> -->
-  <HeroLamp title={i18n.AGTECH.TITLE} subtitle={i18n.AGTECH.SUBTITLE} client:only="react" />
+  <HeroLamp
+    title={i18n.AGTECH.TITLE}
+    subtitle={i18n.AGTECH.SUBTITLE}
+    client:only="react"
+  />
   <section class="about-body">
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-2xl);"
@@ -151,9 +143,7 @@ const data = {
     </Sections>
   </section>
   <section class="about-body">
-    <Sections
-      _styles="padding-inline: var(--grid-gutter);"
-    >
+    <Sections _styles="padding-inline: var(--grid-gutter);">
       <h2 class="title-agTech">{i18n.AGTECH.ACCORDION.TITLE}</h2>
       <AcrodionAgTech {data} client:only="react" />
     </Sections>
@@ -163,15 +153,18 @@ const data = {
       _styles="padding-inline: var(--grid-gutter); padding-bottom: var(--espacio-3xl); padding-top: 0px !important;"
     >
       <h2 class="title-agTech">{i18n.AGTECH.JOIN_AGTECH.TITLE}</h2>
-      <p class="description-agTech" set:html={i18n.AGTECH.JOIN_AGTECH.DESCRIPTION}/>
-      <br>
+      <p
+        class="description-agTech"
+        set:html={i18n.AGTECH.JOIN_AGTECH.DESCRIPTION}
+      />
+      <br />
       <b class="description-agTech-b">{i18n.AGTECH.JOIN_AGTECH.MESSAGE}</b>
     </Sections>
   </section>
 </Layout>
 
 <style>
-  .title-agTech{
+  .title-agTech {
     font-size: var(--font-3);
     font-family: var(--Proxima);
     font-weight: var(--peso-bold);
@@ -180,14 +173,14 @@ const data = {
     margin: var(--espacio-xs) 0;
   }
 
-  .description-agTech{
+  .description-agTech {
     font-size: var(--font-0);
     font-weight: var(--peso-regular);
     line-height: 1.6;
     color: var(--color-gris);
     margin-top: var(--espacio-xs);
   }
-  .description-agTech-b{
+  .description-agTech-b {
     text-align: center;
     font-size: var(--font-0);
     line-height: 1.6;

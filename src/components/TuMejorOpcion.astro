@@ -8,6 +8,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from "../i18n/utils";
+import Lista from "./Listas/Lista.astro";
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
@@ -29,13 +30,19 @@ const btn = [
     <div class="about__content u-grid">
       <div class="about__text">
         <div class="about__header">
-          <h1>{i18n.ABOUT_US.TITLE}</h1>
-          <h2>{i18n.ABOUT_US.ESLOGAN}</h2>
+          <h1>{i18n.TU_MEJOR_OPCION.TITLE}</h1>
         </div>
 
         <div class="about__description">
-          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH1} />
-          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH2} />
+          <p>{i18n.TU_MEJOR_OPCION.DESCRIPTION}</p>
+          <Lista
+            id={1}
+            lista={{
+              item1: i18n.TU_MEJOR_OPCION.OPCION_LIST.LIST1,
+              item2: i18n.TU_MEJOR_OPCION.OPCION_LIST.LIST2,
+              item3: i18n.TU_MEJOR_OPCION.OPCION_LIST.LIST3,
+            }}
+          />
         </div>
 
         <div class="button-group">
@@ -60,7 +67,7 @@ const btn = [
 <style>
   .about__content {
     display: grid;
-    grid-template-columns: 1fr 50% !important;
+    grid-template-columns: 1fr 45%;
     gap: var(--espacio-xl);
     align-items: center;
   }
@@ -77,15 +84,15 @@ const btn = [
     font-family: var(--Proxima);
     margin: 0;
     line-height: 1.2;
+    margin-bottom: var(--espacio-m);
   }
 
-  .about__header h2 {
-    font-size: var(--font-1);
-    font-family: var(--Heebo);
+  .about__header p {
+    font-size: var(--font-0);
+    font-family: var(--Proxima);
     color: var(--color-texto-principal);
-    font-weight: var(--peso-medium);
-    margin-top: var(--espacio-2xs);
-    margin-bottom: var(--espacio-l);
+    line-height: 1.6;
+    margin-bottom: var(--espacio-m);
   }
 
   .about__description {
@@ -138,7 +145,6 @@ const btn = [
     .about__content {
       grid-template-columns: 1fr;
       text-align: center;
-      margin-top: var(--espacio-2xl);
       padding-block: var(--espacio-m);
     }
 

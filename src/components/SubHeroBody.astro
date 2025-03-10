@@ -1,0 +1,183 @@
+---
+import CallActions from "./btns/CallActions.astro";
+
+const btn = [
+  {
+    text: "Start Investing",
+    url: "https://wa.me/573006214037?text=Quiero%20Invertir",
+    _class: "btn-primary",
+  },
+];
+
+interface Props {
+  title: string;
+  description: string;
+  description2?: string;
+}
+
+const { title, description, description2 } = Astro.props;
+---
+
+<section class="about-section">
+  <div class="frame">
+    <div class="content-wrapper">
+      <div class="image-container">
+        <img
+          src="https://res.cloudinary.com/dvuyt52aq/image/upload/v1738708273/about-hero_fekc1k.webp"
+          alt="Warehouse storage facility"
+          class="warehouse-image"
+        />
+      </div>
+
+      <div class="text-content">
+        <h2>{title}</h2>
+
+        <p set:html={description} class="description" />
+        {description2 && <p set:html={description2} class="description2" />}
+
+        <div class="button-group">
+          {
+            btn.map((boton) => (
+              <CallActions
+                text={boton.text}
+                url={boton.url}
+                _class={boton._class}
+              />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    padding: var(--espacio-xl) 0;
+    background-color: var(--color-fondo-principal);
+    color: var(--color-texto-principal);
+    font-family: var(--Proxima);
+    position: relative;
+  }
+
+  .frame::before {
+    content: "";
+    position: absolute;
+    width: calc(50% - 180px);
+    height: 100%;
+    top: var(--espacio-3xs);
+    left: 0;
+    background: transparent;
+    z-index: 0;
+    border: 44px solid #00aeef;
+    @media (width < 900px) {
+      width: calc(50% - 80px);
+    }
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espacio-l);
+    background-color: var(--color-fondo-principal);
+    padding: var(--espacio-m) 0 var(--espacio-m) var(--espacio-m);
+    border-radius: var(--radio-md);
+    @media (width < 900px) {
+      padding: var(--espacio-m);
+    }
+  }
+
+  .image-container {
+    position: relative;
+    border-radius: var(--radio-md);
+    overflow: hidden;
+  }
+
+  .warehouse-image {
+    width: 85%;
+    height: 100%;
+    margin-left: var(--espacio-xl);
+    object-fit: cover;
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-s);
+  }
+
+  .subtitle {
+    color: var(--color-dorado-oscuro);
+    font-size: var(--font--1);
+    font-weight: var(--peso-medium);
+  }
+
+  h2 {
+    font-size: var(--font-3);
+    font-weight: var(--peso-bold);
+    color: var(--color-texto-principal);
+    line-height: 1.2;
+    margin: var(--espacio-xs) 0;
+  }
+
+  .description {
+    font-size: var(--font-0);
+    line-height: 1.6;
+    color: var(--color-gris);
+    margin-top: var(--espacio-xs) 0;
+  }
+
+  .description2 {
+    font-size: var(--font-0);
+    line-height: 1.6;
+    color: var(--color-gris);
+  }
+
+  .contact-button {
+    display: inline-block;
+    background-color: var(--color-dorado-oscuro);
+    color: var(--color-texto-inverso);
+    padding: var(--espacio-s) var(--espacio-l);
+    border-radius: var(--radio-md);
+    border: none;
+    font-size: var(--font-0);
+    font-weight: var(--peso-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: var(--espacio-m);
+    width: fit-content;
+  }
+
+  .contact-button:hover {
+    background-color: var(--color-dorado-oscuro);
+  }
+
+  .button-group {
+    margin-top: var(--espacio-3xs-2xs);
+    display: flex;
+    gap: 1rem;
+    font-family: var(--Heebo);
+  }
+
+  @media (width < 600px) {
+    .about-section {
+      padding: 0;
+    }
+    .content-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .warehouse-image {
+      width: 100%;
+      height: 100%;
+      margin-left: 0;
+    }
+
+    .frame::before {
+      display: none;
+    }
+    .button-group {
+      justify-content: space-around;
+    }
+  }
+</style>

@@ -12,10 +12,10 @@ interface Props {
   overlayOpacity?: number; // 0 a 1
 }
 
-const { 
-  urlImgHero, 
-  overlayType = "gradient", 
-  overlayOpacity = 0.6 
+const {
+  urlImgHero,
+  overlayType = "gradient",
+  overlayOpacity = 0.6,
 } = Astro.props as Props;
 
 const btn = [
@@ -40,19 +40,13 @@ const i18n = getI18N({ currentLocale: currentLang });
 ---
 
 <section class="video-component">
-  <img
-    class="video-component_video"
-    src={urlImgHero ?? ""}
-    alt="Hero image"
-  />
+  <img class="video-component_video" src={urlImgHero ?? ""} alt="Hero image" />
   <div class="overlay" style={overlayStyle}></div>
   <div class="hero-content">
     <div class="hero-content_interno">
-      <p class="subtitle">
-        {i18n.HERO_SMALL}
-      </p>
       <h1 class="title">
-        {i18n.HERO_H1}
+        {i18n.HERO_SMALL}
+        <span>{i18n.HERO_H1}</span>
       </h1>
       <p class="description">
         {i18n.HERO_H2}
@@ -75,14 +69,14 @@ const i18n = getI18N({ currentLocale: currentLang });
 <style>
   .video-component {
     position: relative;
-    height: 80vh;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     container-type: inline-size;
     container-name: heroContainer;
   }
-  
+
   .video-component_video {
     object-fit: cover;
     width: 100%;
@@ -117,20 +111,19 @@ const i18n = getI18N({ currentLocale: currentLang });
     margin-right: 35%;
   }
 
-  .subtitle {
-    color: #e5b94e;
-    font-size: var(--font--2);
-    font-weight: 600;
-    font-family: var(--Proxima);
-    line-height: 1.8;
-  }
-
   .title {
     font-size: var(--font-5);
     font-weight: bold;
     line-height: 1.2;
     font-family: var(--Heebo);
     margin: 0;
+  }
+  .title span {
+    background-color: var(--color-dorado);
+    display: inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    line-height: 1.6;
   }
 
   .description {
@@ -139,6 +132,7 @@ const i18n = getI18N({ currentLocale: currentLang });
     color: #cccccc;
     font-family: var(--Heebo);
     margin-right: 15%;
+    margin-top: 0.5rem;
     color: #fff;
   }
 

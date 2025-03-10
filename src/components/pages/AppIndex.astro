@@ -7,12 +7,10 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import ImageHero from "../ImageHero.astro";
 import SectionPlanificar from "../SectionPlanificar.astro";
 import TuMejorOpcion from "../TuMejorOpcion.astro";
+import TradingViewWidget from "../react/TradingViewWidget";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-/* const titleString = t('title');
-const descriptionString = t('descriptions'); */
 ---
 
 <Layout title="HOME">
@@ -21,6 +19,7 @@ const descriptionString = t('descriptions'); */
     overlayType="gradient"
     overlayOpacity={0.7}
   />
+  <TradingViewWidget client:load />
   <section class="about">
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"

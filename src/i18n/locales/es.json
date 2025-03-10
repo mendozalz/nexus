@@ -1,13 +1,17 @@
 {
-  "HERO_SMALL": "MÁS DE 300 INVERSORES CONFÍAN EN NUESTRAS SOLUCIONES AUTOMATIZADAS.",
-  "HERO_H1": "Potencia tus inversiones con tecnología de vanguardia.",
-  "HERO_H2": "Ofrecemos bots de trading automatizados que ejecutan operaciones con precisión, eficiencia y disciplina, ayudándote a alcanzar tus objetivos y metas, con total libertad financiera.",
+  "HERO_SMALL": "Maximizar la inversión,",
+  "HERO_H1": "minimizar los riesgos.",
+  "HERO_H2": "Nuestro equipo de expertos se compromete a guiarle en cada paso de su viaje de inversión, tanto si es un inversor experimentado como si acaba de empezar.",
   "ABOUT_US": {
-    "TITLE": "SOBRE NOSOTROS",
-    "ESLOGAN": "INVENTEK INVESTMENT GROUP, INC.",
+    "TITLE": "Más que un Equipo,",
+    "ESLOGAN": "Somos tu Aliado Financiero",
     "WELCOME": {
-      "PARRAGRAPH1": "<b>Bienvenido a Inventek Investment Group</b>, tu socio de confianza en el trading automatizado. Nos dedicamos a empoderar a traders e inversionistas con bots de trading avanzados que aprovechan la tecnología para mejorar tu experiencia de trading y potencial rentabilidad.",
-      "PARRAGRAPH2": "En Inventek Investment Group, creemos que la tecnología puede revolucionar la forma en que traders e inversionistas operan en los mercados financieros. Nuestra visión es ofrecer a todos bots de trading inteligentes, confiables y fáciles de usar, que ejecuten operaciones con precisión, eficiencia y disciplina. Nos esforzamos por empoderar a inversionistas de todos los niveles para que tomen decisiones informadas y alcancen sus objetivos financieros a través del trading automatizado, incrementando así la consistencia y la rentabilidad."
+      "PARRAGRAPH1": "Nos dedicamos a ayudar a las personas a alcanzar sus objetivos financieros mediante soluciones personalizadas y un servicio al cliente excepcional, respaldados por años de experiencia y un equipo de planificadores financieros certificados.",
+      "PARRAGRAPH2": {
+        "LIST1": "Diversificación de inversiones.",
+        "LIST2": "Gestión profesional y experimentada.",
+        "LIST3": "Accesibilidad a mercados internacionales."
+      }
     },
     "WHO_WE_ARE": {
       "TITLE": "Quienes somos",
@@ -30,6 +34,20 @@
       "TRANSPARENCY": "<b>Transparencia y Responsabilidad:</b> Priorizamos la transparencia y mantenemos una comunicación abierta con nuestros clientes. Puedes esperar reportes regulares, actualizaciones sobre el desempeño del portafolio, un boletín mensual y una comprensión clara de tus inversiones. Nos tomamos la responsabilidad en serio y siempre actuamos en tu mejor interés.",
       "EXCEPTIONAL": "<b>Servicio al Cliente Excepcional:</b> Tu satisfacción y éxito son el centro de todo lo que hacemos. Nuestro equipo de servicio al cliente está siempre disponible para responder tus consultas, brindar orientación y ofrecer soporte personalizado. Buscamos construir relaciones a largo plazo con nuestros clientes, basadas en la confianza, la integridad y el respeto mutuo.",
       "TAKE_THE_FIRST_STEPS": "<b>Da el primer paso hacia un futuro financiero seguro. Contáctanos hoy para explorar cómo nuestros bots de inversión pueden ayudarte a alcanzar tus metas y desbloquear tu potencial. Permítenos ser tu socio de confianza en el camino hacia el éxito financiero.</b>"
+    }
+  },
+  "PLANIFICAR": {
+    "TITLE": "Empieza a planificar tu futuro",
+    "SUBTITLE": "hoy mismo",
+    "DESCRIPTION": "Contáctanos para programar una cita y saber más sobre <br />nuestros servicios financieros."
+  },
+  "TU_MEJOR_OPCION": {
+    "TITLE": "Porqué Somos Tu Mejor Opción",
+    "DESCRIPTION": "Contamos con una amplia experiencia en comercio internacional y economía local, respaldada por una red de contactos de alta calidad en diversos sectores.",
+    "OPCION_LIST": {
+      "LIST1": "Diversificación de inversiones.",
+      "LIST2": "Gestión profesional y experimentada.",
+      "LIST3": "Accesibilidad a mercados internacionales."
     }
   },
   "AGTECH": {

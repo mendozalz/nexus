@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import CallActions from "./btns/CallActions.astro";
 import { getI18N } from "../i18n/";
 import {
@@ -28,15 +27,9 @@ const btn = [
     <div class="about__content u-grid">
       <div class="about__text">
         <div class="about__header">
-          <h1>{i18n.ABOUT_US.TITLE}</h1>
-          <h2>{i18n.ABOUT_US.ESLOGAN}</h2>
+          <h1>{i18n.PLANIFICAR.TITLE} <br /> {i18n.PLANIFICAR.SUBTITLE}</h1>
+          <h2 set:html={i18n.PLANIFICAR.DESCRIPTION} />
         </div>
-
-        <div class="about__description">
-          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH1} />
-          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH2} />
-        </div>
-
         <div class="button-group">
           {
             btn.map((boton) => (
@@ -44,6 +37,7 @@ const btn = [
                 text={boton.text}
                 url={boton.url}
                 _class={boton._class}
+                _styles="display: flex; justify-content: center;"
               />
             ))
           }
@@ -54,7 +48,11 @@ const btn = [
 </section>
 
 <style>
-  .about__content {
+  .about {
+    height: 50vh;
+    display: grid;
+    place-items: center;
+    align-items: center;
     align-items: center;
   }
 
@@ -70,6 +68,7 @@ const btn = [
     font-family: var(--Proxima);
     margin: 0;
     line-height: 1.2;
+    text-align: center;
   }
 
   .about__header h2 {
@@ -79,6 +78,7 @@ const btn = [
     font-weight: var(--peso-medium);
     margin-top: var(--espacio-2xs);
     margin-bottom: var(--espacio-l);
+    text-align: center;
   }
 
   .about__description {
@@ -107,12 +107,6 @@ const btn = [
   .about__buttons {
     display: flex;
     gap: var(--espacio-m);
-    font-family: var(--Heebo);
-  }
-
-  .button-group {
-    display: flex;
-    gap: 1rem;
     font-family: var(--Heebo);
   }
 

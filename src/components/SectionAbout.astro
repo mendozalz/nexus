@@ -8,6 +8,7 @@ import {
   useTranslatedPath,
   useTranslations,
 } from "../i18n/utils";
+import Lista from "./Listas/Lista.astro";
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
@@ -36,13 +37,26 @@ const btn = [
       </div>
       <div class="about__text">
         <div class="about__header">
-          <h1>{i18n.ABOUT_US.TITLE}</h1>
-          <h2>{i18n.ABOUT_US.ESLOGAN}</h2>
+          <h1>
+            {i18n.ABOUT_US.TITLE}
+            <br />
+            {i18n.ABOUT_US.ESLOGAN}
+          </h1>
         </div>
 
         <div class="about__description">
           <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH1} />
-          <p set:html={i18n.ABOUT_US.WELCOME.PARRAGRAPH2} />
+          <!-- Lista -->
+          <div class="conten2">
+            <Lista
+              id={1}
+              lista={{
+                item1: i18n.ABOUT_US.WELCOME.PARRAGRAPH2.LIST1,
+                item2: i18n.ABOUT_US.WELCOME.PARRAGRAPH2.LIST2,
+                item3: i18n.ABOUT_US.WELCOME.PARRAGRAPH2.LIST3,
+              }}
+            />
+          </div>
         </div>
 
         <div class="button-group">
@@ -64,7 +78,7 @@ const btn = [
 <style>
   .about__content {
     display: grid;
-    grid-template-columns: 40% 1fr !important;
+    grid-template-columns: 40% 1fr;
     gap: var(--espacio-xl);
     align-items: center;
   }
@@ -81,6 +95,7 @@ const btn = [
     font-family: var(--Proxima);
     margin: 0;
     line-height: 1.2;
+    margin-bottom: var(--espacio-m);
   }
 
   .about__header h2 {
@@ -146,7 +161,6 @@ const btn = [
     .about__content {
       grid-template-columns: 1fr;
       text-align: center;
-      margin-top: var(--espacio-2xl);
       padding-block: var(--espacio-m);
     }
 

@@ -3,9 +3,10 @@ interface Props {
   text: string;
   url: string;
   _class: string;
+  _styles?: string;
 }
 
-const { text, url, _class } = Astro.props as Props;
+const { text, url, _class, _styles } = Astro.props as Props;
 
 const btn = [
   {
@@ -21,7 +22,7 @@ const btn = [
 ];
 ---
 
-<div class="button-group-inner">
+<div class="button-group-inner" style={_styles}>
   <a href={url} class={`btn ${_class}`} target="_blank">
     {text}
   </a>
@@ -45,25 +46,25 @@ const btn = [
   }
 
   .btn-outline {
-    border: 2px solid #e5b94e;
-    color: #e5b94e;
+    border: 2px solid var(--color-dorado);
+    color: var(--color-dorado);
   }
 
   .btn-outline:hover {
-    background-color: #e5b94e;
+    background-color: var(--color-dorado);
     color: #fff;
   }
 
   .btn-primary {
-    background-color: #e5b94e;
+    background-color: var(--color-dorado);
     color: #fff;
-    border: 2px solid #e5b94e;
+    border: 2px solid var(--color-dorado);
   }
 
   .btn-primary:hover {
-    border: 2px solid #e5b94e;
+    border: 2px solid var(--color-dorado);
     background: transparent;
-    color: #e5b94e;
+    color: var(--color-dorado);
   }
 
   @container heroContainer (width < 768px) {

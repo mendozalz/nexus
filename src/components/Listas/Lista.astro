@@ -1,0 +1,93 @@
+---
+import { getI18N } from "../../i18n/";
+import { getLangFromUrl } from "../../i18n/utils";
+import IconList from "../icons/IconList.astro";
+
+interface Props {
+  id?: 1 | 2 | 3;
+  subtitle2?: string;
+  lista?: {
+    item1: string;
+    item2: string;
+    item3: string;
+  };
+}
+
+const { id = 1, subtitle2 = "", lista } = Astro.props;
+
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+
+// Verificar si los objetos existen antes de acceder a sus propiedades
+const aboutUsWelcome =
+  typeof i18n.ABOUT_US?.WELCOME?.PARRAGRAPH2 === "object"
+    ? i18n.ABOUT_US.WELCOME.PARRAGRAPH2
+    : null;
+const agTechItem2 =
+  typeof i18n.AGTECH?.ACCORDION?.ITEM2?.["Use_Cases:"] === "object"
+    ? i18n.AGTECH.ACCORDION.ITEM2["Use_Cases:"]
+    : null;
+const agTechItem3 =
+  typeof i18n.AGTECH?.ACCORDION?.ITEM3?.["Use_Cases:"] === "object"
+    ? i18n.AGTECH.ACCORDION.ITEM3["Use_Cases:"]
+    : null;
+
+// Datos predeterminados si no se pasan props
+const defaultListas: Record<
+  1 | 2 | 3,
+  { lista: { item1: string; item2: string; item3: string } }
+> = {
+  1: {
+    lista: {
+      item1: aboutUsWelcome?.LIST1 || "",
+      item2: aboutUsWelcome?.LIST2 || "",
+      item3: aboutUsWelcome?.LIST3 || "",
+    },
+  },
+  2: {
+    lista: {
+      item1: agTechItem2?.LIST1 || "",
+      item2: agTechItem2?.LIST2 || "",
+      item3: agTechItem2?.LIST3 || "",
+    },
+  },
+  3: {
+    lista: {
+      item1: agTechItem3?.LIST1 || "",
+      item2: agTechItem3?.LIST2 || "",
+      item3: agTechItem3?.LIST3 || "",
+    },
+  },
+};
+
+// Usar los props pasados o los valores predeterminados
+const currentSubtitle = subtitle2 || defaultListas[id]?.subtitle2 || "";
+const currentLista = lista ||
+  defaultListas[id]?.lista || { item1: "", item2: "", item3: "" };
+---
+
+<div class="conten2">
+  <h2 class="text-fl-base font-semibold text-black">
+    {currentSubtitle}
+  </h2>
+  <ul class="mb-fl-xs text-black/80">
+    {
+      Object.entries(currentLista).map(([_, value]) => (
+        <li>
+          {" "}
+          <IconList /> {value}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: var(--font-0);
+  }
+</style>
