@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ImageHero from "../ImageHero.astro";
+import Sections from "../Sections.astro";
+---
+
+<Layout title="Que puedes hacer?">
+  <ImageHero
+    urlImgHero="https://res.cloudinary.com/dvuyt52aq/image/upload/t_Banner 16:9/v1741489469/hero_cobten.png"
+    overlayType="gradient"
+    overlayOpacity={0.7}
+  />
+  <section class="about">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+    >
+      <!--  <SectionAbout /> -->
+    </Sections>
+  </section>
+</Layout>

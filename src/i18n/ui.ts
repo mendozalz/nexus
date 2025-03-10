@@ -23,7 +23,8 @@ export const LANGUAGES: Record<
   
   export const ui = {
     en: {
-      'nav.home': 'What can you do?',
+      'nav.home': 'Home',
+      'nav.que': 'What can you do?',
       'nav.about': 'Services',
       'nav.agtech': 'About us',
       'nav.learnmore': 'FAQs',
@@ -31,7 +32,8 @@ export const LANGUAGES: Record<
       'nav.btnPrimary': 'Invest Now',
     },
     es: {
-      'nav.home': '¿Qué puedes hacer?',
+      'nav.home': 'Inicio',
+      'nav.que': '¿Qué puedes hacer?',
       'nav.about': 'Servicios',
       'nav.agtech': 'Nosotros',
       'nav.learnmore': 'FAQs',
@@ -43,11 +45,13 @@ export const LANGUAGES: Record<
   /* Destinado solo a las rutas de la barra de navegación */
   export const routes = {
     en:{
+      'que': 'what_can_you_do',
       'about': 'about',
       'agtech': 'agtech',
       'learnmore': 'aprender_mas',
     },
     es:{ 
+      'que': 'que_puedes_hacer',
       'about': 'acerca',
       'agtech': 'agtech',
       'learnmore': 'aprender_mas',

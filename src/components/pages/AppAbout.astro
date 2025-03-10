@@ -1,6 +1,5 @@
 ---
 import { HeroLamp } from "../../components/blocks/HeroLamp";
-import BodyAbout from "../../components/BodyAbout.astro";
 import Sections from "../../components/Sections.astro";
 import SubHeroBody from "../../components/SubHeroBody.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -14,21 +13,29 @@ const subHeroBody = [
   {
     title: i18n.ABOUT_US.TITLE,
     description: i18n.ABOUT_US.WELCOME.PARRAGRAPH1,
-    description2: i18n.ABOUT_US.WELCOME.PARRAGRAPH2
+    description2: i18n.ABOUT_US.WELCOME.PARRAGRAPH2,
   },
 ];
 ---
 
 <Layout title="About">
   <!-- <AboutHero title="COMPANY" subtitle="We are the force that drives us" /> -->
-  <HeroLamp title={i18n.ABOUT_US.TITLE} subtitle={i18n.ABOUT_US.ESLOGAN} client:only="react" />
+  <HeroLamp
+    title={i18n.ABOUT_US.TITLE}
+    subtitle={i18n.ABOUT_US.ESLOGAN}
+    client:only="react"
+  />
   <section class="about-body">
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-2xl);"
     >
       {
         subHeroBody.map((item) => (
-          <SubHeroBody title={item.title} description={item.description} description2={item.description2} />
+          <SubHeroBody
+            title={item.title}
+            description={item.description}
+            description2={item.description2}
+          />
         ))
       }
     </Sections>
@@ -37,7 +44,7 @@ const subHeroBody = [
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-bottom: var(--espacio-2xl);"
     >
-      <BodyAbout />
+      <!-- <BodyAbout /> -->
     </Sections>
   </section>
 </Layout>

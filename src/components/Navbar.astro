@@ -9,6 +9,7 @@ import {
   useTranslations,
 } from "../i18n/utils";
 import { getI18N } from "../i18n";
+import { routes } from "../i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,21 +18,25 @@ const currentLang = getLangFromUrl(Astro.url);
 const i18n = getI18N({ currentLocale: currentLang });
 
 const links = [
-  {
+  /*   {
     name: t("nav.home"),
     href: translatePath("/", lang),
+  }, */
+  {
+    name: t("nav.que"),
+    href: translatePath(`/${routes[lang].que}`, lang),
   },
   {
     name: t("nav.about"),
-    href: translatePath("/about", lang),
+    href: translatePath(`/${routes[lang].about}`, lang),
   },
   {
     name: t("nav.agtech"),
-    href: translatePath("/agtech", lang),
+    href: translatePath(`/${routes[lang].agtech}`, lang),
   },
   {
     name: t("nav.learnmore"),
-    href: translatePath("/learnmore", lang),
+    href: translatePath(`/${routes[lang].learnmore}`, lang),
   },
   {
     name: t("nav.contact"),
@@ -39,13 +44,13 @@ const links = [
   },
 ];
 
-const formContact = {
+/* const formContact = {
   title: i18n.CONTACT.TITLE,
   name: i18n.CONTACT.NAME,
   email: i18n.CONTACT.EMAIL,
   message: i18n.CONTACT.MESSAGE,
   send: i18n.CONTACT.SEND,
-};
+}; */
 ---
 
 <nav class="navbar" id="navbar">
