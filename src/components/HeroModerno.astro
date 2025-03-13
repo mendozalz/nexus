@@ -79,6 +79,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     <div class="cube cube-1"></div>
     <div class="cube cube-2"></div>
     <div class="cube cube-3"></div>
+    <div class="cube cube-4"></div>
   </div>
 </section>
 
@@ -203,7 +204,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     width: 100%;
   }
 
-  /* Elementos decorativos */
+  /* Elementos decorativos - Cubos */
   .decorative-elements {
     position: absolute;
     width: 100%;
@@ -214,53 +215,65 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 
   .cube {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transform-style: preserve-3d;
-    animation: float 10s ease-in-out infinite;
+    backdrop-filter: blur(2px);
+    border-radius: var(--espacio-3xs);
   }
 
   .cube-1 {
-    width: 100px;
-    height: 100px;
-    right: 15%;
-    top: 30%;
-    animation-delay: 0s;
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 15%;
+    animation: float 6s ease-in-out infinite;
   }
 
   .cube-2 {
-    width: 150px;
-    height: 150px;
-    left: 15%;
-    bottom: 20%;
-    animation-delay: -3s;
+    width: 60px;
+    height: 60px;
+    bottom: 25%;
+    right: 18%;
+    animation: float 8s ease-in-out infinite 1s;
   }
 
   .cube-3 {
-    width: 80px;
-    height: 80px;
-    right: 25%;
-    bottom: 25%;
-    animation-delay: -5s;
+    width: 40px;
+    height: 40px;
+    top: 60%;
+    left: 25%;
+    animation: float 7s ease-in-out infinite 0.5s;
   }
 
-  /* Animaciones */
+  .cube-4 {
+    width: 70px;
+    height: 70px;
+    top: 15%;
+    right: 15%;
+    animation: float 7.5s ease-in-out infinite 1.5s;
+  }
+
+  /* Animación de flotabilidad para los cubos */
+  @keyframes float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(5deg);
+    }
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+
+  /* Animación de la rejilla */
   @keyframes grid-animation {
     0% {
       transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(0);
     }
     100% {
       transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(50px);
-    }
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-20px) rotate(5deg);
     }
   }
 
@@ -294,7 +307,8 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 
     .cube-1,
     .cube-2,
-    .cube-3 {
+    .cube-3,
+    .cube-4 {
       display: none;
     }
   }
