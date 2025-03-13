@@ -1,0 +1,105 @@
+---
+import { getI18N } from "../i18n";
+import { getLangFromUrl } from "../i18n/utils";
+import Lista from "./Listas/Lista.astro";
+import CirculoAnimadoCSS from "./ui/CirculoAnimadoCSS.astro";
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const i18n = getI18N({ currentLocale: currentLang });
+---
+
+<section class="container py-8 md:py-16 h-[var(--grid-max-width)]">
+  <div class="grid gap-8 md:gap-12 lg:grid-cols-2">
+    <!-- Columna de texto -->
+    <div class="space-y-6 md:space-y-8">
+      <div>
+        <h2 class="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
+          {i18n.QUIENES_SOMOS.TITLE}
+        </h2>
+        <p
+          class="mt-2 text-sm text-muted-foreground md:mt-4 md:text-base"
+          set:html={i18n.QUIENES_SOMOS.DESCRIPTION}
+        />
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
+          {i18n.NUESTRA_PROMESA.TITLE}
+        </h2>
+        <Lista
+          id={1}
+          lista={{
+            item1: i18n.NUESTRA_PROMESA.OPCION_LIST.LIST1,
+            item2: i18n.NUESTRA_PROMESA.OPCION_LIST.LIST2,
+            item3: i18n.NUESTRA_PROMESA.OPCION_LIST.LIST3,
+          }}
+        />
+      </div>
+    </div>
+
+    <!-- Columna del círculo -->
+    <div class="relative mt-8 flex items-center justify-center lg:mt-0">
+      <CirculoAnimadoCSS
+        porcentaje={99}
+        etiqueta="Customer Satisfaction"
+        tamano={250}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-muted-foreground {
+    color: var(--color-muted-foreground);
+  }
+
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .border-background {
+    border-color: var(--color-background);
+  }
+
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--espacio-s);
+    padding-right: var(--espacio-s);
+    max-width: var(--grid-max-width);
+    height: 70vh;
+    display: grid;
+    place-items: center;
+  }
+
+  @media (min-width: 640px) {
+    .sm\:text-3xl {
+      font-size: var(--font-3);
+    }
+
+    .sm\:text-sm {
+      font-size: var(--font--1);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-4xl {
+      font-size: var(--font-4);
+    }
+
+    .md\:text-base {
+      font-size: var(--font-0);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

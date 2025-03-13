@@ -1,7 +1,7 @@
 {
-  "HERO_SMALL": "Maximizar la inversión,",
+  "HERO_SMALL": "Innovación Financiera para un Crecimiento Inteligente.",
   "HERO_H1": "minimizar los riesgos.",
-  "HERO_H2": "Nuestro equipo de expertos se compromete a guiarle en cada paso de su viaje de inversión, tanto si es un inversor experimentado como si acaba de empezar.",
+  "HERO_H2": "Transformamos la manera en que se invierte",
   "ABOUT_US": {
     "TITLE": "Más que un Equipo,",
     "ESLOGAN": "Somos tu Aliado Financiero",
@@ -12,28 +12,6 @@
         "LIST2": "Gestión profesional y experimentada.",
         "LIST3": "Accesibilidad a mercados internacionales."
       }
-    },
-    "WHO_WE_ARE": {
-      "TITLE": "Quienes somos",
-      "DESCRIPTION": "Nuestra pasión por el desarrollo de software y los mercados financieros impulsa a nuestro equipo de profesionales. Combinamos esta dedicación con un amplio conocimiento del sector, una investigación rigurosa y disciplina para crear productos y servicios financieros de primer nivel que ayudan a los clientes a invertir de manera más fácil e inteligente, reduciendo el riesgo y ganando consistencia. Con años de experiencia y una profunda comprensión de los mercados, simplificamos las complejidades, permitiendo así que inversionistas y traders alcancen sus objetivos financieros."
-    },
-    "OUR_VISION": {
-      "TITLE": "Nuestra Visión",
-      "DESCRIPTION": "En Inventek Investment Group, creemos que la tecnología puede revolucionar la forma en que traders e inversionistas operan en los mercados financieros. Nuestra visión es ofrecer a todos bots de trading inteligentes, confiables y fáciles de usar, que ejecuten operaciones con precisión, eficiencia y disciplina. Nos esforzamos por empoderar a inversionistas de todos los niveles para que tomen decisiones informadas y alcancen sus objetivos financieros a través del trading automatizado, incrementando así la consistencia y la rentabilidad."
-    },
-    "PHILOSOPHY": {
-      "TITLE": "Filosofía de inversión",
-      "DESCRIPTION": "Nuestra filosofía de inversión se centra en operaciones basadas en el valor, utilizando una combinación de análisis técnico y fundamental, respaldada por una investigación exhaustiva, análisis algorítmico y una gestión prudente del riesgo. Nuestros bots de trading están diseñados para aprovechar la tecnología y obtener una ventaja que genere un rendimiento de inversión consistente y superior a largo plazo. Cada producto de software se prueba retrospectivamente para garantizar su rendimiento a lo largo de los años y bajo todas las condiciones del mercado. Además, se realizan pruebas prospectivas para asegurar la consistencia con los resultados históricos."
-    },
-    "WHY_CHOOSE_US": {
-      "TITLE": "¿Por qué elegirnos?",
-      "EXPERTISE": "<b>Experiencia y Pericia:</b> Nuestro equipo está compuesto por profesionales altamente capacitados con diversos antecedentes en finanzas, desarrollo de software y gestión de portafolios. Aportamos una gran cantidad de experiencia y conocimientos a nuestras estrategias de trading algorítmico, lo que nos permite navegar por diversas condiciones del mercado e identificar oportunidades de inversión prometedoras.",
-      "TAILORED": "<b>Soluciones de Inversión Personalizadas:</b> Entendemos que cada inversionista tiene objetivos financieros, tolerancia al riesgo y horizontes de tiempo únicos. Adoptamos un enfoque personalizado en la gestión de inversiones, recomendando bots de trading específicos que se alineen con tus metas y circunstancias particulares. Nuestras soluciones están diseñadas para hacer crecer y preservar tu patrimonio de manera efectiva.",
-      "RIGOROUS": "<b>Investigación Exhaustiva y Diligencia Debida:</b> Nuestro proceso de desarrollo de algoritmos se basa en una investigación amplia y una debida diligencia minuciosa. Diseñamos nuestro software para evaluar múltiples condiciones y buscar confluencias antes de ejecutar operaciones. Nuestro enfoque meticuloso, basado en la investigación, nos ayuda a identificar puntos de entrada y salida atractivos mientras gestionamos el riesgo de manera efectiva.",
-      "DIVERSIFICATION": "<b>Diversificación:</b> Creemos en el poder de la diversificación para reducir el riesgo y aumentar los rendimientos. Nuestros productos están cuidadosamente estructurados para ofrecer exposición a una amplia gama de clases de activos, sectores y geografías. Esta diversificación ayuda a mitigar el impacto de la volatilidad del mercado y garantiza un portafolio equilibrado.",
-      "TRANSPARENCY": "<b>Transparencia y Responsabilidad:</b> Priorizamos la transparencia y mantenemos una comunicación abierta con nuestros clientes. Puedes esperar reportes regulares, actualizaciones sobre el desempeño del portafolio, un boletín mensual y una comprensión clara de tus inversiones. Nos tomamos la responsabilidad en serio y siempre actuamos en tu mejor interés.",
-      "EXCEPTIONAL": "<b>Servicio al Cliente Excepcional:</b> Tu satisfacción y éxito son el centro de todo lo que hacemos. Nuestro equipo de servicio al cliente está siempre disponible para responder tus consultas, brindar orientación y ofrecer soporte personalizado. Buscamos construir relaciones a largo plazo con nuestros clientes, basadas en la confianza, la integridad y el respeto mutuo.",
-      "TAKE_THE_FIRST_STEPS": "<b>Da el primer paso hacia un futuro financiero seguro. Contáctanos hoy para explorar cómo nuestros bots de inversión pueden ayudarte a alcanzar tus metas y desbloquear tu potencial. Permítenos ser tu socio de confianza en el camino hacia el éxito financiero.</b>"
     }
   },
   "PLANIFICAR": {
@@ -48,6 +26,18 @@
       "LIST1": "Diversificación de inversiones.",
       "LIST2": "Gestión profesional y experimentada.",
       "LIST3": "Accesibilidad a mercados internacionales."
+    }
+  },
+  "QUIENES_SOMOS": {
+    "TITLE": "¿Quienes Somos?",
+    "DESCRIPTION": "En <b>Nexus Private Capital</b>, transformamos la manera en que se invierte, combinando <b>tecnología avanzada, análisis de datos y estrategias de inversión optimizadas</b> para maximizar el crecimiento del capital."
+  },
+  "NUESTRA_PROMESA": {
+    "TITLE": "Nuestra Promesa",
+    "OPCION_LIST": {
+      "LIST1": "Modelos de inversión estructurados y seguros.",
+      "LIST2": "Crecimiento financiero sostenible y estratégico.",
+      "LIST3": "Transparencia y mitigación de riesgos en cada inversión."
     }
   },
   "AGTECH": {
