@@ -1,0 +1,335 @@
+---
+/**
+ * @component HeroModerno
+ * @description Componente de Hero moderno con diseño oscuro, contador de valor asegurado y elementos gráficos isométricos
+ * @author Cascade
+ */
+import { getI18N } from "../i18n/";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import CallActions from "./btns/CallActions.astro";
+
+// Obtener el idioma actual y las traducciones
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const i18n = getI18N({ currentLocale: currentLang });
+
+interface Props {
+  /**
+   * Valor total asegurado a mostrar en el contador
+   */
+  totalValueSecured?: number;
+  /**
+   * Título principal del hero
+   */
+  title?: string;
+  /**
+   * Subtítulo o descripción
+   */
+  subtitle?: string;
+  /**
+   * Texto del botón de llamada a la acción
+   */
+  ctaText?: string;
+  /**
+   * URL del botón de llamada a la acción
+   */
+  ctaUrl?: string;
+}
+
+const {
+  totalValueSecured = 986000000,
+  ctaText = t("nav.btnPrimary"),
+  ctaUrl = "https://wa.me/573006214037?text=Quiero%20Invertir",
+} = Astro.props;
+
+// Formatear el valor total asegurado con separadores de miles
+const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
+---
+
+<section class="hero-moderno">
+  <!-- Rejilla isométrica de fondo -->
+  <div class="isometric-grid"></div>
+
+  <!-- Gradiente de superposición -->
+  <div class="overlay-gradient"></div>
+
+  <!-- Contador de valor asegurado -->
+  <div class="value-counter">
+    <span class="counter-value">${formattedValue}</span>
+    <span class="counter-label">Total Value Secured</span>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="hero-content">
+    <h1 class="hero-title">{i18n.HERO_SMALL}</h1>
+    <p class="hero-subtitle">{i18n.HERO_H2}</p>
+
+    <div class="cta-container">
+      <CallActions
+        text={ctaText}
+        url={ctaUrl}
+        _class="btn-primary"
+        _styles="display: flex; justify-content: center; align-items: center; width: 100%;"
+      />
+    </div>
+  </div>
+
+  <!-- Elementos decorativos -->
+  <div class="decorative-elements">
+    <div class="cube cube-1"></div>
+    <div class="cube cube-2"></div>
+    <div class="cube cube-3"></div>
+  </div>
+</section>
+
+<style>
+  /* Variables específicas del componente */
+  :root {
+    --hero-bg-color: #252125;
+    --hero-accent-color: #ff3e3e;
+    --hero-text-color: #ffffff;
+    --hero-grid-color: rgba(255, 255, 255, 0.1);
+    --hero-height: 90vh;
+  }
+
+  /* Contenedor principal */
+  .hero-moderno {
+    position: relative;
+    width: 100%;
+    height: var(--hero-height);
+    background-color: var(--hero-bg-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Rejilla isométrica */
+  .isometric-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image:
+      linear-gradient(to right, var(--hero-grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--hero-grid-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: perspective(1000px) rotateX(60deg) scale(1.5);
+    transform-origin: center center;
+    animation: grid-animation 20s linear infinite;
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  /* Gradiente de superposición */
+  .overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      transparent 0%,
+      var(--hero-bg-color) 70%
+    );
+    z-index: 2;
+  }
+
+  /* Contador de valor */
+  .value-counter {
+    position: absolute;
+    top: calc(var(--espacio-3xl) + 50px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: var(--espacio-xs);
+    padding: var(--espacio-xs) var(--espacio-s);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--espacio-2xs);
+    z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  .counter-value {
+    color: var(--hero-accent-color);
+    font-weight: bold;
+    font-size: var(--font-0);
+  }
+
+  .counter-label {
+    color: var(--hero-text-color);
+    font-size: var(--font--1);
+    opacity: 0.8;
+  }
+
+  /* Contenido principal */
+  .hero-content {
+    position: relative;
+    max-width: var(--grid-max-width);
+    padding: 0 var(--grid-gutter);
+    text-align: center;
+    z-index: 10;
+  }
+
+  .hero-title {
+    font-size: var(--font-5);
+    font-weight: bold;
+    color: var(--hero-text-color);
+    margin-bottom: var(--espacio-s);
+    line-height: 1.1;
+    max-width: 800px;
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-1);
+    color: var(--hero-text-color);
+    opacity: 0.8;
+    max-width: 800px;
+    margin: 0 auto var(--espacio-l);
+    line-height: 1.5;
+  }
+
+  .cta-container {
+    margin-top: var(--espacio-m);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Elementos decorativos */
+  .decorative-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .cube {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    animation: float 10s ease-in-out infinite;
+  }
+
+  .cube-1 {
+    width: 100px;
+    height: 100px;
+    right: 15%;
+    top: 30%;
+    animation-delay: 0s;
+  }
+
+  .cube-2 {
+    width: 150px;
+    height: 150px;
+    left: 15%;
+    bottom: 20%;
+    animation-delay: -3s;
+  }
+
+  .cube-3 {
+    width: 80px;
+    height: 80px;
+    right: 25%;
+    bottom: 25%;
+    animation-delay: -5s;
+  }
+
+  /* Animaciones */
+  @keyframes grid-animation {
+    0% {
+      transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(0);
+    }
+    100% {
+      transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(50px);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: var(--font-4);
+    }
+
+    .hero-subtitle {
+      font-size: var(--font-0);
+    }
+
+    .value-counter {
+      padding: var(--espacio-2xs) var(--espacio-xs);
+    }
+
+    .counter-value {
+      font-size: var(--font--1);
+    }
+
+    .counter-label {
+      font-size: var(--font--2);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: var(--font-3);
+    }
+
+    .cube-1,
+    .cube-2,
+    .cube-3 {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Animación del contador
+  document.addEventListener("DOMContentLoaded", () => {
+    const counterElement = document.querySelector(".counter-value");
+    if (!counterElement) return;
+
+    const counterText = counterElement.textContent;
+    if (!counterText) return;
+
+    const finalValue = parseInt(counterText.replace(/\D/g, ""));
+    let startValue = 0;
+    const duration = 2000; // 2 segundos
+    const frameRate = 20; // 20ms por frame
+    const increment = finalValue / (duration / frameRate);
+
+    const updateCounter = () => {
+      startValue += increment;
+      if (startValue >= finalValue) {
+        startValue = finalValue;
+        clearInterval(interval);
+      }
+
+      const formattedValue = new Intl.NumberFormat("es-ES").format(
+        Math.floor(startValue),
+      );
+      if (counterElement) {
+        counterElement.textContent = "$" + formattedValue;
+      }
+    };
+
+    const interval = setInterval(updateCounter, frameRate);
+  });
+</script>

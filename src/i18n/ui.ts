@@ -29,7 +29,7 @@ export const LANGUAGES: Record<
       'nav.agtech': 'About us',
       'nav.learnmore': 'FAQs',
       'nav.contact': 'Contact',
-      'nav.btnPrimary': 'Invest Now',
+      'nav.btnPrimary': 'Start investing today',
     },
     es: {
       'nav.home': 'Inicio',
@@ -38,7 +38,7 @@ export const LANGUAGES: Record<
       'nav.agtech': 'Nosotros',
       'nav.learnmore': 'FAQs',
       'nav.contact': 'Contacto',
-      'nav.btnPrimary': 'Invertir Ahora',
+      'nav.btnPrimary': 'Empieza a invertir hoy mismo',
     },
   } as const;
 

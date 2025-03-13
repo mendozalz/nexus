@@ -1,121 +1,121 @@
 ---
 /**
  * @component CirculoAnimadoCSS
- * @description Componente reutilizable que muestra un círculo animado con rotación
+ * @description Reusable component that displays an animated circle with rotation
  * @author Cascade
  */
 interface Props {
   /**
-   * Porcentaje a mostrar en el centro del círculo
+   * Percentage to display in the center of the circle
    */
-  porcentaje?: number;
+  percentage?: number;
   /**
-   * Texto para la etiqueta debajo del porcentaje
+   * Text for the label below the percentage
    */
-  etiqueta?: string;
+  label?: string;
   /**
-   * Tamaño del círculo en píxeles
+   * Size of the circle in pixels
    */
-  tamano?: number;
+  size?: number;
   /**
-   * Duración de la animación en segundos
+   * Animation duration in seconds
    */
-  duracionAnimacion?: number;
+  animationDuration?: number;
   /**
-   * Color del borde de los círculos
+   * Border color of the circles
    */
-  colorBorde?: string;
+  borderColor?: string;
   /**
-   * Color del texto central
+   * Central text color
    */
-  colorTexto?: string;
+  textColor?: string;
   /**
-   * Color de fondo de los nodos
+   * Background color of the nodes
    */
-  colorNodos?: string;
+  nodesColor?: string;
   /**
-   * Color del borde de los nodos
+   * Border color of the nodes
    */
-  colorBordeNodos?: string;
+  nodesBorderColor?: string;
   /**
-   * Clases adicionales para el contenedor principal
+   * Additional classes for the main container
    */
   className?: string;
 }
 
 const {
-  porcentaje = 99,
-  etiqueta = "Hola",
-  tamano = 400,
-  duracionAnimacion = 20,
-  colorBorde = "rgba(0, 0, 0, 0.6)",
-  colorTexto = "#000",
-  colorNodos = "#000",
-  colorBordeNodos = "#333",
+  percentage = 99,
+  label = "Customer Satisfaction",
+  size = 400,
+  animationDuration = 20,
+  borderColor = "rgba(0, 0, 0, 0.6)",
+  textColor = "#000",
+  nodesColor = "#000",
+  nodesBorderColor = "#333",
   className = "",
 } = Astro.props;
 
-// Cálculos para el tamaño y posicionamiento
-const tamanoNodos = tamano * 0.18;
-const desplazamientoNodos = tamanoNodos / 2;
+// Calculations for size and positioning
+const nodesSize = size * 0.18;
+const nodesOffset = nodesSize / 2;
 ---
 
 <div
-  class={`circulo-animado-contenedor ${className}`}
-  style={`--tamano-circulo: ${tamano}px;`}
+  class={`animated-circle-container ${className}`}
+  style={`--circle-size: ${size}px;`}
 >
-  <div class="circulo-principal">
-    <!-- Círculos concéntricos -->
-    <div class="circulo circulo-exterior"></div>
-    <div class="circulo circulo-medio"></div>
-    <div class="circulo circulo-interno"></div>
+  <div class="main-circle">
+    <!-- Concentric circles -->
+    <div class="circle outer-circle"></div>
+    <div class="circle middle-circle"></div>
+    <div class="circle inner-circle"></div>
 
-    <!-- Nodos en las esquinas -->
-    <div class="nodo nodo-superior"></div>
-    <div class="nodo nodo-derecha"></div>
-    <div class="nodo nodo-inferior"></div>
-    <div class="nodo nodo-izquierda"></div>
+    <!-- Corner nodes -->
+    <div class="node top-node"></div>
+    <div class="node right-node"></div>
+    <div class="node bottom-node"></div>
+    <div class="node left-node"></div>
 
-    <!-- Texto central -->
-    <div class="texto-central">
-      <div class="porcentaje">{porcentaje}%</div>
-      <div class="etiqueta">{etiqueta}</div>
+    <!-- Central text -->
+    <div class="central-text">
+      <div class="percentage">{percentage}%</div>
+      <div class="label">Customer<br>Satisfaction</div>
     </div>
   </div>
 </div>
 
 <style
   define:vars={{
-    tamanoCirculo: `${tamano}px`,
-    duracionAnimacion: `${duracionAnimacion}s`,
-    colorBorde,
-    colorTexto,
-    colorNodos,
-    colorBordeNodos,
-    tamanoNodos: `${tamanoNodos}px`,
-    desplazamientoNodos: `${desplazamientoNodos}px`,
+    circleSize: `${size}px`,
+    animationDuration: `${animationDuration}s`,
+    borderColor,
+    textColor,
+    nodesColor,
+    nodesBorderColor,
+    nodesSize: `${nodesSize}px`,
+    nodesOffset: `${nodesOffset}px`,
   }}
 >
-  .circulo-animado-contenedor {
+  .animated-circle-container {
     width: 100%;
-    max-width: var(--tamanoCirculo);
+    max-width: var(--circle-size);
     margin: 0 auto;
   }
 
-  .circulo-principal {
+  .main-circle {
     position: relative;
-    width: var(--tamanoCirculo);
-    height: var(--tamanoCirculo);
+    width: var(--circle-size);
+    height: var(--circle-size);
   }
 
-  /* Círculos concéntricos */
-  .circulo {
+  /* Concentric circles */
+  .circle {
     position: absolute;
     border-radius: 50%;
-    animation: rotar var(--duracionAnimacion) linear infinite;
+    animation: rotate var(--animationDuration) linear infinite;
   }
 
-  .circulo-exterior {
+  .outer-circle {
     top: -5%;
     left: -5%;
     width: 110%;
@@ -124,8 +124,8 @@ const desplazamientoNodos = tamanoNodos / 2;
     position: relative;
   }
 
-  /* Crear un pseudo-elemento para el borde discontinuo personalizado */
-  .circulo-exterior::after {
+  /* Create a pseudo-element for the custom dashed border */
+  .outer-circle::after {
     content: "";
     position: absolute;
     top: 0;
@@ -133,81 +133,81 @@ const desplazamientoNodos = tamanoNodos / 2;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 4px dashed var(--colorBorde);
-    animation: rotar var(--duracionAnimacion) linear infinite;
+    border: 4px dashed var(--borderColor);
+    animation: rotate var(--animationDuration) linear infinite;
   }
 
-  .circulo-medio {
+  .middle-circle {
     top: 5%;
     left: 5%;
     width: 90%;
     height: 90%;
-    border: 3px solid var(--colorBorde);
+    border: 3px solid var(--borderColor);
   }
 
-  .circulo-interno {
+  .inner-circle {
     top: 15%;
     left: 15%;
     width: 70%;
     height: 70%;
-    border: 3px solid var(--colorBorde);
+    border: 3px solid var(--borderColor);
   }
 
-  /* Nodos en las esquinas */
-  .nodo {
+  /* Corner nodes */
+  .node {
     position: absolute;
-    width: var(--tamanoNodos);
-    height: var(--tamanoNodos);
-    background-color: var(--colorNodos);
+    width: var(--nodesSize);
+    height: var(--nodesSize);
+    background-color: var(--nodesColor);
     border-radius: 50%;
-    border: 3px solid var(--colorBordeNodos);
-    animation: rotar var(--duracionAnimacion) linear infinite;
+    border: 3px solid var(--nodesBorderColor);
+    animation: rotate var(--animationDuration) linear infinite;
   }
 
-  .nodo-superior {
-    top: calc(-8% - var(--desplazamientoNodos));
-    left: calc(50% - var(--desplazamientoNodos));
+  .top-node {
+    top: calc(-8% - var(--nodesOffset));
+    left: calc(50% - var(--nodesOffset));
   }
 
-  .nodo-derecha {
-    top: calc(50% - var(--desplazamientoNodos));
-    right: calc(-8% - var(--desplazamientoNodos));
+  .right-node {
+    top: calc(50% - var(--nodesOffset));
+    right: calc(-8% - var(--nodesOffset));
   }
 
-  .nodo-inferior {
-    bottom: calc(-8% - var(--desplazamientoNodos));
-    left: calc(50% - var(--desplazamientoNodos));
+  .bottom-node {
+    bottom: calc(-8% - var(--nodesOffset));
+    left: calc(50% - var(--nodesOffset));
   }
 
-  .nodo-izquierda {
-    top: calc(50% - var(--desplazamientoNodos));
-    left: calc(-8% - var(--desplazamientoNodos));
+  .left-node {
+    top: calc(50% - var(--nodesOffset));
+    left: calc(-8% - var(--nodesOffset));
   }
 
-  /* Texto central */
-  .texto-central {
+  /* Central text */
+  .central-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--colorTexto);
+    color: var(--textColor);
     z-index: 10;
   }
 
-  .porcentaje {
-    font-size: calc(var(--tamanoCirculo) * 0.18);
+  .percentage {
+    font-size: calc(var(--circle-size) * 0.18);
     font-weight: bold;
   }
 
-  .etiqueta {
-    font-size: calc(var(--tamanoCirculo) * 0.06);
+  .label {
+    font-size: calc(var(--circle-size) * 0.06);
     color: rgba(0, 0, 0, 0.7);
     margin-top: 0.25rem;
   }
 
-  /* Animación de rotación */
-  @keyframes rotar {
+  /* Rotation animation */
+  @keyframes rotate {
     from {
       transform: rotate(0deg);
     }
@@ -216,45 +216,45 @@ const desplazamientoNodos = tamanoNodos / 2;
     }
   }
 
-  /* Media queries para responsividad */
+  /* Responsive media queries */
   @media (max-width: 768px) {
-    .circulo-animado-contenedor {
+    .animated-circle-container {
       max-width: 300px;
     }
   }
 
   @media (max-width: 480px) {
-    .circulo-animado-contenedor {
+    .animated-circle-container {
       max-width: 250px;
     }
   }
 </style>
 
 <script>
-  // Función para controlar la animación desde el exterior
-  class CirculoAnimadoController {
-    static cambiarVelocidad(elemento, duracionSegundos) {
-      const circulos = elemento.querySelectorAll(".circulo, .nodo");
-      circulos.forEach((circulo) => {
-        circulo.style.animationDuration = `${duracionSegundos}s`;
+  // Function to control animation from outside
+  class AnimatedCircleController {
+    static changeSpeed(element, durationSeconds) {
+      const circles = element.querySelectorAll(".circle, .node");
+      circles.forEach((circle) => {
+        circle.style.animationDuration = `${durationSeconds}s`;
       });
     }
 
-    static detenerAnimacion(elemento) {
-      const circulos = elemento.querySelectorAll(".circulo, .nodo");
-      circulos.forEach((circulo) => {
-        circulo.style.animationPlayState = "paused";
+    static stopAnimation(element) {
+      const circles = element.querySelectorAll(".circle, .node");
+      circles.forEach((circle) => {
+        circle.style.animationPlayState = "paused";
       });
     }
 
-    static reanudarAnimacion(elemento) {
-      const circulos = elemento.querySelectorAll(".circulo, .nodo");
-      circulos.forEach((circulo) => {
-        circulo.style.animationPlayState = "running";
+    static resumeAnimation(element) {
+      const circles = element.querySelectorAll(".circle, .node");
+      circles.forEach((circle) => {
+        circle.style.animationPlayState = "running";
       });
     }
   }
 
-  // Exponer el controlador globalmente
-  window.CirculoAnimadoController = CirculoAnimadoController;
+  // Expose controller globally
+  window.AnimatedCircleController = AnimatedCircleController;
 </script>

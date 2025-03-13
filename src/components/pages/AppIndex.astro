@@ -3,30 +3,31 @@ import SectionAbout from "../SectionAbout.astro";
 import Sections from "../Sections.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import ImageHero from "../ImageHero.astro";
+import HeroModerno from "../HeroModerno.astro";
 import SectionPlanificar from "../SectionPlanificar.astro";
 import TuMejorOpcion from "../TuMejorOpcion.astro";
 import TradingViewWidget from "../react/TradingViewWidget";
+import QuienesSomos from "../QuienesSomos.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <Layout title="HOME">
-  <ImageHero
-    urlImgHero="https://res.cloudinary.com/dvuyt52aq/image/upload/t_Banner 16:9/v1741489469/hero_cobten.png"
-    overlayType="gradient"
-    overlayOpacity={0.7}
+  <HeroModerno 
+    title="A decentralized truth machine"
+    subtitle="UMR's optimistic oracle (OO) can record any verifiable truth or data onto a blockchain."
+    totalValueSecured={986000000}
   />
   <TradingViewWidget client:load />
   <section class="about">
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
     >
-      <SectionAbout />
+      <QuienesSomos />
     </Sections>
   </section>
-  <section class="planificar">
+  <!--  <section class="planificar">
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
     >
@@ -39,7 +40,7 @@ const t = useTranslations(lang);
     >
       <TuMejorOpcion />
     </Sections>
-  </section>
+  </section> -->
 </Layout>
 
 <style>
