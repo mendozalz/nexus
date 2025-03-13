@@ -84,20 +84,11 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 </section>
 
 <style>
-  /* Variables específicas del componente */
-  :root {
-    --hero-bg-color: #252125;
-    --hero-accent-color: #ff3e3e;
-    --hero-text-color: #ffffff;
-    --hero-grid-color: rgba(255, 255, 255, 0.1);
-    --hero-height: 90vh;
-  }
-
   /* Contenedor principal */
   .hero-moderno {
     position: relative;
     width: 100%;
-    height: var(--hero-height);
+    height: 90vh;
     background-color: var(--hero-bg-color);
     overflow: hidden;
     display: flex;
@@ -114,14 +105,27 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     width: 200%;
     height: 200%;
     background-image:
-      linear-gradient(to right, var(--hero-grid-color) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--hero-grid-color) 1px, transparent 1px);
+      linear-gradient(to right, var(--color-gris) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-gris) 1px, transparent 1px);
     background-size: 50px 50px;
     transform: perspective(1000px) rotateX(60deg) scale(1.5);
     transform-origin: center center;
     animation: grid-animation 20s linear infinite;
-    opacity: 0.4;
+    opacity: 0.9;
     z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    max-width: none;
+  }
+
+  /* Restauramos la animación de la rejilla */
+  @keyframes grid-animation {
+    0% {
+      transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(0);
+    }
+    100% {
+      transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(-50px);
+    }
   }
 
   /* Gradiente de superposición */
@@ -137,6 +141,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
       var(--hero-bg-color) 70%
     );
     z-index: 2;
+    pointer-events: none;
   }
 
   /* Contador de valor */
@@ -145,7 +150,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     top: calc(var(--espacio-3xl) + 50px);
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: var(--espacio-xs);
     padding: var(--espacio-xs) var(--espacio-s);
     display: flex;
@@ -158,13 +163,13 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
   }
 
   .counter-value {
-    color: var(--hero-accent-color);
+    color: var(--color-blanco);
     font-weight: bold;
     font-size: var(--font-0);
   }
 
   .counter-label {
-    color: var(--hero-text-color);
+    color: var(--color-blanco);
     font-size: var(--font--1);
     opacity: 0.8;
   }
@@ -181,7 +186,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
   .hero-title {
     font-size: var(--font-5);
     font-weight: bold;
-    color: var(--hero-text-color);
+    color: var(--color-blanco);
     margin-bottom: var(--espacio-s);
     line-height: 1.1;
     max-width: 800px;
@@ -267,18 +272,12 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     }
   }
 
-  /* Animación de la rejilla */
-  @keyframes grid-animation {
-    0% {
-      transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(0);
-    }
-    100% {
-      transform: perspective(1000px) rotateX(60deg) scale(1.5) translateY(50px);
-    }
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
+    .hero-moderno {
+      height: 80vh;
+    }
+
     .hero-title {
       font-size: var(--font-4);
     }
@@ -288,7 +287,10 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     }
 
     .value-counter {
-      padding: var(--espacio-2xs) var(--espacio-xs);
+      top: calc(var(--espacio-xl) + 50px);
+      padding: var(--espacio-3xs) var(--espacio-xs);
+      width: auto;
+      max-width: 90%;
     }
 
     .counter-value {
@@ -298,18 +300,46 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     .counter-label {
       font-size: var(--font--2);
     }
-  }
-
-  @media (max-width: 480px) {
-    .hero-title {
-      font-size: var(--font-3);
-    }
 
     .cube-1,
     .cube-2,
     .cube-3,
     .cube-4 {
       display: none;
+    }
+
+    /* Ocultar completamente la rejilla isométrica en dispositivos móviles */
+    .isometric-grid {
+      display: none;
+    }
+
+    /* Ajustar el gradiente para que sea más oscuro ya que no hay rejilla */
+    .overlay-gradient {
+      background: var(--hero-bg-color);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-moderno {
+      height: 70vh;
+    }
+
+    .hero-title {
+      font-size: var(--font-3);
+      padding: 0 var(--espacio-xs);
+    }
+
+    .hero-subtitle {
+      font-size: var(--font--1);
+      margin-bottom: var(--espacio-m);
+      padding: 0 var(--espacio-xs);
+    }
+
+    /* Ajustar el contador de valor para pantallas pequeñas */
+    .value-counter {
+      top: var(--espacio-l);
+      transform: translateX(-50%) scale(0.9);
+      max-width: 85%;
     }
   }
 </style>

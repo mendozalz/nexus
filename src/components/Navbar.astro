@@ -172,14 +172,15 @@ const links = [
     background-color: rgba(255, 255, 255, 0);
     color: #333;
     transition: all 0.3s ease;
-    z-index: 9;
+    z-index: 99;
     padding: var(--espacio-m) 0;
     container-type: inline-size;
     container-name: navbarContainer;
+    backdrop-filter: blur(6px);
   }
 
   .navbar.scrolled {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255, 0.3);
     color: #000000;
     padding: var(--espacio-s) 0;
   }

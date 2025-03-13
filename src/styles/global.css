@@ -5,19 +5,18 @@
 
 :root {
   /* Colores dorados */
-  --color-dorado: #ff4c4c;
-  /*   --color-dorado-oscuro: #c2a150;
-  --color-dorado-profundo: #a07d36; */
-  --color-negro: #000000;
+  --color-dorado: #c6b07e;
+  --hero-bg-color: #252125;
+  --color-negro: #040504;
 
   /* Colores secundarios */
   --color-celeste: #3ec1d5;
 
   /* Escala de grises */
-  --color-gris: #686868;
-  --color-gris-oscuro: #282828;
+  --color-gris: #454444;
+  --color-gris-oscuro: #454444;
   --color-transparente: #af4b2f00;
-  --color-blanco: #ffffff;
+  --color-blanco: #b3b2b2;
 
   /* Colores semánticos */
   --color-fondo-principal: var(--color-blanco);
