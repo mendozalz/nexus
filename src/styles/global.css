@@ -16,10 +16,10 @@
   --color-gris: #454444;
   --color-gris-oscuro: #454444;
   --color-transparente: #af4b2f00;
-  --color-blanco: #b3b2b2;
+  --color-blanco: #fcfcfc;
 
   /* Colores semánticos */
-  --color-fondo-principal: var(--color-blanco);
+  /* --color-fondo-principal: var(--color-blanco);
   --color-fondo-secundario: var(--color-gris);
   --color-fondo-newsletter: var(--color-gris);
   --color-texto-principal: var(--color-gris-oscuro);
@@ -28,7 +28,7 @@
   --color-enlace: var(--color-celeste);
   --color-enlace-hover: var(--color-dorado-oscuro);
   --color-boton-dorado: var(--color-dorado);
-  --color-boton-dorado-hover: var(--color-dorado-oscuro);
+  --color-boton-dorado-hover: var(--color-dorado-oscuro); */
 
   /* Las fuentes */
   --Heebo: var(--heebo);

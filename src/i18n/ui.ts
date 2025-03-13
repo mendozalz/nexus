@@ -24,8 +24,7 @@ export const LANGUAGES: Record<
   export const ui = {
     en: {
       'nav.home': 'Home',
-      'nav.que': 'What can you do?',
-      'nav.about': 'Services',
+      'nav.about': 'About us',
       'nav.agtech': 'About us',
       'nav.learnmore': 'FAQs',
       'nav.contact': 'Contact',
@@ -33,8 +32,7 @@ export const LANGUAGES: Record<
     },
     es: {
       'nav.home': 'Inicio',
-      'nav.que': '¿Qué puedes hacer?',
-      'nav.about': 'Servicios',
+      'nav.about': 'Sobre nosotros',
       'nav.agtech': 'Nosotros',
       'nav.learnmore': 'FAQs',
       'nav.contact': 'Contacto',
@@ -45,14 +43,12 @@ export const LANGUAGES: Record<
   /* Destinado solo a las rutas de la barra de navegación */
   export const routes = {
     en:{
-      'que': 'what_can_you_do',
-      'about': 'about',
+      'about': 'about-us',
       'agtech': 'agtech',
       'learnmore': 'aprender_mas',
     },
     es:{ 
-      'que': 'que_puedes_hacer',
-      'about': 'acerca',
+      'about': 'nosotros',
       'agtech': 'agtech',
       'learnmore': 'aprender_mas',
     }

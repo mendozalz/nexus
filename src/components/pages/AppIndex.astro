@@ -8,13 +8,14 @@ import SectionPlanificar from "../SectionPlanificar.astro";
 import TuMejorOpcion from "../TuMejorOpcion.astro";
 import TradingViewWidget from "../react/TradingViewWidget";
 import QuienesSomos from "../QuienesSomos.astro";
+import AboutUs from "../AboutUs.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <Layout title="HOME">
-  <HeroModerno 
+  <HeroModerno
     title="A decentralized truth machine"
     subtitle="UMR's optimistic oracle (OO) can record any verifiable truth or data onto a blockchain."
     totalValueSecured={986000000}
@@ -27,14 +28,12 @@ const t = useTranslations(lang);
       <QuienesSomos />
     </Sections>
   </section>
-  <!--  <section class="planificar">
-    <Sections
-      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
-    >
-      <SectionPlanificar />
+  <section class="planificar">
+    <Sections _styles="padding-block: var(--espacio-l);">
+      <AboutUs />
     </Sections>
   </section>
-  <section class="about">
+  <!-- <section class="about">
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
     >
@@ -45,7 +44,6 @@ const t = useTranslations(lang);
 
 <style>
   .planificar {
-    background: url("../../assets/bg-section.png") no-repeat center center /
-      cover;
+    background: var(--color-blanco);
   }
 </style>
