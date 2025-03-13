@@ -5,15 +5,17 @@
 
 :root {
   /* Colores dorados */
-  --color-dorado: #c6b07e;
+  --color-dorado: #ae8d3d;
+  --color-dorado-claro: #c6b27e;
+  --color-dorado-oscuro: #9c8753;
   --hero-bg-color: #252125;
-  --color-negro: #040504;
+  --color-negro: #101010;
 
   /* Colores secundarios */
   --color-celeste: #3ec1d5;
 
   /* Escala de grises */
-  --color-gris: #454444;
+  --color-gris: #303030;
   --color-gris-oscuro: #454444;
   --color-transparente: #af4b2f00;
   --color-blanco: #fcfcfc;
