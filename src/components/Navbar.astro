@@ -52,7 +52,7 @@ const links = [
         class="logo"
         src={logotipo}
         alt="Inventek Logo"
-        width="200"
+        width="150"
         height="0"
       />
     </a>
@@ -165,7 +165,6 @@ const links = [
     color: #333;
     transition: all 0.3s ease;
     z-index: 99;
-    padding: var(--espacio-m) 0;
     container-type: inline-size;
     container-name: navbarContainer;
     backdrop-filter: blur(6px);
@@ -174,7 +173,7 @@ const links = [
   .navbar.scrolled {
     background-color: rgb(255, 255, 255, 0.3);
     color: #000000;
-    padding: var(--espacio-s) 0;
+    padding: var(--espacio-2xs) 0;
   }
 
   .nav-container {
@@ -183,7 +182,7 @@ const links = [
     align-items: center;
     max-width: var(--grid-max-width);
     margin: 0 auto;
-    padding-inline: var(--grid-gutter);
+    padding: var(--espacio-s) 0;
   }
 
   .logo {

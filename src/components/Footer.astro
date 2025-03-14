@@ -66,7 +66,7 @@ const phones = [
           class="footer__logo"
           src={logotipo}
           alt="Inventek Logo"
-          width="250"
+          width="200"
           height="0"
         />
 
@@ -348,6 +348,10 @@ const phones = [
     color: var(--color-blanco);
   }
 
+  .footer__logo {
+    margin-bottom: var(--espacio-m);
+  }
+
   .footer__content {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -381,6 +385,7 @@ const phones = [
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--espacio-l);
+    text-align: center;
   }
 
   .footer__menu-title {
@@ -552,11 +557,6 @@ const phones = [
     .footer-container {
       overflow: hidden;
     }
-
-    .footer__logo {
-      width: 230px;
-      height: auto;
-    }
     .footer__content {
       grid-auto-flow: row;
       gap: var(--espacio-2xl-3xl);
@@ -584,19 +584,22 @@ const phones = [
 
   @media (max-width: 600px) {
     .footer-container {
-      padding: 0px;
+      padding-inline: var(--espacio-l);
     }
     .footer__content {
       grid-template-columns: 1fr;
       gap: var(--espacio-xs);
     }
+    .footer__nav {
+      text-align: start;
+    }
     .footer__brand {
       display: grid;
       place-items: center;
-      & img {
+      & img.footer__logo {
         width: 80%;
         height: auto;
-        margin-bottom: var(--espacio-m);
+        margin-bottom: var(--espacio-m) !important;
       }
       & .footer__locations {
         display: grid;
