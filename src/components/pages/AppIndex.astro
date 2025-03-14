@@ -9,6 +9,8 @@ import TuMejorOpcion from "../TuMejorOpcion.astro";
 import TradingViewWidget from "../react/TradingViewWidget";
 import QuienesSomos from "../QuienesSomos.astro";
 import AboutUs from "../AboutUs.astro";
+import { AnimatedTestimonialsDemo } from "../ui/dataEquipoNexus";
+import NuestroEquipo from "../NuestroEquipo.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -35,10 +37,11 @@ const t = useTranslations(lang);
       <AboutUs />
     </Sections>
   </section>
+  <section class="planificar">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
+    >
+      <NuestroEquipo />
+    </Sections>
+  </section>
 </Layout>
-
-<style>
-  .planificar {
-    background: var(--color-blanco);
-  }
-</style>

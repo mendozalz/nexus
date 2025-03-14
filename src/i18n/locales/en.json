@@ -32,16 +32,34 @@
     "TITLE": "¿Quienes Somos?",
     "DESCRIPTION": "En <b>Nexus Private Capital</b>, transformamos la manera en que se invierte, combinando <b>tecnología avanzada, análisis de datos y estrategias de inversión optimizadas</b> para maximizar el crecimiento del capital."
   },
-  "NOSOTROS": {
-    "TITLE": "¿Quiénes <span> Somos? </span>",
-    "DESCRIPTION": "En <b>Nexus Private Capital</b>, creemos en la innovación, la eficiencia y la confianza como pilares fundamentales para transformar el mundo de las inversiones. Somos una empresa creada por un equipo de <b>expertos en finanzas, tecnología y estrategias de inversión</b>, con el propósito de ofrecer a nuestros clientes <b>soluciones de inversión inteligentes, seguras y rentables</b>."
-  },
   "NUESTRA_PROMESA": {
     "TITLE": "Nuestra Promesa",
     "OPCION_LIST": {
       "LIST1": "Modelos de inversión estructurados y seguros.",
       "LIST2": "Crecimiento financiero sostenible y estratégico.",
       "LIST3": "Transparencia y mitigación de riesgos en cada inversión."
+    }
+  },
+  "NOSOTROS": {
+    "TITLE": "¿Quiénes <span> Somos? </span>",
+    "DESCRIPTION": "En <b>Nexus Private Capital</b>, creemos en la innovación, la eficiencia y la confianza como pilares fundamentales para transformar el mundo de las inversiones. Somos una empresa creada por un equipo de <b>expertos en finanzas, tecnología y estrategias de inversión</b>, con el propósito de ofrecer a nuestros clientes <b>soluciones de inversión inteligentes, seguras y rentables</b>.",
+    "NUESTRA_MISION": {
+      "TITLE": "Nuestra Misión",
+      "DESCRIPTION": "Transformar la gestión de inversiones mediante tecnología avanzada y modelos estratégicos de alto rendimiento, asegurando crecimiento y estabilidad financiera para nuestros inversionistas."
+    },
+    "NUESTRA_VISION": {
+      "TITLE": "Nuestra Visión",
+      "DESCRIPTION": "Ser una empresa líder global en la gestión de inversiones automatizadas, ofreciendo soluciones confiables y rentables en un mercado en constante evolución."
+    },
+    "NUESTRO_VALORES": {
+      "TITLE": "Nuestro Valores",
+      "OPCION_LIST": {
+        "LIST1": "<b>Transparencia</b> – Actuamos con claridad y honestidad.",
+        "LIST2": "<b>Ética y Responsabilidad</b> – Nos regimos por altos estándares de integridad.",
+        "LIST3": "<b>Excelencia</b> – Buscamos resultados óptimos y sostenibles.",
+        "LIST4": "<b>Compromiso</b> – Generamos confianza y crecimiento.",
+        "LIST5": "<b>Adaptabilidad</b> – Nos ajustamos con precisión a los cambios del mercado."
+      }
     }
   },
   "AGTECH": {

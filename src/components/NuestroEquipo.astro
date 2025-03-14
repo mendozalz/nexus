@@ -1,0 +1,149 @@
+---
+/**
+ * @component NuestroEquipo
+ * @description Componente que muestra testimonios animados de clientes
+ * @author Cascade
+ */
+import { AnimatedTestimonialsData } from "./ui/dataEquipoNexus";
+---
+
+<div class="max-w-3xl mx-auto text-center titulo">
+  <h1 class="text-2xl md:text-3xl font-bold mb-md text-[var(--color-gris)]">
+    Nuestro Equipo
+  </h1>
+  <p class="text-base text-muted-foreground">
+    Liderazgo con Visión Estratégica
+  </p>
+</div>
+
+<!-- Skeleton que se muestra mientras se carga el componente React -->
+<div id="testimonios-skeleton" class="testimonios-skeleton">
+  <div class="max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20">
+    <div class="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+      <!-- Skeleton para la imagen -->
+      <div>
+        <div class="relative h-80 w-full">
+          <div class="absolute inset-0 skeleton-pulse rounded-3xl"></div>
+        </div>
+      </div>
+      <!-- Skeleton para el texto -->
+      <div class="flex justify-between flex-col py-4">
+        <div>
+          <!-- Nombre -->
+          <div class="h-8 skeleton-pulse rounded-md w-1/3 mb-2"></div>
+          <!-- Cargo -->
+          <div class="h-4 skeleton-pulse rounded-md w-1/2 mb-8"></div>
+          <!-- Cita -->
+          <div class="space-y-2">
+            <div class="h-4 skeleton-pulse rounded-md w-full"></div>
+            <div class="h-4 skeleton-pulse rounded-md w-5/6"></div>
+            <div class="h-4 skeleton-pulse rounded-md w-4/6"></div>
+          </div>
+        </div>
+        <!-- Botones de navegación -->
+        <div class="flex gap-4 pt-12 md:pt-0">
+          <div class="h-7 w-7 rounded-full skeleton-pulse"></div>
+          <div class="h-7 w-7 rounded-full skeleton-pulse"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Indicadores -->
+    <div class="flex justify-center mt-6">
+      <div class="w-4 h-2 mx-1 rounded-full skeleton-pulse"></div>
+      <div class="w-2 h-2 mx-1 rounded-full skeleton-pulse"></div>
+      <div class="w-2 h-2 mx-1 rounded-full skeleton-pulse"></div>
+      <div class="w-2 h-2 mx-1 rounded-full skeleton-pulse"></div>
+      <div class="w-2 h-2 mx-1 rounded-full skeleton-pulse"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Componente real que se cargará con React -->
+<div id="testimonios-container">
+  <AnimatedTestimonialsData client:only="react" />
+</div>
+
+<style>
+  /* Estilos para el skeleton basados en UTOPIA */
+  .testimonios-skeleton {
+    --skeleton-base: var(--color-gris-oscuro, #454444);
+    --skeleton-highlight: var(--color-gris, #303030);
+    margin-block: var(--espacio-m);
+  }
+
+  /* Animación de pulso personalizada basada en UTOPIA */
+  @keyframes skeletonPulse {
+    0%,
+    100% {
+      opacity: 0.15;
+      background-color: var(--skeleton-base);
+    }
+    50% {
+      opacity: 0.3;
+      background-color: var(--skeleton-highlight);
+    }
+  }
+
+  .skeleton-pulse {
+    animation: skeletonPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: var(--skeleton-base);
+  }
+
+  /* Ajustes responsivos según UTOPIA */
+  @media (min-width: 768px) {
+    .testimonios-skeleton {
+      margin-block: var(--espacio-l);
+    }
+  }
+</style>
+
+<script>
+  // Script para ocultar el skeleton cuando el componente React esté cargado
+  document.addEventListener("astro:page-load", () => {
+    // Función para verificar si el componente React está cargado
+    const checkComponentLoaded = () => {
+      const container = document.getElementById("testimonios-container");
+      // Verificar si el contenedor tiene contenido React
+      if (
+        container &&
+        container.children.length > 0 &&
+        (container.querySelector("[data-reactroot]") ||
+          container.querySelector("[data-reactid]") ||
+          (container.firstElementChild &&
+            container.firstElementChild.className &&
+            container.firstElementChild.className.includes("max-w-")))
+      ) {
+        const skeleton = document.getElementById("testimonios-skeleton");
+        if (skeleton) {
+          skeleton.style.display = "none";
+        }
+      }
+    };
+
+    // Verificar inmediatamente
+    checkComponentLoaded();
+
+    // También configurar un observador para detectar cambios en el DOM
+    const observer = new MutationObserver(() => {
+      checkComponentLoaded();
+    });
+
+    // Observar cambios en el contenedor del componente
+    const container = document.getElementById("testimonios-container");
+    if (container) {
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+      });
+    }
+
+    // Como respaldo, ocultar el skeleton después de un tiempo razonable
+    setTimeout(() => {
+      const skeleton = document.getElementById("testimonios-skeleton");
+      if (skeleton) {
+        skeleton.style.display = "none";
+      }
+    }, 3000);
+  });
+</script>
