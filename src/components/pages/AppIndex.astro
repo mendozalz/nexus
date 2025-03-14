@@ -22,12 +22,16 @@ const t = useTranslations(lang);
   />
   <TradingViewWidget client:load />
   <section class="about">
-    <Sections _styles="padding-block: var(--espacio-3xl);">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+    >
       <QuienesSomos />
     </Sections>
   </section>
   <section class="planificar">
-    <Sections _styles="padding-block: var(--espacio-l);">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
+    >
       <AboutUs />
     </Sections>
   </section>

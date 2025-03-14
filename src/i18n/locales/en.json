@@ -32,6 +32,10 @@
     "TITLE": "¿Quienes Somos?",
     "DESCRIPTION": "En <b>Nexus Private Capital</b>, transformamos la manera en que se invierte, combinando <b>tecnología avanzada, análisis de datos y estrategias de inversión optimizadas</b> para maximizar el crecimiento del capital."
   },
+  "NOSOTROS": {
+    "TITLE": "¿Quiénes <span> Somos? </span>",
+    "DESCRIPTION": "En <b>Nexus Private Capital</b>, creemos en la innovación, la eficiencia y la confianza como pilares fundamentales para transformar el mundo de las inversiones. Somos una empresa creada por un equipo de <b>expertos en finanzas, tecnología y estrategias de inversión</b>, con el propósito de ofrecer a nuestros clientes <b>soluciones de inversión inteligentes, seguras y rentables</b>."
+  },
   "NUESTRA_PROMESA": {
     "TITLE": "Nuestra Promesa",
     "OPCION_LIST": {
