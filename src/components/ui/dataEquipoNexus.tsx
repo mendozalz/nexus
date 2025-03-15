@@ -59,7 +59,7 @@ function AnimatedTestimonialsData() {
     <AnimatedTestimonials
       testimonials={testimonials}
       autoplay={true} // Activar o desactivar el autoplay
-      interval={5000} // Ajustar la velocidad (en milisegundos)
+      interval={8000} // Ajustar la velocidad (en milisegundos)
     />
   );
 }
