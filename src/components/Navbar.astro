@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import "../styles/global.css";
-import logotipo from "../assets/nexus_negro.png";
+import logotipoNegro from "../assets/nexus_negro.png";
+import logotipoBlanco from "../assets/nexus_blanco.png";
 import LanguageSelector from "./LanguageSelector.astro";
 import {
   getLangFromUrl,
@@ -27,13 +28,13 @@ const links = [
     href: translatePath(`/${routes[lang].about}`, lang),
   },
   {
-    name: t("nav.learnmore"),
+    name: t("nav.services"),
     href: translatePath(`/${routes[lang].learnmore}`, lang),
   },
-  {
+  /* {
     name: t("nav.contact"),
     href: translatePath("/contact", lang),
-  },
+  }, */
 ];
 
 /* const formContact = {
@@ -47,11 +48,18 @@ const links = [
 
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a href="/">
+    <a href="/" class="logo-container">
       <Image
-        class="logo"
-        src={logotipo}
-        alt="Inventek Logo"
+        class="logo logo-blanco"
+        src={logotipoBlanco}
+        alt="Nexus Logo"
+        width="150"
+        height="0"
+      />
+      <Image
+        class="logo logo-negro"
+        src={logotipoNegro}
+        alt="Nexus Logo"
         width="150"
         height="0"
       />
@@ -162,7 +170,7 @@ const links = [
     left: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0);
-    color: #333;
+    color: #fff;
     transition: all 0.3s ease;
     z-index: 99;
     container-type: inline-size;
@@ -171,7 +179,7 @@ const links = [
   }
 
   .navbar.scrolled {
-    background-color: rgb(255, 255, 255, 0.3);
+    background-color: rgb(255, 255, 255, 0.9);
     color: #000000;
     padding: var(--espacio-2xs) 0;
   }
@@ -186,13 +194,35 @@ const links = [
     padding-inline: var(--grid-gutter);
   }
 
+  .logo-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
   .logo {
-    font-size: var(--font-0);
-    font-weight: bold;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease;
-    margin-left: -5px;
+    height: auto;
+    max-height: 50px;
+    width: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-blanco {
+    opacity: 1;
+    position: absolute;
+  }
+
+  .logo-negro {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .navbar.scrolled .logo-blanco {
+    opacity: 0;
+  }
+
+  .navbar.scrolled .logo-negro {
+    opacity: 1;
   }
 
   .nav-links {
@@ -209,10 +239,14 @@ const links = [
 
   .nav-links a {
     text-decoration: none;
-    color: var(--color-dorado);
+    color: var(--color-blanco);
     transition:
       color 0.3s ease,
       transform 0.3s ease;
+  }
+
+  .navbar.scrolled .nav-links a {
+    color: var(--color-dorado);
   }
 
   .navbar.scrolled .nav-links a:hover {
@@ -246,12 +280,16 @@ const links = [
     position: absolute;
     height: 3px;
     width: 100%;
-    background: #e5b94e;
+    background: var(--color-blanco);
     border-radius: 9px;
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
     transition: 0.25s ease-in-out;
+  }
+
+  .navbar.scrolled .menu-icon span {
+    background: var(--color-dorado);
   }
 
   .menu-icon span:nth-child(1) {
@@ -328,6 +366,7 @@ const links = [
     .nav-links li a {
       margin: var(--espacio-2xs) 0;
       font-size: var(--font-2);
+      color: var(--color-blanco);
     }
   }
 </style>

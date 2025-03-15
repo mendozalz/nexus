@@ -80,7 +80,7 @@ export const AnimatedTestimonials = ({
       role="region"
       aria-label="Testimonios de clientes"
     >
-      <div className="relative grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 lg:gap-40">
+      <div className="relative grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 lg:gap-30">
         <div>
           <div className="relative h-80 lg:h-full w-full">
             <AnimatePresence>
@@ -128,7 +128,7 @@ export const AnimatedTestimonials = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex justify-between flex-col py-4 w-full">
+        <div className="flex justify-between flex-col py-4 w-full bg-[var(--color-gris)] z-10">
           <motion.div
             key={active}
             initial={{

@@ -3,6 +3,7 @@ import Sections from "../Sections.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import HeroModerno from "../HeroModerno.astro";
+import { sectionIds } from "../../i18n/ui";
 
 import TradingViewWidget from "../react/TradingViewWidget";
 import QuienesSomos from "../QuienesSomos.astro";
@@ -20,21 +21,21 @@ const t = useTranslations(lang);
     totalValueSecured={986000000}
   />
   <TradingViewWidget client:load />
-  <section class="about">
-    <Sections
-      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
-    >
-      <QuienesSomos />
-    </Sections>
-  </section>
-  <section class="planificar">
+  <section class="about" id={sectionIds[lang].about}>
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
     >
-      <AboutUs />
+      {lang === "es" ? <QuienesSomos /> : <AboutUs />}
     </Sections>
   </section>
-  <section class="planificar">
+  <section class="planificar" id={sectionIds[lang].planning}>
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
+    >
+      {lang === "es" ? <AboutUs /> : <QuienesSomos />}
+    </Sections>
+  </section>
+  <section class="nuestro-equipo" id={sectionIds[lang].team}>
     <Sections
       _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
     >

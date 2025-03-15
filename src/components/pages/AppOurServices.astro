@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroModerno from "../HeroModerno.astro";
+import Sections from "../Sections.astro";
+---
+
+<Layout title="HOME">
+  <HeroModerno
+    title="A decentralized truth machine"
+    subtitle="UMR's optimistic oracle (OO) can record any verifiable truth or data onto a blockchain."
+    totalValueSecured={986000000}
+  />
+  <section class="about">
+    <Sections
+      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+    >
+      <!-- <QuienesSomos /> -->
+    </Sections>
+  </section>
+</Layout>

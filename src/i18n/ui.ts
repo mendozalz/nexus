@@ -25,18 +25,24 @@ export const LANGUAGES: Record<
     en: {
       'nav.home': 'Home',
       'nav.about': 'About us',
-      'nav.agtech': 'About us',
-      'nav.learnmore': 'FAQs',
-      'nav.contact': 'Contact',
+      'nav.services': 'Our Services',
+      'nav.planning': 'Planning',
+      'nav.team': 'Our Team',
       'nav.btnPrimary': 'Start investing today',
+      'section.about': 'about-us',
+      'section.team': 'our-team',
+      'section.planning': 'planning',
     },
     es: {
       'nav.home': 'Inicio',
       'nav.about': 'Sobre nosotros',
-      'nav.agtech': 'Nosotros',
-      'nav.learnmore': 'FAQs',
-      'nav.contact': 'Contacto',
+      'nav.services': 'Nuestros servicios',
+      'nav.planning': 'Planificación',
+      'nav.team': 'Nuestro Equipo',
       'nav.btnPrimary': 'Empieza a invertir hoy mismo',
+      'section.about': 'nosotros',
+      'section.team': 'nuestro-equipo',
+      'section.planning': 'planificar',
     },
   } as const;
 
@@ -44,12 +50,28 @@ export const LANGUAGES: Record<
   export const routes = {
     en:{
       'about': 'about-us',
-      'agtech': 'agtech',
-      'learnmore': 'aprender_mas',
+      'planning': 'planning',
+      'team': 'our-team',
+      'services': 'services',
     },
     es:{ 
       'about': 'nosotros',
-      'agtech': 'agtech',
-      'learnmore': 'aprender_mas',
+      'planning': 'planificar',
+      'team': 'nuestro-equipo',
+      'services': 'servicios',
+    }
+  }
+
+  /* IDs de secciones para anclajes */
+  export const sectionIds = {
+    en: {
+      'about': 'about-us',
+      'planning': 'planning',
+      'team': 'our-team',
+    },
+    es: {
+      'about': 'nosotros',
+      'planning': 'planificar',
+      'team': 'nuestro-equipo',
     }
   }
