@@ -1,20 +1,65 @@
 ---
+import { Image } from "astro:assets";
+import "../../styles/global.css";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getI18N } from "../../i18n";
 import Layout from "../../layouts/Layout.astro";
 import HeroModerno from "../HeroModerno.astro";
-import Sections from "../Sections.astro";
+import ServicesShowcaseLeft from "../ui/ServicesShowcaseLeft.astro";
+import ServicesShowcaseRight from "../ui/ServicesShowcaseRight.astro";
+import ServicesShowcaseLeftCapitalizacion from "../ui/ServicesShowcaseLeft-Capitalizacion.astro";
+import { ComoInvertimos } from "../blocks/ComoInvertimos";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
 ---
 
-<Layout title="HOME">
+<Layout
+  title={lang === "en" ? "Our Services - Nexus" : "Nuestros Servicios - Nexus"}
+>
   <HeroModerno
     title="A decentralized truth machine"
     subtitle="UMR's optimistic oracle (OO) can record any verifiable truth or data onto a blockchain."
     totalValueSecured={986000000}
   />
-  <section class="about">
-    <Sections
-      _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
+  <main>
+    <section class="w-[50%] mx-auto text-center titulo mt-[var(--espacio-2xl)]">
+      <h1
+        class="text-2xl md:text-3xl font-bold mb-md text-[var(--color-gris)] leading-none"
+      >
+        Soluciones estratégicas para un crecimiento financiero seguro.
+      </h1>
+      <p class="text-base text-muted-foreground">
+        En Nexus Private Capital, ofrecemos modelos de inversión diversificados
+        y optimizados, diseñados para maximizar la rentabilidad y reducir
+        riesgos. Nos enfocamos en tres áreas clave de inversión:
+      </p>
+    </section>
+    <section
+      class="services-showcase"
+      id={lang === "en" ? "our-services" : "nuestros-servicios"}
     >
-      <!-- <QuienesSomos /> -->
-    </Sections>
-  </section>
+      <ServicesShowcaseLeft />
+    </section>
+    <section
+      class="services-showcase"
+      id={lang === "en" ? "our-services" : "nuestros-servicios"}
+    >
+      <ServicesShowcaseRight />
+    </section>
+    <section
+      class="services-showcase"
+      id={lang === "en" ? "our-services" : "nuestros-servicios"}
+    >
+      <ServicesShowcaseLeftCapitalizacion />
+    </section>
+    <section
+      class="services-showcase"
+      id={lang === "en" ? "our-services" : "nuestros-servicios"}
+    >
+      <ComoInvertimos client:only="react" />
+    </section>
+  </main>
 </Layout>

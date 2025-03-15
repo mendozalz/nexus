@@ -40,7 +40,7 @@ const links = [
   },
   {
     name: t("nav.services"),
-    href: translatePath(`/${routes[lang].learnmore}`, lang),
+    href: translatePath(`/our-services`, lang),
   },
   /* {
     name: t("nav.contact"),
@@ -86,7 +86,9 @@ const links = [
       {
         links.map((link) => (
           <li>
-            <a href={link.href} data-section-id={link.sectionId || null}>{link.name}</a>
+            <a href={link.href} data-section-id={link.sectionId || null}>
+              {link.name}
+            </a>
           </li>
         ))
       }
@@ -140,7 +142,8 @@ const links = [
       const targetPosition =
         targetElement.getBoundingClientRect().top +
         window.scrollY -
-        navbarHeight - 20; // 20px adicionales para mejorar la posición
+        navbarHeight -
+        20; // 20px adicionales para mejorar la posición
 
       window.scrollTo({
         top: targetPosition,
@@ -168,20 +171,25 @@ const links = [
     mobileMenuToggle?.addEventListener("click", toggleMenu);
 
     // Manejar clics en enlaces de anclaje para scroll suave
-    document.querySelectorAll('.nav-links a[data-section-id]').forEach((anchor) => {
-      anchor.addEventListener("click", function(this: HTMLElement, e: Event) {
-        const sectionId = this.getAttribute("data-section-id");
-        if (!sectionId) return;
-        
-        e.preventDefault();
-        closeMenu();
-        
-        // Actualizar URL para mantener el enlace sin cambiar de página
-        window.history.pushState({}, "", `/#${sectionId}`);
-        
-        scrollToSection(sectionId);
+    document
+      .querySelectorAll(".nav-links a[data-section-id]")
+      .forEach((anchor) => {
+        anchor.addEventListener(
+          "click",
+          function (this: HTMLElement, e: Event) {
+            const sectionId = this.getAttribute("data-section-id");
+            if (!sectionId) return;
+
+            e.preventDefault();
+            closeMenu();
+
+            // Actualizar URL para mantener el enlace sin cambiar de página
+            window.history.pushState({}, "", `/#${sectionId}`);
+
+            scrollToSection(sectionId);
+          },
+        );
       });
-    });
 
     // Manejar cambios en el hash de la URL
     window.addEventListener("hashchange", () => {
@@ -189,20 +197,20 @@ const links = [
     });
 
     // Manejar clics en enlaces normales
-    document.querySelectorAll('.nav-links a:not([data-section-id])').forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
+    document
+      .querySelectorAll(".nav-links a:not([data-section-id])")
+      .forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
 
     // Limpiar event listeners al desmontar
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("hashchange", checkUrlHash);
       mobileMenuToggle?.removeEventListener("click", toggleMenu);
-      document
-        .querySelectorAll(".nav-links a")
-        ?.forEach((link) => {
-          link.removeEventListener("click", closeMenu);
-        });
+      document.querySelectorAll(".nav-links a")?.forEach((link) => {
+        link.removeEventListener("click", closeMenu);
+      });
     };
   }
 

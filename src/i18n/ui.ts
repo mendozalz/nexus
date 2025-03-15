@@ -52,13 +52,13 @@ export const LANGUAGES: Record<
       'about': 'about-us',
       'planning': 'planning',
       'team': 'our-team',
-      'services': 'services',
+      'services': 'our-services',
     },
     es:{ 
       'about': 'nosotros',
       'planning': 'planificar',
       'team': 'nuestro-equipo',
-      'services': 'servicios',
+      'services': 'nuestros-servicios',
     }
   }
 
@@ -68,10 +68,12 @@ export const LANGUAGES: Record<
       'about': 'about-us',
       'planning': 'planning',
       'team': 'our-team',
+      'services': 'our-services',
     },
     es: {
       'about': 'nosotros',
       'planning': 'planificar',
       'team': 'nuestro-equipo',
+      'services': 'nuestros-servicios',
     }
   }

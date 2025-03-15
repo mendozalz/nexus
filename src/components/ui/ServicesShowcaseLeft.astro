@@ -1,0 +1,483 @@
+---
+import { Image } from "astro:assets";
+import placeholderImg from "../../assets/placeholder.svg";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getI18N } from "../../i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+
+// Definir los servicios con soporte multilingüe
+const services = [
+  {
+    iconType: "cloud-upload",
+    title:
+      lang === "en"
+        ? "Advanced management of diversified portfolios."
+        : "Gestión avanzada de portafolios diversificados.",
+    /* description:
+      lang === "en"
+        ? "Changes sync across all devices in real-time, ensuring your team always has the latest information at their fingertips."
+        : "Los cambios se sincronizan en todos los dispositivos en tiempo real, asegurando que tu equipo siempre tenga la información más reciente a su alcance.", */
+  },
+  {
+    iconType: "lock",
+    title:
+      lang === "en"
+        ? "Strategies designed to minimize market volatility."
+        : "Estrategias diseñadas para minimizar la volatilidad del mercado.",
+    /* description:
+      lang === "en"
+        ? "Your data is protected with enterprise-grade encryption and customizable access controls, giving you peace of mind."
+        : "Tus datos están protegidos con encriptación de nivel empresarial y controles de acceso personalizables, brindándote tranquilidad.", */
+  },
+  {
+    iconType: "database",
+    title:
+      lang === "en"
+        ? "Data-driven analysis models and advanced technology."
+        : "Modelos de análisis basados en datos y tecnología avanzada.",
+    /* description:
+      lang === "en"
+        ? "Our analytics engine provides actionable data on team performance, helping you optimize workflows and boost productivity."
+        : "Nuestro motor de análisis proporciona datos accionables sobre el rendimiento del equipo, ayudándote a optimizar flujos de trabajo y aumentar la productividad.", */
+  },
+];
+
+const operacion = [
+  {
+    iconType: "cloud-upload",
+    title: lang === "en" ? "Forex and Commodities:" : "Forex y Commodities:",
+    description:
+      lang === "en"
+        ? "Investment in highly liquid markets with risk mitigation strategies."
+        : "Inversión en mercados de alta liquidez con estrategias de mitigación de riesgo.",
+  },
+  {
+    iconType: "lock",
+    title: lang === "en" ? "Bonds and Options:" : "Bonos y Opciones:",
+    description:
+      lang === "en"
+        ? "Sustained profitability strategies with controlled exposure."
+        : "Estrategias de rentabilidad sostenida con exposición controlada.",
+  },
+];
+---
+
+<section class="services-section">
+  <div class="pattern-background"></div>
+  <div class="container">
+    <div class="content-grid">
+      <div class="text-content">
+        <!-- <p class="tagline">
+          {lang === "en" ? "Financial Markets" : "Mercados Financieros"}
+        </p> -->
+        <h1 class="headline">
+          {lang === "en" ? "Financial Markets" : "Mercados Financieros"}
+        </h1>
+        <!-- <p class="description">
+          {
+            lang === "en"
+              ? "Transform your team's productivity with our intuitive platform. Seamlessly integrate tasks, communication, and project tracking in one powerful solution."
+              : "Transforma la productividad de tu equipo con nuestra plataforma intuitiva. Integra sin problemas tareas, comunicación y seguimiento de proyectos en una poderosa solución."
+          }
+        </p> -->
+
+        <div class="services-list">
+          <ul>
+            {
+              services.map((service) => (
+                <li class="service-item">
+                  <div class="icon-wrapper">
+                    {service.iconType === "cloud-upload" && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="service-icon"
+                      >
+                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                        <path d="M12 12v9" />
+                        <path d="m16 16-4-4-4 4" />
+                      </svg>
+                    )}
+                    {service.iconType === "lock" && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="service-icon"
+                      >
+                        <rect
+                          width="18"
+                          height="11"
+                          x="3"
+                          y="11"
+                          rx="2"
+                          ry="2"
+                        />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                    )}
+                    {service.iconType === "database" && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="service-icon"
+                      >
+                        <ellipse cx="12" cy="5" rx="9" ry="3" />
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                      </svg>
+                    )}
+                  </div>
+                  <span>
+                    <strong class="service-title">{service.title}</strong>{" "}
+                    {service.description}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <h2 class="secondary-headline">
+            {
+              lang === "en"
+                ? "Sectors in which we operate:"
+                : "Sectores en los que operamos:"
+            }
+          </h2>
+          <ul>
+            {
+              operacion.map((service) => (
+                <li class="service-item">
+                  <div class="icon-wrapper">
+                    {service.iconType === "cloud-upload" && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="service-icon"
+                      >
+                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                        <path d="M12 12v9" />
+                        <path d="m16 16-4-4-4 4" />
+                      </svg>
+                    )}
+                    {service.iconType === "lock" && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="service-icon"
+                      >
+                        <rect
+                          width="18"
+                          height="11"
+                          x="3"
+                          y="11"
+                          rx="2"
+                          ry="2"
+                        />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                    )}
+                    {service.iconType === "database" && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="service-icon"
+                      >
+                        <ellipse cx="12" cy="5" rx="9" ry="3" />
+                        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                      </svg>
+                    )}
+                  </div>
+                  <span>
+                    <strong class="service-title">{service.title}</strong>{" "}
+                    {service.description}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="image-showcase">
+        <div class="image-container">
+          <Image
+            class="showcase-image"
+            src={placeholderImg}
+            alt={lang === "en"
+              ? "Workflow dashboard screenshot"
+              : "Captura de pantalla del panel de flujo de trabajo"}
+            width={500}
+            height={667}
+            format="webp"
+          />
+          <div class="image-caption">
+            <p class="caption-title">
+              {
+                lang === "en"
+                  ? "Lorem Ipsum"
+                  : "Revoluciona tu flujo de trabajo"
+              }
+            </p>
+            <p class="caption-subtitle">
+              {
+                lang === "en"
+                  ? "20+ Lorem ipsun venerice"
+                  : "20+ Servicios de expertos al alcance de tu mano"
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-section {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--color-acento);
+    padding: var(--espacio-2xl) 0;
+    color: var(--color-negro);
+  }
+
+  .pattern-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .pattern-background::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 128rem;
+    height: 64rem;
+    background-image:
+      linear-gradient(var(--color-dorado) 1px, transparent 1px),
+      linear-gradient(to right, var(--color-dorado) 1px, transparent 1px);
+    background-size: 200px 200px;
+    transform: translateX(-50%);
+    opacity: 0.1;
+    mask-image: radial-gradient(64rem 64rem at top, white, transparent);
+    -webkit-mask-image: radial-gradient(64rem 64rem at top, white, transparent);
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    padding: 0 var(--grid-gutter);
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espacio-xl);
+  }
+
+  .tagline {
+    font-size: var(--font-1);
+    font-weight: 600;
+    color: var(--color-dorado);
+    margin-bottom: var(--espacio-2xs);
+  }
+
+  .headline {
+    font-size: var(--font-4);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: var(--espacio-s);
+    color: var(--color-negro);
+  }
+
+  .description {
+    font-size: var(--font-1);
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: var(--espacio-l);
+    max-width: 700px;
+  }
+
+  .services-list {
+    margin-top: var(--espacio-m);
+  }
+
+  .services-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-m);
+    margin-bottom: var(--espacio-l);
+  }
+
+  .service-item {
+    display: flex;
+    gap: var(--espacio-s);
+    align-items: flex-start;
+    line-height: 1.6;
+  }
+
+  .icon-wrapper {
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .service-icon {
+    color: var(--color-dorado);
+  }
+
+  .service-title {
+    font-weight: 600;
+    color: var(--color-negro);
+  }
+
+  .secondary-headline {
+    font-size: var(--font-2);
+    font-weight: 700;
+    margin-top: var(--espacio-l);
+    margin-bottom: var(--espacio-s);
+    color: var(--color-negro);
+  }
+
+  .additional-info {
+    font-size: var(--font-1);
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .image-showcase {
+    margin-top: var(--espacio-m);
+  }
+
+  .image-container {
+    position: relative;
+    background-color: var(--color-acento-oscuro);
+    border-radius: var(--radio-xl);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .showcase-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .image-caption {
+    position: absolute;
+    bottom: var(--espacio-s);
+    left: var(--espacio-s);
+    right: var(--espacio-s);
+    max-width: calc(100% - var(--espacio-m));
+    background-color: var(--color-blanco);
+    padding: var(--espacio-s);
+    border-radius: var(--radio-m);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .caption-title {
+    font-size: var(--font-1);
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-acento);
+  }
+
+  .caption-subtitle {
+    font-size: var(--font-0);
+    color: rgba(0, 0, 0, 0.6);
+    margin: var(--espacio-3xs) 0 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .text-content {
+      order: 1;
+    }
+    .image-showcase {
+      order: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .services-section {
+      padding: var(--espacio-3xl) 0;
+    }
+
+    .headline {
+      font-size: var(--font-5);
+    }
+
+    .description {
+      font-size: var(--font-2);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-grid {
+      grid-template-columns: 7fr 5fr;
+      gap: var(--espacio-2xl);
+    }
+
+    .image-showcase {
+      margin-top: 0;
+    }
+
+    .image-container {
+      position: sticky;
+      top: var(--espacio-s);
+    }
+  }
+</style>
