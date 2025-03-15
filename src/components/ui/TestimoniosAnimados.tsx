@@ -80,9 +80,9 @@ export const AnimatedTestimonials = ({
       role="region"
       aria-label="Testimonios de clientes"
     >
-      <div className="relative grid grid-cols-1 md:grid-cols-[40%_60%] gap-40">
+      <div className="relative grid grid-cols-1 md:grid-cols-[40%_60%] gap-10 lg:gap-40">
         <div>
-          <div className="relative h-full w-full">
+          <div className="relative h-80 lg:h-full w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div

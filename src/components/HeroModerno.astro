@@ -156,6 +156,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: var(--espacio-2xs);
     z-index: 10;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -276,10 +277,13 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
   @media (max-width: 768px) {
     .hero-moderno {
       height: 80vh;
+      justify-content: end;
+      padding-bottom: var(--espacio-2xl);
     }
 
     .hero-title {
       font-size: var(--font-4);
+      padding: 0;
     }
 
     .hero-subtitle {
@@ -322,7 +326,7 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
   @media (max-width: 480px) {
     .hero-title {
       font-size: var(--font-3);
-      padding: 0 var(--espacio-xs);
+      padding: 0;
     }
 
     .hero-subtitle {
@@ -333,9 +337,10 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 
     /* Ajustar el contador de valor para pantallas pequeñas */
     .value-counter {
-      top: calc(var(--espacio-3xl) + 20px);
-      transform: translateX(-50%) scale(0.9);
-      max-width: 85%;
+      top: calc(var(--espacio-3xl) + var(--espacio-3xs));
+      width: 100%;
+      max-width: 70%;
+      height: 50px;
     }
   }
 </style>
