@@ -10,7 +10,7 @@ import {
   useTranslations,
 } from "../i18n/utils";
 import { getI18N } from "../i18n";
-import { routes } from "../i18n/ui";
+import { routes, sectionIds } from "../i18n/ui";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,7 +25,18 @@ const links = [
   }, */
   {
     name: t("nav.about"),
-    href: translatePath(`/${routes[lang].about}`, lang),
+    href: `/#${sectionIds[lang].about}`,
+    sectionId: sectionIds[lang].about,
+  },
+  {
+    name: t("nav.planning"),
+    href: `/#${sectionIds[lang].planning}`,
+    sectionId: sectionIds[lang].planning,
+  },
+  {
+    name: t("nav.team"),
+    href: `/#${sectionIds[lang].team}`,
+    sectionId: sectionIds[lang].team,
   },
   {
     name: t("nav.services"),
@@ -75,7 +86,7 @@ const links = [
       {
         links.map((link) => (
           <li>
-            <a href={link.href}>{link.name}</a>
+            <a href={link.href} data-section-id={link.sectionId || null}>{link.name}</a>
           </li>
         ))
       }
@@ -86,7 +97,7 @@ const links = [
 
 <script>
   function setupNavbar() {
-    const navbar = document.querySelector("#navbar");
+    const navbar = document.querySelector("#navbar") as HTMLElement | null;
     const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     const menuIcon = document.querySelector(".menu-icon");
@@ -120,26 +131,75 @@ const links = [
       }
     }
 
+    // Función para scroll suave
+    function scrollToSection(targetId: string) {
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const targetPosition =
+        targetElement.getBoundingClientRect().top +
+        window.scrollY -
+        navbarHeight - 20; // 20px adicionales para mejorar la posición
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    // Verificar si hay un hash en la URL al cargar la página
+    function checkUrlHash() {
+      const hash = window.location.hash;
+      if (hash && hash.length > 1) {
+        const targetId = hash.substring(1); // Remove the # character
+        setTimeout(() => {
+          scrollToSection(targetId);
+        }, 100);
+      }
+    }
+
     // Inicializar el estado del scroll
     handleScroll();
+    checkUrlHash();
 
     // Event Listeners
     window.addEventListener("scroll", handleScroll);
     mobileMenuToggle?.addEventListener("click", toggleMenu);
 
-    // Cerrar menú al hacer clic en enlaces
-    document
-      .querySelectorAll(".nav-links a, .nav-links-popover")
-      ?.forEach((link) => {
-        link.addEventListener("click", closeMenu);
+    // Manejar clics en enlaces de anclaje para scroll suave
+    document.querySelectorAll('.nav-links a[data-section-id]').forEach((anchor) => {
+      anchor.addEventListener("click", function(this: HTMLElement, e: Event) {
+        const sectionId = this.getAttribute("data-section-id");
+        if (!sectionId) return;
+        
+        e.preventDefault();
+        closeMenu();
+        
+        // Actualizar URL para mantener el enlace sin cambiar de página
+        window.history.pushState({}, "", `/#${sectionId}`);
+        
+        scrollToSection(sectionId);
       });
+    });
+
+    // Manejar cambios en el hash de la URL
+    window.addEventListener("hashchange", () => {
+      checkUrlHash();
+    });
+
+    // Manejar clics en enlaces normales
+    document.querySelectorAll('.nav-links a:not([data-section-id])').forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
 
     // Limpiar event listeners al desmontar
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("hashchange", checkUrlHash);
       mobileMenuToggle?.removeEventListener("click", toggleMenu);
       document
-        .querySelectorAll(".nav-links a, .nav-links-popover")
+        .querySelectorAll(".nav-links a")
         ?.forEach((link) => {
           link.removeEventListener("click", closeMenu);
         });
