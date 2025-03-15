@@ -128,7 +128,7 @@ export const AnimatedTestimonials = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex justify-between flex-col py-4 w-full bg-[var(--color-gris)] z-10">
+        <div className="flex justify-between flex-col py-4 w-full bg-[var(--color-blanco)] z-10">
           <motion.div
             key={active}
             initial={{
