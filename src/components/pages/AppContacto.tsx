@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -136,17 +134,14 @@ const AppContacto = (): JSX.Element => {
         ></iframe>
       </div>
 
-      <div
-        className="container mx-auto"
-        style={{ padding: "var(--espacio-2xl)" }}
-      >
+      <div className="container mx-auto max-w-[--grid-max-width]">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+              <h1 className="text-fl-2xl font-bold tracking-tighter">
                 Conéctate con nosotros
               </h1>
-              <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
+              <p className="max-w-[600px] text-gray-500 text-fl-base">
                 Si deseas conocer más sobre cómo podemos ayudarte a maximizar tu
                 capital, contáctanos y un asesor te brindará toda la información
                 que necesitas.

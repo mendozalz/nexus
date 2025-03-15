@@ -30,6 +30,7 @@ export const LANGUAGES: Record<
       'nav.team': 'Our Team',
       'nav.success': 'Success Stories',
       'nav.faq': 'FAQs',
+      'nav.contact': 'Contact',
       'nav.btnPrimary': 'Start investing today',
     },
     es: {
@@ -40,6 +41,7 @@ export const LANGUAGES: Record<
       'nav.team': 'Nuestro Equipo',
       'nav.success': 'Casos de Exito',
       'nav.faq': 'FAQs',
+      'nav.contact': 'Contacto',
       'nav.btnPrimary': 'Empieza a invertir hoy mismo',
     },
   } as const;
@@ -53,6 +55,7 @@ export const LANGUAGES: Record<
       'services': 'our-services',
       'success': 'success-stories',
       'faq': 'faqs',
+      'contact': 'contact',
     },
     es:{ 
       'about': 'nosotros',
@@ -61,6 +64,7 @@ export const LANGUAGES: Record<
       'services': 'nuestros-servicios',
       'success': 'casos-de-exito',
       'faq': 'faqs',
+      'contact': 'contacto',
     }
   }
 
