@@ -28,10 +28,9 @@ export const LANGUAGES: Record<
       'nav.services': 'Our Services',
       'nav.planning': 'Planning',
       'nav.team': 'Our Team',
+      'nav.success': 'Success Stories',
+      'nav.faq': 'FAQs',
       'nav.btnPrimary': 'Start investing today',
-      'section.about': 'about-us',
-      'section.team': 'our-team',
-      'section.planning': 'planning',
     },
     es: {
       'nav.home': 'Inicio',
@@ -39,10 +38,9 @@ export const LANGUAGES: Record<
       'nav.services': 'Nuestros servicios',
       'nav.planning': 'Planificación',
       'nav.team': 'Nuestro Equipo',
+      'nav.success': 'Casos de Exito',
+      'nav.faq': 'FAQs',
       'nav.btnPrimary': 'Empieza a invertir hoy mismo',
-      'section.about': 'nosotros',
-      'section.team': 'nuestro-equipo',
-      'section.planning': 'planificar',
     },
   } as const;
 
@@ -53,12 +51,16 @@ export const LANGUAGES: Record<
       'planning': 'planning',
       'team': 'our-team',
       'services': 'our-services',
+      'success': 'success-stories',
+      'faq': 'faqs',
     },
     es:{ 
       'about': 'nosotros',
       'planning': 'planificar',
       'team': 'nuestro-equipo',
       'services': 'nuestros-servicios',
+      'success': 'casos-de-exito',
+      'faq': 'faqs',
     }
   }
 
@@ -68,12 +70,10 @@ export const LANGUAGES: Record<
       'about': 'about-us',
       'planning': 'planning',
       'team': 'our-team',
-      'services': 'our-services',
     },
     es: {
       'about': 'nosotros',
       'planning': 'planificar',
       'team': 'nuestro-equipo',
-      'services': 'nuestros-servicios',
     }
   }

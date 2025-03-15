@@ -1,0 +1,127 @@
+---
+const approaches = [
+  {
+    icon: "rocket",
+    title:
+      "+85% de nuestros clientes han obtenido retornos por encima de sus expectativas.",
+    description:
+      "+85% de nuestros clientes han obtenido retornos por encima de sus expectativas.",
+  },
+  {
+    icon: "lightbulb",
+    title: "Inversiones inmobiliarias con plusvalías de hasta un 30% anual.",
+    description:
+      "Nuestra cultura prospera con el pensamiento creativo y fuera de lo común. Alentamos ideas audaces y las convertimos en realidad.",
+  },
+  {
+    icon: "users",
+    title:
+      "Participación en proyectos de alto crecimiento con retornos sostenidos en el tiempo.",
+    description:
+      "Creemos en el poder de equipos diversos trabajando juntos. Nuestras herramientas están diseñadas para potenciar el talento humano.",
+  },
+];
+---
+
+<seccion>
+  <div class="max-w-5xl mx-auto text-center mb-lg">
+    <h2 class="text-2xl md:text-3xl font-bold mb-xs leading-none">
+      Resultados tangibles y clientes satisfechos.
+    </h2>
+    <p class="text-base">
+      En <b>Nexus Private Capital,</b> nuestra trayectoria está respaldada por <b
+        >casos de éxito comprobados,</b
+      > con inversiones estratégicas que han generado <b
+        >crecimiento y rentabilidad</b
+      > para nuestros clientes.
+    </p>
+  </div>
+  <div class="grid gap-lg md:grid-cols-3 md:gap-xl">
+    {
+      approaches.map((item) => (
+        <div class="group flex flex-col rounded-lg border border-border p-md transition-all duration-300 hover:border-primary/20 hover:shadow-sm">
+          <div class="mb-sm flex size-12 items-center justify-center rounded-full border-2 border-primary/30 bg-primary/10 transition-all group-hover:bg-primary/20 md:size-14">
+            {item.icon === "rocket" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-dorado)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5 text-[var(--color-dorado)] md:size-6"
+              >
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+              </svg>
+            )}
+            {item.icon === "lightbulb" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-dorado)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5 text-[var(--color-dorado)] md:size-6"
+              >
+                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+              </svg>
+            )}
+            {item.icon === "users" && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--color-dorado)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="size-5 text-[var(--color-dorado)] md:size-6"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            )}
+          </div>
+          <h3 class=" text-fl-xl font-semibold leading-none">{item.title}</h3>
+          {/* <p class="mb-sm text-muted-foreground">{item.description}</p> */}
+          {/* <div class="mt-auto flex items-center text-sm font-medium text-[var(--color-dorado)] opacity-100 transition-opacity group-hover:opacity-500">
+            <span>Saber más</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--color-dorado)"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="ml-1 size-4"
+            >
+              <>
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </>
+            </svg>
+          </div> */}
+        </div>
+      ))
+    }
+  </div>
+</seccion>
