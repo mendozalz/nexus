@@ -53,24 +53,27 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
   <!-- Gradiente de superposición -->
   <div class="overlay-gradient"></div>
 
-  <!-- Contador de valor asegurado -->
-  <div class="value-counter">
-    <span class="counter-value">${formattedValue}</span>
-    <span class="counter-label">Total Value Secured</span>
-  </div>
+  <!-- Contenedor principal que agrupa el contador y el contenido -->
+  <div class="hero-main-container">
+    <!-- Contador de valor asegurado -->
+    <div class="value-counter">
+      <span class="counter-value">${formattedValue}</span>
+      <span class="counter-label">Total Value Secured</span>
+    </div>
 
-  <!-- Contenido principal -->
-  <div class="hero-content">
-    <h1 class="hero-title">{i18n.HERO_SMALL}</h1>
-    <p class="hero-subtitle">{i18n.HERO_H2}</p>
+    <!-- Contenido principal -->
+    <div class="hero-content">
+      <h1 class="hero-title">{i18n.HERO_SMALL}</h1>
+      <p class="hero-subtitle">{i18n.HERO_H2}</p>
 
-    <div class="cta-container">
-      <CallActions
-        text={ctaText}
-        url={ctaUrl}
-        _class="btn-primary"
-        _styles="display: flex; justify-content: center; align-items: center; width: 100%;"
-      />
+      <div class="cta-container">
+        <CallActions
+          text={ctaText}
+          url={ctaUrl}
+          _class="btn-primary"
+          _styles="display: flex; justify-content: center; align-items: center; width: 100%;"
+        />
+      </div>
     </div>
   </div>
 
@@ -95,6 +98,18 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  /* Contenedor que agrupa el contador y el contenido principal */
+  .hero-main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    width: 100%;
+    max-width: var(--grid-max-width);
   }
 
   /* Rejilla isométrica */
@@ -146,10 +161,6 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 
   /* Contador de valor */
   .value-counter {
-    position: absolute;
-    top: calc(var(--espacio-3xl) + 50px);
-    left: 50%;
-    transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: var(--espacio-xs);
     padding: var(--espacio-xs) var(--espacio-s);
@@ -161,6 +172,9 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     z-index: 10;
     border: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
+    margin-bottom: var(--espacio-m);
+    width: auto;
+    max-width: 90%;
   }
 
   .counter-value {
@@ -281,6 +295,13 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
       padding-bottom: var(--espacio-3xl);
     }
 
+    .hero-main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
     .hero-title {
       font-size: var(--font-4);
       padding: 0;
@@ -291,10 +312,10 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     }
 
     .value-counter {
-      top: calc(var(--espacio-xl) + 80px);
       padding: var(--espacio-3xs) var(--espacio-xs);
       width: auto;
       max-width: 90%;
+      margin-bottom: var(--espacio-s);
     }
 
     .counter-value {
@@ -337,10 +358,10 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 
     /* Ajustar el contador de valor para pantallas pequeñas */
     .value-counter {
-      top: calc(var(--espacio-3xl) + var(--espacio-l));
-      width: 100%;
-      max-width: 70%;
-      height: 50px;
+      width: auto;
+      max-width: 85%;
+      height: auto;
+      margin-bottom: var(--espacio-s);
     }
   }
 </style>
