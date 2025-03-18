@@ -146,26 +146,37 @@ const links = isHomePage
     const menuIcon = document.querySelector(".menu-icon");
     const isContactPage = navbar?.getAttribute("data-contact-page") === "true";
 
-    // Aplicar clase de contacto inmediatamente si estamos en la página de contacto
-    if (isContactPage && navbar) {
-      navbar.classList.add("contact-page");
+    // Asegurarnos que el navbar tiene una clase inicial adecuada
+    if (navbar) {
+      // Primero, agregamos la clase `initial-state` para definir el estado inicial
+      navbar.classList.add("initial-state");
+      
+      // Si estamos en la página de contacto
+      if (isContactPage) {
+        navbar.classList.add("contact-page");
+      }
     }
 
     // Función para manejar el scroll
     function handleScroll() {
+      if (!navbar) return;
+
+      // Eliminar la clase de estado inicial una vez que se ha hecho scroll
+      navbar.classList.remove("initial-state");
+      
       if (window.scrollY > 50) {
-        navbar?.classList.add("scrolled");
+        navbar.classList.add("scrolled");
         
         // En la página de contacto, al hacer scroll eliminamos el estilo oscuro
         if (isContactPage) {
-          navbar?.classList.remove("contact-page");
+          navbar.classList.remove("contact-page");
         }
       } else {
-        navbar?.classList.remove("scrolled");
+        navbar.classList.remove("scrolled");
         
         // Al volver arriba en la página de contacto, restauramos el estilo oscuro
         if (isContactPage) {
-          navbar?.classList.add("contact-page");
+          navbar.classList.add("contact-page");
         }
       }
     }
@@ -220,12 +231,20 @@ const links = isHomePage
     }
 
     // Inicializar el estado del scroll
-    handleScroll();
-    checkUrlHash();
+    setTimeout(() => {
+      // Usar setTimeout para asegurar que la página está completamente cargada
+      handleScroll();
+      checkUrlHash();
+    }, 100);
 
     // Event Listeners
     window.addEventListener("scroll", handleScroll);
     mobileMenuToggle?.addEventListener("click", toggleMenu);
+
+    // Asegurar que el estado del scroll es correcto incluso en recargas de página
+    window.addEventListener("load", handleScroll);
+    // También manejar el resize para recalcular posiciones
+    window.addEventListener("resize", handleScroll);
 
     // Manejar clics en enlaces de anclaje para scroll suave
     document
@@ -261,6 +280,8 @@ const links = isHomePage
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("hashchange", checkUrlHash);
+      window.removeEventListener("load", handleScroll);
+      window.removeEventListener("resize", handleScroll);
       mobileMenuToggle?.removeEventListener("click", toggleMenu);
       document.querySelectorAll(".nav-links a")?.forEach((link) => {
         link.removeEventListener("click", closeMenu);
@@ -298,6 +319,11 @@ const links = isHomePage
     container-type: inline-size;
     container-name: navbarContainer;
     backdrop-filter: blur(6px);
+  }
+
+  /* Estilos para el estado inicial (antes de cualquier scroll) */
+  .navbar.initial-state {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro para mejor visibilidad inicial */
   }
 
   /* Estilos predeterminados al hacer scroll */
@@ -355,6 +381,15 @@ const links = isHomePage
     opacity: 1;
   }
 
+  /* Comportamiento en el estado inicial */
+  .navbar.initial-state .logo-blanco {
+    opacity: 1;
+  }
+
+  .navbar.initial-state .logo-negro {
+    opacity: 0;
+  }
+
   /* Comportamiento en la página de contacto (por defecto, sin scroll) */
   .navbar.contact-page .logo-blanco {
     opacity: 1;
@@ -387,6 +422,11 @@ const links = isHomePage
   /* Comportamiento normal al hacer scroll */
   .navbar.scrolled .nav-links a {
     color: var(--color-dorado);
+  }
+
+  /* Comportamiento en el estado inicial */
+  .navbar.initial-state .nav-links a {
+    color: var(--color-blanco);
   }
 
   /* Comportamiento en la página de contacto (por defecto, sin scroll) */
@@ -434,14 +474,15 @@ const links = isHomePage
     transition: 0.25s ease-in-out;
   }
 
+  /* Estado inicial y de contacto */
+  .navbar.initial-state .menu-icon span,
+  .navbar.contact-page .menu-icon span {
+    background: var(--color-blanco);
+  }
+
   /* Comportamiento normal al hacer scroll */
   .navbar.scrolled .menu-icon span {
     background: var(--color-dorado);
-  }
-
-  /* Comportamiento en la página de contacto (por defecto, sin scroll) */
-  .navbar.contact-page .menu-icon span {
-    background: var(--color-blanco);
   }
 
   .menu-icon span:nth-child(1) {

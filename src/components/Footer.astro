@@ -583,9 +583,6 @@ const phones = [
   }
 
   @media (max-width: 600px) {
-    .footer-container {
-      padding-inline: var(--espacio-l);
-    }
     .footer__content {
       grid-template-columns: 1fr;
       gap: var(--espacio-xs);
@@ -611,6 +608,9 @@ const phones = [
     }
     .footer__form {
       grid-template-columns: 70% 30%;
+    }
+    .footer__phones__tablet {
+      display: none;
     }
   }
 </style>
