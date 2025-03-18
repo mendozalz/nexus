@@ -138,9 +138,19 @@
   /* Barra de scroll */
   --thumbScroll: #64db4c;
   --backGroundScroll: red;
+
+  /* Configuración de scroll */
+  --scroll-padding: calc(var(--espacio-s) + var(--espacio-2xs));
+  --scroll-behavior: smooth;
 }
 
-html,
+html {
+  scroll-behavior: var(--scroll-behavior);
+  scroll-padding-top: var(--scroll-padding);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   padding: 0;
   margin: 0;

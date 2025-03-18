@@ -20,11 +20,15 @@ const i18n = getI18N({ currentLocale: currentLang });
 
 // Determinar si estamos en la página de inicio
 const currentPath = Astro.url.pathname;
-const isHomePage = currentPath === "/" || currentPath === `/${lang}/` || currentPath === `/${lang}`;
+const isHomePage =
+  currentPath === "/" ||
+  currentPath === `/${lang}/` ||
+  currentPath === `/${lang}`;
 
 // Determinar si estamos en la página de contacto
 const contactPath = `/${routes[lang].contact}`;
-const isContactPage = currentPath === contactPath || currentPath === `/${lang}${contactPath}`;
+const isContactPage =
+  currentPath === contactPath || currentPath === `/${lang}${contactPath}`;
 
 // Enlaces de anclaje (solo visibles en home)
 const anchorLinks = [
@@ -85,9 +89,9 @@ const normalLinks = [
 ];
 
 // Combinar enlaces según la página actual
-const links = isHomePage 
-  ? [...anchorLinks, ...normalLinks]                 // En home: mostrar anclajes + enlaces normales
-  : [homeLink, ...normalLinks];                      // En otras páginas: mostrar Home + enlaces normales
+const links = isHomePage
+  ? [...anchorLinks, ...normalLinks] // En home: mostrar anclajes + enlaces normales
+  : [homeLink, ...normalLinks]; // En otras páginas: mostrar Home + enlaces normales
 ---
 
 <nav id="navbar" class:list={["navbar", { "contact-nav": isContactPage }]}>
@@ -121,7 +125,12 @@ const links = isHomePage
       {
         links.map((link) => (
           <li>
-            <a href={link.href} data-section-id={link.sectionId !== null ? link.sectionId : undefined}>
+            <a
+              href={link.href}
+              data-section-id={
+                link.sectionId !== null ? link.sectionId : undefined
+              }
+            >
               {link.name}
             </a>
           </li>
@@ -132,150 +141,133 @@ const links = isHomePage
   </div>
 </nav>
 
-<!-- Polyfill para navegadores que no soportan CSS Scroll Animations -->
 <script>
-  // Verificar soporte para scroll-driven animations
-  const supportsScrollTimeline = CSS.supports("animation-timeline: scroll()");
-  
-  if (!supportsScrollTimeline) {
-    // Fallback a JavaScript para navegadores sin soporte
-    function setupNavbar() {
-      const navbar = document.querySelector("#navbar");
-      const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".nav-links");
-      const menuIcon = document.querySelector(".menu-icon");
-      
-      // Función para manejar el scroll
-      function handleScroll() {
-        if (window.scrollY > 50) {
-          navbar?.classList.add("scrolled");
-          navbar?.classList.remove("top-of-page");
-        } else {
-          navbar?.classList.remove("scrolled");
-          navbar?.classList.add("top-of-page");
-        }
-      }
+  function setupNavigation() {
+    const navbar = document.querySelector("#navbar") as HTMLElement;
+    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const menuIcon = document.querySelector(".menu-icon");
 
-      // Función para cerrar el menú
-      function closeMenu() {
-        navLinks?.classList.remove("active");
-        menuIcon?.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-
-      // Función para alternar el menú
-      function toggleMenu() {
-        const isOpen = navLinks?.classList.contains("active");
-
-        if (isOpen) {
-          closeMenu();
-        } else {
-          navLinks?.classList.add("active");
-          menuIcon?.classList.add("active");
-          document.body.style.overflow = "hidden";
-        }
-      }
-
-      // Añadir clase inicial
-      navbar?.classList.add("top-of-page");
-      
-      // Inicializar scroll
-      handleScroll();
-      
-      // Evento para scroll
-      window.addEventListener("scroll", handleScroll);
-      
-      // Eventos para menú móvil
-      mobileMenuToggle?.addEventListener("click", toggleMenu);
-      
-      // Manejar clics en enlaces
-      document.querySelectorAll(".nav-links a")?.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-      
-      // Limpiar event listeners
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        mobileMenuToggle?.removeEventListener("click", toggleMenu);
-        document.querySelectorAll(".nav-links a")?.forEach((link) => {
-          link.removeEventListener("click", closeMenu);
-        });
-      };
+    // Función para cerrar el menú móvil
+    function closeMenu() {
+      navLinks?.classList.remove("active");
+      menuIcon?.classList.remove("active");
+      document.body.style.overflow = "";
     }
-    
-    // Configuración inicial
-    let cleanup = setupNavbar();
-    
-    // Manejo de navegación Astro
-    document.addEventListener("astro:page-load", () => {
-      if (cleanup) cleanup();
-      cleanup = setupNavbar();
-    });
-    
-    document.addEventListener("astro:before-swap", () => {
-      if (cleanup) cleanup();
-    });
-  } else {
-    // Si hay soporte nativo, solo manejamos el menú móvil
-    function setupMobileMenu() {
-      const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".nav-links");
-      const menuIcon = document.querySelector(".menu-icon");
 
-      function toggleMenu() {
-        const isOpen = navLinks?.classList.contains("active");
-        
-        if (isOpen) {
-          navLinks?.classList.remove("active");
-          menuIcon?.classList.remove("active");
-          document.body.style.overflow = "";
-        } else {
-          navLinks?.classList.add("active");
-          menuIcon?.classList.add("active");
-          document.body.style.overflow = "hidden";
-        }
+    // Función para alternar el menú móvil
+    function toggleMenu() {
+      const isOpen = navLinks?.classList.contains("active");
+      if (isOpen) {
+        closeMenu();
+      } else {
+        navLinks?.classList.add("active");
+        menuIcon?.classList.add("active");
+        document.body.style.overflow = "hidden";
       }
-      
-      function closeMenu() {
-        navLinks?.classList.remove("active");
-        menuIcon?.classList.remove("active");
-        document.body.style.overflow = "";
-      }
-      
-      // Evento para el menú móvil
-      mobileMenuToggle?.addEventListener("click", toggleMenu);
-      
-      // Cerrar menú al hacer clic en enlaces
-      document.querySelectorAll(".nav-links a")?.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-      
-      return () => {
-        mobileMenuToggle?.removeEventListener("click", toggleMenu);
-        document.querySelectorAll(".nav-links a")?.forEach((link) => {
-          link.removeEventListener("click", closeMenu);
-        });
-      };
     }
-    
-    let cleanup = setupMobileMenu();
-    
-    document.addEventListener("astro:page-load", () => {
-      if (cleanup) cleanup();
-      cleanup = setupMobileMenu();
+
+    /**
+     * Maneja el scroll suave hacia las secciones
+     * @param {Event} e - Evento del click
+     */
+    function handleSmoothScroll(e: Event) {
+      const link = e.currentTarget as HTMLAnchorElement;
+      const targetId = link.getAttribute("href")?.substring(1);
+
+      if (!targetId) return;
+
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+
+      e.preventDefault();
+
+      // Obtener la altura del navbar con tipado correcto
+      const navbarHeight = navbar?.offsetHeight || 0;
+
+      // Calcular la posición del elemento objetivo
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+      // Realizar el scroll suave con opciones mejoradas
+      try {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+          // Asegurar que el scroll sea suave incluso en navegadores antiguos
+          ...(CSS.supports("scroll-behavior: smooth")
+            ? {}
+            : {
+                // Fallback para navegadores sin soporte nativo
+                behavior: "auto",
+              }),
+        });
+      } catch (error) {
+        // Fallback simple si falla el scroll suave
+        window.scrollTo(0, offsetPosition);
+      }
+
+      // Cerrar el menú móvil si está abierto
+      closeMenu();
+
+      // Actualizar la URL
+      history.pushState(null, "", `#${targetId}`);
+    }
+
+    /**
+     * Maneja el cambio de estilos del navbar al hacer scroll
+     */
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        navbar?.classList.add("scrolled");
+        navbar?.classList.remove("top-of-page");
+      } else {
+        navbar?.classList.remove("scrolled");
+        navbar?.classList.add("top-of-page");
+      }
+    }
+
+    // Inicializar estado del navbar
+    navbar?.classList.add("top-of-page");
+    handleScroll();
+
+    // Configurar event listeners con opciones optimizadas
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    mobileMenuToggle?.addEventListener("click", toggleMenu);
+
+    // Configurar scroll suave para enlaces de anclaje
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", handleSmoothScroll);
     });
-    
-    document.addEventListener("astro:before-swap", () => {
-      if (cleanup) cleanup();
-    });
+
+    // Limpiar event listeners
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      mobileMenuToggle?.removeEventListener("click", toggleMenu);
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.removeEventListener("click", handleSmoothScroll);
+      });
+    };
   }
+
+  // Configuración inicial
+  let cleanup = setupNavigation();
+
+  // Manejar navegación de Astro
+  document.addEventListener("astro:page-load", () => {
+    if (cleanup) cleanup();
+    cleanup = setupNavigation();
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    if (cleanup) cleanup();
+  });
 </script>
 
 <style>
   /* Definimos el timeline de scroll con transiciones mejoradas */
   @keyframes scroll-status {
     0% {
-      background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
       padding: var(--espacio-s) 0;
     }
@@ -285,83 +277,28 @@ const links = isHomePage
       padding: var(--espacio-2xs) 0;
     }
   }
-  
+
   /* Crear un timeline basado en el scroll con transiciones mejoradas */
   @supports (animation-timeline: scroll()) {
     :root {
-      --scroll-threshold: 100px; /* Ampliamos el umbral para una transición más gradual */
+      --scroll-threshold: 100px;
     }
-  
+
     html {
       scroll-timeline: --page-scroll block;
-      overflow-x: hidden; /* Evitar scroll horizontal */
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--espacio-s) + var(--espacio-2xs));
     }
-  
+
     .navbar {
-      /* Animación principal con curva ease-in-out para suavidad */
       animation: scroll-status ease-in-out;
       animation-timeline: --page-scroll;
       animation-range: 0px var(--scroll-threshold);
-      
-      /* Estado inicial (top of page) */
-      background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
-      
-      /* Añadir una sombra sutil */
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    
-    /* Caso especial para contacto */
-    .contact-nav {
-      /* Mantenemos oscuro en página de contacto */
-      background-color: rgba(0, 0, 0, 0.9);
-      color: #ffffff;
-    }
-    
-    /* Color de enlaces con timing suavizado */
-    .nav-links a {
-      color: var(--color-blanco);
-      transition: color 0.5s ease-in-out;
-      will-change: color; /* Optimización de rendimiento */
-    }
-    
-    /* Iconos del menú con timing suavizado */
-    .menu-icon span {
-      background-color: var(--color-blanco);
-      transition: background-color 0.5s ease-in-out;
-      will-change: background-color; /* Optimización de rendimiento */
-    }
-    
-    /* Estado al hacer scroll */
-    .navbar.scrolled .nav-links a,
-    .navbar:where(:not(.contact-nav)):has(html:not(.top-of-page)) .nav-links a {
-      color: var(--color-dorado);
-    }
-    
-    .navbar.scrolled .menu-icon span,
-    .navbar:where(:not(.contact-nav)):has(html:not(.top-of-page)) .menu-icon span {
-      background-color: var(--color-dorado);
-    }
-    
-    /* Caso especial para contacto - valores consistentes */
-    .contact-nav .nav-links a {
-      color: var(--color-blanco);
-    }
-    
-    .contact-nav .menu-icon span {
-      background-color: var(--color-blanco);
-    }
-    
-    /* Cuando se hace scroll en página de contacto */
-    .contact-nav.scrolled .nav-links a {
-      color: var(--color-dorado);
-    }
-    
-    .contact-nav.scrolled .menu-icon span {
-      background-color: var(--color-dorado);
-    }
   }
-  
+
   /* Estilos fallback para navegadores sin soporte */
   .navbar {
     position: fixed;
@@ -374,30 +311,29 @@ const links = isHomePage
     container-type: inline-size;
     container-name: navbarContainer;
     backdrop-filter: blur(6px);
-    background-color: rgba(0, 0, 0, 0.85);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   /* Estado inicial - arriba de la página */
   .navbar.top-of-page {
-    background-color: rgba(0, 0, 0, 0.85);
     color: #fff;
     padding: var(--espacio-s) 0;
   }
-  
+
   /* Estado después de scroll */
   .navbar.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     color: #000;
     padding: var(--espacio-2xs) 0;
+    z-index: 9999;
   }
-  
+
   /* Página de contacto */
   .navbar.contact-nav {
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
   }
-  
+
   /* Cuando hacemos scroll en página de contacto */
   .navbar.contact-nav.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
@@ -463,8 +399,8 @@ const links = isHomePage
   .navbar.contact-nav .logo-negro {
     opacity: 0;
   }
-  
-  /* Cuando hacemos scroll en página de contacto */
+
+  /* Cuando se hace scroll en página de contacto */
   .navbar.contact-nav.scrolled .logo-blanco {
     opacity: 0;
   }
@@ -498,12 +434,12 @@ const links = isHomePage
   .navbar.scrolled .nav-links a {
     color: var(--color-dorado);
   }
-  
+
   /* Comportamiento página de contacto */
   .navbar.contact-nav .nav-links a {
     color: var(--color-blanco);
   }
-  
+
   /* Cuando hacemos scroll en página de contacto */
   .navbar.contact-nav.scrolled .nav-links a {
     color: var(--color-dorado);
@@ -548,17 +484,17 @@ const links = isHomePage
     transition: background-color 0.5s ease-in-out;
     will-change: background-color; /* Optimización de rendimiento */
   }
-  
+
   /* Fallback: Estado después de scroll */
   .navbar.scrolled .menu-icon span {
     background: var(--color-dorado);
   }
-  
+
   /* Estilo para página de contacto */
   .navbar.contact-nav .menu-icon span {
     background: var(--color-blanco);
   }
-  
+
   /* Cuando hacemos scroll en página de contacto */
   .navbar.contact-nav.scrolled .menu-icon span {
     background: var(--color-dorado);

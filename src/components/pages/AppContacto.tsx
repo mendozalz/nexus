@@ -119,7 +119,7 @@ const AppContacto = (): JSX.Element => {
   };
 
   return (
-    <section className="py-12 md:py-24 lg:py-20">
+    <section className="py-12 md:py-24 lg:py-28">
       <div className="w-full mb-12 border border-gray-300">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15863.487356421934!2d-75.6091692!3d6.2805746000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1742027705606!5m2!1ses!2sco"
@@ -135,7 +135,7 @@ const AppContacto = (): JSX.Element => {
       </div>
 
       <div
-        className="container mx-auto max-w-[--grid-max-width]"
+        className="container mx-auto max-w-[--grid-max-width] lg:mt-20"
         style={{
           paddingInline: "var(--grid-gutter)",
           paddingBlock: "var(--espacio-l)",
