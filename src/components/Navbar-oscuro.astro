@@ -1,0 +1,581 @@
+---
+import { Image } from "astro:assets";
+import "../styles/global.css";
+import logotipoNegro from "../assets/nexus_negro.png";
+import logotipoBlanco from "../assets/nexus_blanco.png";
+import LanguageSelector from "./LanguageSelector.astro";
+import {
+  getLangFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from "../i18n/utils";
+import { getI18N } from "../i18n";
+import { routes, sectionIds } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+
+// Determinar si estamos en la página de inicio
+const currentPath = Astro.url.pathname;
+const isHomePage =
+  currentPath === "/" ||
+  currentPath === `/${lang}/` ||
+  currentPath === `/${lang}`;
+
+// Determinar si estamos en la página de contacto
+const contactPath = `/${routes[lang].contact}`;
+const isContactPage =
+  currentPath === contactPath || currentPath === `/${lang}${contactPath}`;
+
+// Enlaces de anclaje (solo visibles en home)
+const anchorLinks = [
+  {
+    name: t("nav.about"),
+    href: `/#${sectionIds[lang].about}`,
+    sectionId: sectionIds[lang].about,
+    isAnchor: true,
+  },
+  {
+    name: t("nav.planning"),
+    href: `/#${sectionIds[lang].planning}`,
+    sectionId: sectionIds[lang].planning,
+    isAnchor: true,
+  },
+  {
+    name: t("nav.team"),
+    href: `/#${sectionIds[lang].team}`,
+    sectionId: sectionIds[lang].team,
+    isAnchor: true,
+  },
+];
+
+// Enlace a Home (solo visible cuando no estamos en home)
+const homeLink = {
+  name: t("nav.home"),
+  href: translatePath("/", lang),
+  sectionId: null,
+  isAnchor: false,
+};
+
+// Enlaces normales (visibles en todas las páginas)
+const normalLinks = [
+  {
+    name: t("nav.services"),
+    href: translatePath(`/${routes[lang].services}`, lang),
+    sectionId: null,
+    isAnchor: false,
+  },
+  {
+    name: t("nav.success"),
+    href: translatePath(`/${routes[lang].success}`, lang),
+    sectionId: null,
+    isAnchor: false,
+  },
+  {
+    name: t("nav.faq"),
+    href: translatePath(`/${routes[lang].faq}`, lang),
+    sectionId: null,
+    isAnchor: false,
+  },
+  {
+    name: t("nav.contact"),
+    href: translatePath(`/${routes[lang].contact}`, lang),
+    sectionId: null,
+    isAnchor: false,
+  },
+];
+
+// Combinar enlaces según la página actual
+const links = isHomePage
+  ? [...anchorLinks, ...normalLinks] // En home: mostrar anclajes + enlaces normales
+  : [homeLink, ...normalLinks]; // En otras páginas: mostrar Home + enlaces normales
+---
+
+<nav id="navbar" class:list={["navbar", { "contact-nav": isContactPage }]}>
+  <div class="nav-container">
+    <a href={translatePath("/", lang)} class="logo-container">
+      <div class="logo-wrapper">
+        <Image
+          class="logo logo-blanco"
+          src={logotipoBlanco}
+          alt="Nexus Logo"
+          width="150"
+          height="45"
+        />
+        <Image
+          class="logo logo-negro"
+          src={logotipoNegro}
+          alt="Nexus Logo"
+          width="150"
+          height="45"
+        />
+      </div>
+    </a>
+    <div class="menu-toggle mobile-menu-toggle" id="mobile-menu">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      {
+        links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              data-section-id={
+                link.sectionId !== null ? link.sectionId : undefined
+              }
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+      <LanguageSelector />
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function setupNavigation() {
+    const navbar = document.querySelector("#navbar") as HTMLElement;
+    const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    const menuIcon = document.querySelector(".menu-icon");
+
+    // Función para cerrar el menú móvil
+    function closeMenu() {
+      navLinks?.classList.remove("active");
+      menuIcon?.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    // Función para alternar el menú móvil
+    function toggleMenu() {
+      const isOpen = navLinks?.classList.contains("active");
+      if (isOpen) {
+        closeMenu();
+      } else {
+        navLinks?.classList.add("active");
+        menuIcon?.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+    }
+
+    /**
+     * Maneja el scroll suave hacia las secciones
+     * @param {Event} e - Evento del click
+     */
+    function handleSmoothScroll(e: Event) {
+      const link = e.currentTarget as HTMLAnchorElement;
+      const targetId = link.getAttribute("href")?.substring(1);
+
+      if (!targetId) return;
+
+      const targetElement = document.getElementById(targetId);
+      if (!targetElement) return;
+
+      e.preventDefault();
+
+      // Obtener la altura del navbar con tipado correcto
+      const navbarHeight = navbar?.offsetHeight || 0;
+
+      // Calcular la posición del elemento objetivo
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+      // Realizar el scroll suave con opciones mejoradas
+      try {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+          // Asegurar que el scroll sea suave incluso en navegadores antiguos
+          ...(CSS.supports("scroll-behavior: smooth")
+            ? {}
+            : {
+                // Fallback para navegadores sin soporte nativo
+                behavior: "auto",
+              }),
+        });
+      } catch (error) {
+        // Fallback simple si falla el scroll suave
+        window.scrollTo(0, offsetPosition);
+      }
+
+      // Cerrar el menú móvil si está abierto
+      closeMenu();
+
+      // Actualizar la URL
+      history.pushState(null, "", `#${targetId}`);
+    }
+
+    /**
+     * Maneja el cambio de estilos del navbar al hacer scroll
+     */
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        navbar?.classList.add("scrolled");
+        navbar?.classList.remove("top-of-page");
+      } else {
+        navbar?.classList.remove("scrolled");
+        navbar?.classList.add("top-of-page");
+      }
+    }
+
+    // Inicializar estado del navbar
+    navbar?.classList.add("top-of-page");
+    handleScroll();
+
+    // Configurar event listeners con opciones optimizadas
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    mobileMenuToggle?.addEventListener("click", toggleMenu);
+
+    // Configurar scroll suave para enlaces de anclaje
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", handleSmoothScroll);
+    });
+
+    // Limpiar event listeners
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      mobileMenuToggle?.removeEventListener("click", toggleMenu);
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.removeEventListener("click", handleSmoothScroll);
+      });
+    };
+  }
+
+  // Configuración inicial
+  let cleanup = setupNavigation();
+
+  // Manejar navegación de Astro
+  document.addEventListener("astro:page-load", () => {
+    if (cleanup) cleanup();
+    cleanup = setupNavigation();
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    if (cleanup) cleanup();
+  });
+</script>
+
+<style>
+  /* Definimos el timeline de scroll con transiciones mejoradas */
+  @keyframes scroll-status {
+    0% {
+      color: #fff;
+      padding: var(--espacio-s) 0;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+    100% {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #000;
+      padding: var(--espacio-2xs) 0;
+    }
+  }
+
+  /* Crear un timeline basado en el scroll con transiciones mejoradas */
+  @supports (animation-timeline: scroll()) {
+    :root {
+      --scroll-threshold: 100px;
+    }
+
+    html {
+      scroll-timeline: --page-scroll block;
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--espacio-s) + var(--espacio-2xs));
+    }
+
+    .navbar {
+      animation: scroll-status ease-in-out;
+      animation-timeline: --page-scroll;
+      animation-range: 0px var(--scroll-threshold);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  /* Estilos fallback para navegadores sin soporte */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    transition: all 0.5s ease-in-out; /* Transición más lenta y suave */
+    z-index: 99;
+    container-type: inline-size;
+    container-name: navbarContainer;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estado inicial - arriba de la página */
+  .navbar.top-of-page {
+    color: #fff;
+    padding: var(--espacio-s) 0;
+  }
+
+  /* Estado después de scroll */
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000;
+    padding: var(--espacio-2xs) 0;
+    z-index: 9999;
+  }
+
+  /* Página de contacto */
+  .navbar.contact-nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+  }
+
+  /* Cuando hacemos scroll en página de contacto */
+  .navbar.contact-nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #000;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--grid-max-width);
+    margin: 0 auto;
+    padding: var(--espacio-s) 0;
+    padding-inline: var(--grid-gutter);
+  }
+
+  /* Nuevo contenedor para los logos */
+  .logo-container {
+    height: 45px; /* Altura fija */
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    width: 150px; /* Ancho fijo */
+    height: 45px; /* Altura fija */
+  }
+
+  .logo {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .logo-blanco {
+    opacity: 1;
+  }
+
+  .logo-negro {
+    opacity: 0;
+  }
+
+  /* Comportamiento normal al hacer scroll */
+  .navbar.scrolled .logo-blanco {
+    opacity: 0;
+  }
+
+  .navbar.scrolled .logo-negro {
+    opacity: 1;
+  }
+
+  /* Página de contacto */
+  .navbar.contact-nav .logo-blanco {
+    opacity: 1;
+  }
+
+  .navbar.contact-nav .logo-negro {
+    opacity: 0;
+  }
+
+  /* Cuando se hace scroll en página de contacto */
+  .navbar.contact-nav.scrolled .logo-blanco {
+    opacity: 0;
+  }
+
+  .navbar.contact-nav.scrolled .logo-negro {
+    opacity: 1;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--espacio-s);
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-0);
+    font-family: var(--Proxima);
+    font-weight: 600;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--color-blanco);
+    transition:
+      color 0.5s ease-in-out,
+      transform 0.3s ease;
+    will-change: color, transform; /* Optimización de rendimiento */
+  }
+
+  /* Fallback: Comportamiento normal al hacer scroll */
+  .navbar.scrolled .nav-links a {
+    color: var(--color-dorado);
+  }
+
+  /* Comportamiento página de contacto */
+  .navbar.contact-nav .nav-links a {
+    color: var(--color-blanco);
+  }
+
+  /* Cuando hacemos scroll en página de contacto */
+  .navbar.contact-nav.scrolled .nav-links a {
+    color: var(--color-dorado);
+  }
+
+  .nav-links a:hover {
+    transform: scale(1.1);
+  }
+
+  .content section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--color-blanco);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: background-color 0.5s ease-in-out;
+    will-change: background-color; /* Optimización de rendimiento */
+  }
+
+  /* Fallback: Estado después de scroll */
+  .navbar.scrolled .menu-icon span {
+    background: var(--color-dorado);
+  }
+
+  /* Estilo para página de contacto */
+  .navbar.contact-nav .menu-icon span {
+    background: var(--color-blanco);
+  }
+
+  /* Cuando hacemos scroll en página de contacto */
+  .navbar.contact-nav.scrolled .menu-icon span {
+    background: var(--color-dorado);
+  }
+
+  .menu-icon span:nth-child(1) {
+    top: 0px;
+  }
+
+  .menu-icon span:nth-child(2) {
+    top: 8px;
+  }
+
+  .menu-icon span:nth-child(3) {
+    top: 16px;
+  }
+
+  .menu-icon.active span:nth-child(1) {
+    top: 8px;
+    transform: rotate(135deg);
+  }
+
+  .menu-icon.active span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  .menu-icon.active span:nth-child(3) {
+    top: 8px;
+    transform: rotate(-135deg);
+  }
+
+  @container navbarContainer (width < 1362px) {
+    .nav-container {
+      padding-inline: var(--grid-gutter);
+    }
+  }
+
+  @container navbarContainer (width < 1000px) {
+    .nav-container {
+      flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+      display: flex;
+      z-index: 1001;
+    }
+
+    .nav-links {
+      position: fixed;
+      left: -100%;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.9);
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      height: 100vh;
+      justify-content: center;
+      z-index: 1000;
+      font-size: var(--font-2);
+    }
+
+    .nav-links-popover {
+      position: relative !important;
+      left: 0px !important;
+      height: 1px !important;
+      margin: var(--espacio-m) 0 !important;
+    }
+
+    .nav-links.active {
+      left: 0;
+    }
+
+    .nav-links li a {
+      margin: var(--espacio-2xs) 0;
+      font-size: var(--font-2);
+      color: var(--color-blanco);
+    }
+  }
+</style>
