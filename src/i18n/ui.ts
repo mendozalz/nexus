@@ -49,6 +49,7 @@ export const LANGUAGES: Record<
   /* Destinado solo a las rutas de la barra de navegación */
   export const routes = {
     en:{
+      'home': 'home',
       'about': 'about-us',
       'planning': 'planning',
       'team': 'our-team',
@@ -58,6 +59,7 @@ export const LANGUAGES: Record<
       'contact': 'contact',
     },
     es:{ 
+      'home': 'inicio',
       'about': 'nosotros',
       'planning': 'planificar',
       'team': 'nuestro-equipo',

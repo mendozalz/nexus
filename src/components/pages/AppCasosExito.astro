@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CasosDeExito from "../CasosDeExito.astro";
 import HeroModerno from "../HeroModerno.astro";
+import { HistoriaCrecimientoFinanciero } from "../HistoriaCrecimientoFinanciero";
 import Sections from "../Sections.astro";
 ---
 
@@ -17,6 +18,13 @@ import Sections from "../Sections.astro";
         _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
       >
         <CasosDeExito />
+      </Sections>
+    </section>
+    <section class="about">
+      <Sections
+        _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
+      >
+        <HistoriaCrecimientoFinanciero client:only="react" />
       </Sections>
     </section>
   </main>

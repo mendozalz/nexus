@@ -119,7 +119,7 @@ const AppContacto = (): JSX.Element => {
   };
 
   return (
-    <section className="py-12 md:py-24 lg:py-32">
+    <section className="py-12 md:py-24 lg:py-20">
       <div className="w-full mb-12 border border-gray-300">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15863.487356421934!2d-75.6091692!3d6.2805746000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1742027705606!5m2!1ses!2sco"
@@ -134,7 +134,13 @@ const AppContacto = (): JSX.Element => {
         ></iframe>
       </div>
 
-      <div className="container mx-auto max-w-[--grid-max-width]">
+      <div
+        className="container mx-auto max-w-[--grid-max-width]"
+        style={{
+          paddingInline: "var(--grid-gutter)",
+          paddingBlock: "var(--espacio-l)",
+        }}
+      >
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col justify-between space-y-8">
             <div className="space-y-6">
@@ -315,7 +321,7 @@ const AppContacto = (): JSX.Element => {
 
           <div
             id="formulario"
-            className="space-y-8 rounded-lg border border-gray-200 p-6 shadow-lg dark:border-gray-800"
+            className="space-y-8 rounded-lg p-6 shadow-xl dark:border-gray-800"
           >
             <div className="space-y-2">
               <h2 className="text-2xl font-bold">Envíanos un mensaje</h2>

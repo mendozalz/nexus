@@ -18,43 +18,76 @@ const translatePath = useTranslatedPath(lang);
 const currentLang = getLangFromUrl(Astro.url);
 const i18n = getI18N({ currentLocale: currentLang });
 
-const links = [
-  /*   {
-    name: t("nav.home"),
-    href: translatePath("/", lang),
-  }, */
+// Determinar si estamos en la página de inicio
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === "/" || currentPath === `/${lang}/` || currentPath === `/${lang}`;
+
+// Determinar si estamos en la página de contacto
+const contactPath = `/${routes[lang].contact}`;
+const isContactPage = currentPath === contactPath || currentPath === `/${lang}${contactPath}`;
+
+// Enlaces de anclaje (solo visibles en home)
+const anchorLinks = [
   {
     name: t("nav.about"),
     href: `/#${sectionIds[lang].about}`,
     sectionId: sectionIds[lang].about,
+    isAnchor: true,
   },
   {
     name: t("nav.planning"),
     href: `/#${sectionIds[lang].planning}`,
     sectionId: sectionIds[lang].planning,
+    isAnchor: true,
   },
   {
     name: t("nav.team"),
     href: `/#${sectionIds[lang].team}`,
     sectionId: sectionIds[lang].team,
+    isAnchor: true,
   },
+];
+
+// Enlace a Home (solo visible cuando no estamos en home)
+const homeLink = {
+  name: t("nav.home"),
+  href: translatePath("/", lang),
+  sectionId: null,
+  isAnchor: false,
+};
+
+// Enlaces normales (visibles en todas las páginas)
+const normalLinks = [
   {
     name: t("nav.services"),
-    href: translatePath(`/our-services`, lang),
+    href: translatePath(`/${routes[lang].services}`, lang),
+    sectionId: null,
+    isAnchor: false,
   },
   {
     name: t("nav.success"),
-    href: translatePath(`/success-stories`, lang),
+    href: translatePath(`/${routes[lang].success}`, lang),
+    sectionId: null,
+    isAnchor: false,
   },
   {
     name: t("nav.faq"),
-    href: translatePath(`/faqs`, lang),
+    href: translatePath(`/${routes[lang].faq}`, lang),
+    sectionId: null,
+    isAnchor: false,
   },
   {
     name: t("nav.contact"),
-    href: translatePath("/contact", lang),
+    href: translatePath(`/${routes[lang].contact}`, lang),
+    sectionId: null,
+    isAnchor: false,
   },
 ];
+
+// Combinar enlaces según la página actual
+const links = isHomePage 
+  ? [...anchorLinks, ...normalLinks]                 // En home: mostrar anclajes + enlaces normales
+  : [homeLink, ...normalLinks];                      // En otras páginas: mostrar Home + enlaces normales
 
 /* const formContact = {
   title: i18n.CONTACT.TITLE,
@@ -65,9 +98,9 @@ const links = [
 }; */
 ---
 
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar" data-contact-page={isContactPage}>
   <div class="nav-container">
-    <a href="/" class="logo-container">
+    <a href={translatePath("/", lang)} class="logo-container">
       <Image
         class="logo logo-blanco"
         src={logotipoBlanco}
@@ -94,7 +127,7 @@ const links = [
       {
         links.map((link) => (
           <li>
-            <a href={link.href} data-section-id={link.sectionId || null}>
+            <a href={link.href} data-section-id={link.sectionId !== null ? link.sectionId : undefined}>
               {link.name}
             </a>
           </li>
@@ -111,13 +144,29 @@ const links = [
     const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     const menuIcon = document.querySelector(".menu-icon");
+    const isContactPage = navbar?.getAttribute("data-contact-page") === "true";
+
+    // Aplicar clase de contacto inmediatamente si estamos en la página de contacto
+    if (isContactPage && navbar) {
+      navbar.classList.add("contact-page");
+    }
 
     // Función para manejar el scroll
     function handleScroll() {
       if (window.scrollY > 50) {
         navbar?.classList.add("scrolled");
+        
+        // En la página de contacto, al hacer scroll eliminamos el estilo oscuro
+        if (isContactPage) {
+          navbar?.classList.remove("contact-page");
+        }
       } else {
         navbar?.classList.remove("scrolled");
+        
+        // Al volver arriba en la página de contacto, restauramos el estilo oscuro
+        if (isContactPage) {
+          navbar?.classList.add("contact-page");
+        }
       }
     }
 
@@ -192,17 +241,14 @@ const links = [
             closeMenu();
 
             // Actualizar URL para mantener el enlace sin cambiar de página
-            window.history.pushState({}, "", `/#${sectionId}`);
+            const currentPath = window.location.pathname;
+            const basePath = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+            window.history.pushState({}, "", `${basePath}#${sectionId}`);
 
             scrollToSection(sectionId);
           },
         );
       });
-
-    // Manejar cambios en el hash de la URL
-    window.addEventListener("hashchange", () => {
-      checkUrlHash();
-    });
 
     // Manejar clics en enlaces normales
     document
@@ -254,10 +300,17 @@ const links = [
     backdrop-filter: blur(6px);
   }
 
+  /* Estilos predeterminados al hacer scroll */
   .navbar.scrolled {
     background-color: rgb(255, 255, 255, 0.9);
     color: #000000;
     padding: var(--espacio-2xs) 0;
+  }
+
+  /* Estilos oscuros para la página de contacto (por defecto, sin scroll) */
+  .navbar.contact-page {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
   }
 
   .nav-container {
@@ -293,12 +346,22 @@ const links = [
     position: absolute;
   }
 
+  /* Comportamiento normal al hacer scroll */
   .navbar.scrolled .logo-blanco {
     opacity: 0;
   }
 
   .navbar.scrolled .logo-negro {
     opacity: 1;
+  }
+
+  /* Comportamiento en la página de contacto (por defecto, sin scroll) */
+  .navbar.contact-page .logo-blanco {
+    opacity: 1;
+  }
+
+  .navbar.contact-page .logo-negro {
+    opacity: 0;
   }
 
   .nav-links {
@@ -321,11 +384,18 @@ const links = [
       transform 0.3s ease;
   }
 
+  /* Comportamiento normal al hacer scroll */
   .navbar.scrolled .nav-links a {
     color: var(--color-dorado);
   }
 
-  .navbar.scrolled .nav-links a:hover {
+  /* Comportamiento en la página de contacto (por defecto, sin scroll) */
+  .navbar.contact-page .nav-links a {
+    color: var(--color-blanco);
+  }
+
+  .navbar.scrolled .nav-links a:hover,
+  .navbar.contact-page .nav-links a:hover {
     transform: scale(1.1);
   }
 
@@ -364,8 +434,14 @@ const links = [
     transition: 0.25s ease-in-out;
   }
 
+  /* Comportamiento normal al hacer scroll */
   .navbar.scrolled .menu-icon span {
     background: var(--color-dorado);
+  }
+
+  /* Comportamiento en la página de contacto (por defecto, sin scroll) */
+  .navbar.contact-page .menu-icon span {
+    background: var(--color-blanco);
   }
 
   .menu-icon span:nth-child(1) {
