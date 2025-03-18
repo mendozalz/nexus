@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./accordion";
+import type { JSX } from "react/jsx-runtime";
 
 /**
  * Interfaz para los elementos adicionales en las respuestas
@@ -88,7 +89,7 @@ export default function PreguntasFrecuentes({
   preguntas,
 }: PreguntasFrecuentesProps): JSX.Element {
   return (
-    <section className="py-fl-2xl md:py-fl-3xl lg:py-fl-4xl max-w-[var(--grid-max-width)] mx-auto">
+    <section className="md:py-fl-3xl lg:py-fl-4xl max-w-[var(--grid-max-width)] mx-auto px-4 mb-5">
       <div className="container mx-auto">
         <div className="mb-fl-xl flex flex-col items-start text-left">
           <h2 className="text-2xl md:text-3xl font-bold mb-xs leading-none">

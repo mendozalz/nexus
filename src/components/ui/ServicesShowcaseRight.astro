@@ -443,6 +443,17 @@ const operacion = [
     color: rgba(0, 0, 0, 0.6);
     margin: var(--espacio-3xs) 0 0;
   }
+  @media only screen and (max-width: 768px) {
+    .text-content {
+      order: 1;
+    }
+    .image-showcase {
+      order: 0;
+    }
+    .services-section {
+      padding: var(--espacio-l) 0;
+    }
+  }
 
   @media (min-width: 768px) {
     .services-section {
