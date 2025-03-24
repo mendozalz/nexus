@@ -1,7 +1,33 @@
 {
-  "HERO_SMALL": "Innovación Financiera para un Crecimiento Inteligente.",
-  "HERO_H1": "minimizar los riesgos.",
-  "HERO_H2": " transformamos la manera en que se invierte, combinando tecnología avanzada, análisis de datos y estrategias de inversión optimizadas",
+  "HERO_SMALL": "Financial Innovation for Smart Growth.",
+  "HERO_H2": "Transform the way investments are made by combining advanced technology, <br/>data analysis, and optimized investment strategies to maximize capital growth.",
+  "NOSOTROS": {
+    "TITLE": "Who <span> We Are?</span>",
+    "DESCRIPTION1": "At <b>Nexus Private Capital,</b> we transform the way investments are made by combining advanced technology, data analysis, and optimized investment strategies to maximize capital growth.",
+    "DESCRIPTION2": "At <b>Nexus Private Capital,</b> we believe in innovation, efficiency, and trust as fundamental pillars to transform the investment world. We are a company founded by a team of <b>experts in finance, technology, and investment strategies,</b> committed to offering our clients <b>smart, secure, and profitable investment solutions.</b>",
+    "NUESTRA_MISION": {
+      "TITLE": "Our Mission",
+      "DESCRIPTION": "To transform investment management through advanced technology and high-performance strategic models, ensuring financial growth and stability for our investors."
+    },
+    "NUESTRA_VISION": {
+      "TITLE": "Our Vision",
+      "DESCRIPTION": "To be a global leader in automated investment management, providing reliable and profitable solutions in an ever-evolving market."
+    },
+    "NUESTRO_VALORES": {
+      "TITLE": "Our Values",
+      "OPCION_LIST": {
+        "LIST1": "<b>Transparency</b> – We operate with clarity and honesty.",
+        "LIST2": "<b>Ethics & Responsibility</b> – We adhere to high standards of integrity.",
+        "LIST3": "<b>Excellence</b> – We strive for optimal and sustainable results.",
+        "LIST4": "<b>Commitment</b> – We foster trust and growth.",
+        "LIST5": "<b>Adaptability</b> – We adjust precisely to market changes."
+      },
+      "BANNER_BLUR": {
+        "TITLE": "Join our team in growth",
+        "DESCRIPTION": "20+ positions available"
+      }
+    }
+  },
   "ABOUT_US": {
     "TITLE": "Más que un Equipo,",
     "ESLOGAN": "Somos tu Aliado Financiero",
@@ -28,216 +54,30 @@
       "LIST3": "Accesibilidad a mercados internacionales."
     }
   },
-  "QUIENES_SOMOS": {
-    "TITLE": "¿Quienes Somos?",
-    "DESCRIPTION": "En <b>Nexus Private Capital</b>, transformamos la manera en que se invierte, combinando <b>tecnología avanzada, análisis de datos y estrategias de inversión optimizadas</b> para maximizar el crecimiento del capital."
-  },
+
   "NUESTRA_PROMESA": {
-    "TITLE": "Nuestra Promesa",
+    "TITLE": "Our Promise",
     "OPCION_LIST": {
-      "LIST1": "Modelos de inversión estructurados y seguros.",
-      "LIST2": "Crecimiento financiero sostenible y estratégico.",
-      "LIST3": "Transparencia y mitigación de riesgos en cada inversión."
-    }
+      "LIST1": "Structured and secure investment models.",
+      "LIST2": "Sustainable and strategic financial growth.",
+      "LIST3": " Transparency and risk mitigation in every investment.",
+      "LIST4": "Audits."
+    },
+    "CUSTOMER_SATIFACTION": "Customer Satisfaction"
   },
-  "NOSOTROS": {
-    "TITLE": "¿Quiénes <span> Somos? </span>",
-    "DESCRIPTION": "En <b>Nexus Private Capital</b>, creemos en la innovación, la eficiencia y la confianza como pilares fundamentales para transformar el mundo de las inversiones. Somos una empresa creada por un equipo de <b>expertos en finanzas, tecnología y estrategias de inversión</b>, con el propósito de ofrecer a nuestros clientes <b>soluciones de inversión inteligentes, seguras y rentables</b>.",
-    "NUESTRA_MISION": {
-      "TITLE": "Nuestra Misión",
-      "DESCRIPTION": "Transformar la gestión de inversiones mediante tecnología avanzada y modelos estratégicos de alto rendimiento, asegurando crecimiento y estabilidad financiera para nuestros inversionistas."
-    },
-    "NUESTRA_VISION": {
-      "TITLE": "Nuestra Visión",
-      "DESCRIPTION": "Ser una empresa líder global en la gestión de inversiones automatizadas, ofreciendo soluciones confiables y rentables en un mercado en constante evolución."
-    },
-    "NUESTRO_VALORES": {
-      "TITLE": "Nuestro Valores",
-      "OPCION_LIST": {
-        "LIST1": "<b>Transparencia</b> – Actuamos con claridad y honestidad.",
-        "LIST2": "<b>Ética y Responsabilidad</b> – Nos regimos por altos estándares de integridad.",
-        "LIST3": "<b>Excelencia</b> – Buscamos resultados óptimos y sostenibles.",
-        "LIST4": "<b>Compromiso</b> – Generamos confianza y crecimiento.",
-        "LIST5": "<b>Adaptabilidad</b> – Nos ajustamos con precisión a los cambios del mercado."
-      }
-    }
+
+  "OUR_SERVICES": {
+    "TITLE": "Soluciones estratégicas para un crecimiento financiero seguro.",
+    "DESCRIPTION": "En <b>Nexus Private Capital,</b> ofrecemos <b>modelos de inversión diversificados y optimizados,</b> diseñados para maximizar la rentabilidad y reducir riesgos. Nos enfocamos en <b>tres áreas clave de inversión.</b>"
   },
-  "AGTECH": {
-    "TITLE": "INVESTMENTS IN AGTECH",
-    "SUBTITLE": "INNOVATION AND PROFITABILITY IN AGTECH",
-    "DESCRIPTION": {
-      "PARRAGRAPH1": "At <b>Inventek Investments Group, Inc.</b>, we recognize that technology is revolutionizing every industry, and agriculture is no exception. The increasing demand for efficiency, sustainability, and profitability has driven us to diversify our portfolio with <b>AgTech (Agricultural Technology) solutions, integrating Artificial Intelligence, IoT, Blockchain, Automation, and Robotics</b> to transform agricultural and livestock production.",
-      "PARRAGRAPH2": "Our focus is on leveraging cutting-edge technology to <b>enhance yields, reduce operational costs, and optimize decision-making</b>, creating a positive impact for both investors and the agricultural sector."
-    },
-    "ACCORDION": {
-      "TITLE": "Strategic Areas of Investment in Agricultural Technology",
-      "ITEM1": {
-        "TITLE": "Precision Agriculture with IoT and Drones",
-        "How_it_works?": {
-          "TITLE": "How it works?",
-          "DESCRIPTION": "Using IoT sensors, satellite imagery, and drones equipped with multispectral cameras, we provide real-time analysis of crop health, soil quality, and irrigation needs."
-        },
-        "Use_Cases:": {
-          "TITLE": "Use Cases:",
-          "LIST1": "Optimized water and fertilizer consumption",
-          "LIST2": "Remote monitoring of large agricultural areas",
-          "LIST3": "Early detection of pests and diseases"
-        },
-        "Investment_Opportunity:": {
-          "TITLE": "Investment Opportunity:",
-          "DESCRIPTION": "Development of data analysis software for agriculture and commercialization of drone monitoring services."
-        }
-      },
-      "ITEM2": {
-        "TITLE": "Livestock Management and Traceability with RFID",
-        "How_it_works?": {
-          "TITLE": "How it works?",
-          "DESCRIPTION": "Through RFID (Radio Frequency Identification) devices and smart sensors, each animal is assigned a unique code, enabling real-time tracking of its diet, health, and location."
-        },
-        "Use_Cases:": {
-          "TITLE": "Use Cases:",
-          "LIST1": "Monitoring livestock health and vaccination schedules",
-          "LIST2": "Optimizing feeding strategies to maximize meat and milk production",
-          "LIST3": "Reducing losses and theft through geolocation"
-        },
-        "Investment_Opportunity:": {
-          "TITLE": "Investment Opportunity:",
-          "DESCRIPTION": "Implementation of data-driven livestock management platforms with subscription models or hardware and software sales."
-        }
-      },
-      "ITEM3": {
-        "TITLE": "Robotics and Automation in Agriculture",
-        "How_it_works?": {
-          "TITLE": "How it works?",
-          "DESCRIPTION": "Advances in artificial intelligence enable the use of autonomous robots for planting, fertilizing, and harvesting, reducing labor dependency and improving efficiency in every process."
-        },
-        "Use_Cases:": {
-          "TITLE": "Use Cases:",
-          "LIST1": "Vision-guided fruit and vegetable harvesting robots",
-          "LIST2": "Automated seed planting machines with depth and density adjustment",
-          "LIST3": "Autonomous weed control equipment without pesticides"
-        },
-        "Investment_Opportunity:": {
-          "TITLE": "Investment Opportunity:",
-          "DESCRIPTION": "Development and commercialization of precision agricultural mechanization technology."
-        }
-      },
-      "ITEM4": {
-        "TITLE": "Vertical Farming and Smart Hydroponics",
-        "How_it_works?": {
-          "TITLE": "How it works?",
-          "DESCRIPTION": "Using hydroponic and vertical farming systems with optimized LED lighting, food can be produced in compact spaces without the need for agricultural land."
-        },
-        "Use_Cases:": {
-          "TITLE": "Use Cases:",
-          "LIST1": "Pesticide-free food production in urban environments",
-          "LIST2": "Optimized plant growth using humidity and nutrient sensors",
-          "LIST3": "90% water savings compared to traditional farming"
-        },
-        "Investment_Opportunity:": {
-          "TITLE": "Investment Opportunity:",
-          "DESCRIPTION": "Development of modular vertical farms and automated control technologies."
-        }
-      },
-      "ITEM5": {
-        "TITLE": "Blockchain for Agricultural Traceability and Trade",
-        "How_it_works?": {
-          "TITLE": "How it works?",
-          "DESCRIPTION": "Blockchain technology creates an <b>immutable record</b> that certifies the origin, quality, and logistics journey of each agricultural product, ensuring transparency and trust in the supply chain."
-        },
-        "Use_Cases:": {
-          "TITLE": "Use Cases:",
-          "LIST1": "Digital certification for premium exports like coffee and cocoa",
-          "LIST2": "Reducing intermediaries and enabling direct sales to international markets",
-          "LIST3": "Smart contracts for streamlining agricultural trade payments"
-        },
-        "Investment_Opportunity:": {
-          "TITLE": "Investment Opportunity:",
-          "DESCRIPTION": "Development of traceability platforms for producers, distributors, and international markets."
-        }
-      },
-      "ITEM6": {
-        "TITLE": "Agricultural Fintech: Smart Financing and Insurance",
-        "How_it_works?": {
-          "TITLE": "How it works?",
-          "DESCRIPTION": "Fintech platforms applied to agriculture provide <b>data-driven loans and insurance</b> to farmers, reducing risks and facilitating access to financing."
-        },
-        "Use_Cases:": {
-          "TITLE": "Use Cases:",
-          "LIST1": "Agricultural loans evaluated using climate and productivity data",
-          "LIST2": "Smart insurance policies that adjust coverage based on real-time climate events",
-          "LIST3": "Tokenization of agricultural assets for investment and crowdfunding"
-        },
-        "Investment_Opportunity:": {
-          "TITLE": "Investment Opportunity:",
-          "DESCRIPTION": "Development of credit and smart insurance platforms with scalable models."
-        }
-      }
-    },
-    "JOIN_AGTECH": {
-      "TITLE": "Join the AgTech Transformation with Inventek Investments",
-      "DESCRIPTION": "The agricultural revolution is underway, and at <b>Inventek Investments Group, Inc.</b>, we are leading the change with strategic investments in technology. Our mission is to connect <b>capital with innovation</b>, transforming agriculture into a more productive, efficient, and sustainable sector.",
-      "MESSAGE": "If you are interested in investing in the future of agriculture, contact us to explore the available opportunities."
-    }
+  "SUCCESS_STORIES": {
+    "TITLE": "Resultados tangibles y clientes satisfechos.",
+    "DESCRIPTION": "En <b>Nexus Private Capital,</b> nuestra trayectoria está respaldada por <b>  casos de éxito comprobados,</b> con inversiones estratégicas que han generado <b>crecimiento y rentabilidad</b> para nuestros clientes."
   },
-  "LEAR_MORE": {
-    "TITLE": "OUR SERVICES",
-    "SUBTITLE": "INVENTEK INVESTMENT GROUP, INC."
+  "FAQ": {
+    "TITLE": "Todo lo que necesitas saber<br/> antes de invertir.",
+    "DESCRIPTION": "Hemos recopilado las <b>preguntas más frecuentes</b> de nuestros inversionistas para brindarte toda la información que necesitas antes de comenzar a invertir con nosotros."
   },
-  "BOTS": {
-    "PORTFOLIO": "PORTFOLIO",
-    "INBOT_HAWK": {
-      "TITLE": "INBOT HAWK",
-      "DESCRIPTION": "The Hawk uses VWAP and other indicators to detect a momentum shift in the market. The product is optimized for Tesla, Apple, Microsoft, and Amazon and uses hard stops and take profits to ensure proper risk management."
-    },
-    "INBOT_NTZ": {
-      "TITLE": "INBOT NTZ",
-      "DESCRIPTION": "The Hawk uses VWAP and other indicators to detect a This is an automated strategy that uses Money Flow to detect market direction. Once money flow shifts in the opposite direction, the contract is closed, and an opposing contract is opened. The bot operates in the NinjaTrader version 8 and is optimized for Nasdaq (MNQ) and S&P 500 (MES) futures contracts."
-    },
-    "INBOT_KSSL": {
-      "TITLE": "INBOT KSSL",
-      "DESCRIPTION": "This bot uses a continuation strategy that combines Kijun and SSL, along with other indicators, to take advantage of developing a new trend. The bot operates in the NinjaTrader version 8 and is optimized for Nasdaq (MNQ) and S&P 500 (MES) futures contracts."
-    },
-    "INBOT_SRSI": {
-      "TITLE": "INBOT SRSI",
-      "DESCRIPTION": "The automated trading system uses Stochastics, RSI, and other momentum and direction indicators to detect market conditions. The bot uses a continuation strategy. Inbot SRSI operates in the NinjaTrader platform version 8 and is optimized for Nasdaq (MNQ) futures contracts."
-    },
-    "INBOT_BBBREAK": {
-      "TITLE": "INBOT BBBREAK",
-      "DESCRIPTION": "The automated trading system uses Bollinger Bands to determine market sentiment to enter trades. Inbot BBBreak uses a flat market and opens a position based on a momentum movement."
-    },
-    "INBOT_30BOTS": {
-      "TITLE": "30+ BOTS",
-      "DESCRIPTION": "We have a collection of over 38 bots that operate in futures, stocks, options, commodities, and forex. The idea of each is to diversify any portfolio and manage risk properly."
-    }
-  },
-  "BOT_PURCHASE": {
-    "BTN_PURCHASE": "Purchase Bot",
-    "BTN_LEARN_MORE": "Learn more",
-    "INBOT_IZY": {
-      "TITLE": "INBOT IZY",
-      "PLATFORM": "MetaTrader 5",
-      "INSTRUMENT": "EUR/USD (Forex)",
-      "TIMEFRAME": "1 Hour",
-      "DESCRIPTION": "InbotIZY is an advanced trading bot designed for MetaTrader 5, optimized for trading the EUR/USD pair on a 1-hour timeframe. The bot utilizes multiple entry signals, combining a variety of indicators and proprietary strategies to maximize trading opportunities. Each trade is managed with a robust risk management system, including a customizable stop loss, profit target, and trailing stop option for dynamic trade adjustments. InbotIZY is designed to be compatible with funded accounts, incorporating an optional maximum daily loss limit and a track record of maintaining a maximum drawdown below the 10% threshold commonly required by these firms. Additionally, the bot automatically closes all positions on Fridays to prevent weekend risk, ensuring a disciplined approach to trading."
-    },
-    "INBOT_NTZ": {
-      "TITLE": "INBOT NTZ",
-      "PLATFORM": "NinjaTrader 8",
-      "INSTRUMENT": "MNQ (Futuros del Nasdaq)",
-      "TIMEFRAME": "15 Minutes",
-      "DESCRIPTION": "InbotNTZ is a sophisticated trading bot designed for NinjaTrader 8, optimized for trading MNQ (Nasdaq futures) on a 15-minute chart. The bot uses a combination of proprietary algorithms and standard technical indicators to accurately identify market trends and trading opportunities. When a buy or sell signal is generated, the algorithm ensures that the signal is aligned with the overall market trend before executing a trade. Each trade is protected with customizable stop-loss and take-profit settings, offering a balanced risk-reward ratio. Additionally, users can enable a trailing stop feature for dynamic trade management, with flexible customization of parameters to tailor the strategy to individual preferences."
-    },
-    "INBOT_SCALPER": {
-      "TITLE": "INBOT SCALPER",
-      "PLATFORM": "MetaTrader 4",
-      "INSTRUMENT": "EUR/USD (Forex)",
-      "TIMEFRAME": "5 Minutes",
-      "DESCRIPTION": "InbotScalper is a high-performance trading bot designed for MetaTrader 4, optimized specifically for the EUR/USD pair on a 5-minute chart. This bot is ideal for traders looking for aggressive growth, using a grid trading strategy to average out entry costs and maximize profit potential. Despite its aggressive approach, InbotScalper has a solid track record of account preservation, never burning an account. It offers robust risk management features, including an optional maximum loss percentage, trailing stop, and customizable stop loss and take profit settings. InbotScalper combines powerful strategies with advanced risk controls, making it an attractive option for traders looking to balance high returns with disciplined trading."
-    }
-  },
-  "BANNER_FOOTER": "Technology is a tool. Any successful implementation requires an alignment between people, knowledge and process. Trading robots are no different.",
-  "BANNER_FOOTER_AUTHOR": "Dr. Jaime Marulanda",
   "FOOTER": {
     "INVESTMENTS": "Investments",
     "LEARN_MORE": "Learn more",
@@ -246,7 +86,7 @@
     "SUSCRIBE_TEXT": "Subscribe to our newsletter",
     "SUSCRIBE_ACTION": "Send",
     "ACCEPT_TERMS": "I accept the terms and conditions.",
-    "COPYRIGHT": "Copyright NEXUS 2025 © All Rights Reserved"
+    "COPYRIGHT": "Copyright NEXUS 2025 All Rights Reserved"
   },
   "CONTACT": {
     "TITLE": "Contact",
@@ -254,5 +94,9 @@
     "EMAIL": "Email",
     "MESSAGE": "Message",
     "SEND": "Submit"
+  },
+  "CALL_TO_ACTION": {
+    "TITLE": "Start investing today",
+    "URL": "https://wa.me/573006214037?text=Quiero%20Invertir"
   }
 }

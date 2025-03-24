@@ -71,7 +71,7 @@ const FeatureComoInvertimos = ({
         },
         buttonText: "See Plans",
         imageSrc:
-          "https://shadcnblocks.com/images/block/placeholder-dark-1.svg",
+          "https://res.cloudinary.com/dvuyt52aq/image/upload/t_1200_1200/v1742842965/Nuestro_modelo_de_inversion_o5plum.jpg",
         imageAlt: "placeholder",
       },
     },
@@ -103,7 +103,7 @@ const FeatureComoInvertimos = ({
         },
         buttonText: "See Tools",
         imageSrc:
-          "https://shadcnblocks.com/images/block/placeholder-dark-2.svg",
+          "https://res.cloudinary.com/dvuyt52aq/image/upload/t_1200_1200/v1742842966/Proceso_de_inversion_duc5ym.jpg",
         imageAlt: "placeholder",
       },
     },
@@ -127,7 +127,7 @@ const FeatureComoInvertimos = ({
         },
         buttonText: "See Options",
         imageSrc:
-          "https://shadcnblocks.com/images/block/placeholder-dark-3.svg",
+          "https://res.cloudinary.com/dvuyt52aq/image/upload/t_1200_1200/v1742842964/Sectores_de_inversion_y9mfjy.jpg",
         imageAlt: "placeholder",
       },
     },

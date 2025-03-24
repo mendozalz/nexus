@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import "../../styles/global.css";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getI18N } from "../../i18n";
@@ -20,12 +19,11 @@ const i18n = getI18N({ currentLocale: currentLang });
   title={lang === "en" ? "Our Services - Nexus" : "Nuestros Servicios - Nexus"}
 >
   <HeroModerno
-    title="A decentralized truth machine"
-    subtitle="UMR's optimistic oracle (OO) can record any verifiable truth or data onto a blockchain."
-    totalValueSecured={986000000}
+    title={i18n.OUR_SERVICES.TITLE}
+    subtitle={i18n.OUR_SERVICES.DESCRIPTION}
   />
   <main>
-    <section
+    <!-- <section
       class="lg:w-[50%] mx-auto text-center titulo mt-[var(--espacio-xl)] lg:mt-[var(--espacio-3xl)] px-3 pb-[var(--espacio-l)]"
     >
       <h1
@@ -38,7 +36,7 @@ const i18n = getI18N({ currentLocale: currentLang });
         y optimizados, diseñados para maximizar la rentabilidad y reducir
         riesgos. Nos enfocamos en tres áreas clave de inversión:
       </p>
-    </section>
+    </section> -->
     <section
       class="services-showcase"
       id={lang === "en" ? "our-services" : "nuestros-servicios"}

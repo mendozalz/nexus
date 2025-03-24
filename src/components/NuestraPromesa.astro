@@ -16,11 +16,6 @@ const i18n = getI18N({ currentLocale: currentLang });
   <div class="about-us-container">
     <!-- Text column -->
     <div class="text-column">
-      <h2 class="section-title">
-        {i18n.QUIENES_SOMOS.TITLE}
-      </h2>
-      <p class="description" set:html={i18n.QUIENES_SOMOS.DESCRIPTION} />
-
       <h2 class="section-title promise-title">
         {i18n.NUESTRA_PROMESA.TITLE}
       </h2>
@@ -36,6 +31,10 @@ const i18n = getI18N({ currentLocale: currentLang });
         <li class="promise-item">
           <span class="promise-icon">✓</span>
           {i18n.NUESTRA_PROMESA.OPCION_LIST.LIST3}
+        </li>
+        <li class="promise-item">
+          <span class="promise-icon">✓</span>
+          {i18n.NUESTRA_PROMESA.OPCION_LIST.LIST4}
         </li>
       </ul>
     </div>

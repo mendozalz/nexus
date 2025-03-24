@@ -7,19 +7,6 @@ interface Props {
 }
 
 const { text, url, _class, _styles } = Astro.props as Props;
-
-const btn = [
-  {
-    text: text,
-    url: url,
-    _class: _class,
-  },
-  {
-    text: text,
-    url: url,
-    _class: _class,
-  },
-];
 ---
 
 <div class="button-group-inner" style={_styles}>

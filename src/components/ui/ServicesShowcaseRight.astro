@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import placeholderImg from "../../assets/placeholder.svg";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getI18N } from "../../i18n";
 
@@ -78,7 +77,7 @@ const operacion = [
         <div class="image-container">
           <Image
             class="showcase-image"
-            src={placeholderImg}
+            src="https://res.cloudinary.com/dvuyt52aq/image/upload/t_1200_1200/v1742844247/Real_estate_brffv3.jpg"
             alt={lang === "en"
               ? "Workflow dashboard screenshot"
               : "Captura de pantalla del panel de flujo de trabajo"}
@@ -90,14 +89,14 @@ const operacion = [
             <p class="caption-title">
               {
                 lang === "en"
-                  ? "Lorem Ipsum"
+                  ? "Real Estate"
                   : "Revoluciona tu flujo de trabajo"
               }
             </p>
             <p class="caption-subtitle">
               {
                 lang === "en"
-                  ? "20+ Lorem ipsun venerice"
+                  ? "20+ Expert services at your fingertips"
                   : "20+ Servicios de expertos al alcance de tu mano"
               }
             </p>
@@ -425,7 +424,8 @@ const operacion = [
     left: var(--espacio-s);
     right: var(--espacio-s);
     max-width: calc(100% - var(--espacio-m));
-    background-color: var(--color-blanco);
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
     padding: var(--espacio-s);
     border-radius: var(--radio-m);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);

@@ -4,14 +4,12 @@
  * @description Componente de Hero moderno con diseño oscuro, contador de valor asegurado y elementos gráficos isométricos
  * @author Cascade
  */
-import { getI18N } from "../i18n/";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import CallActions from "./btns/CallActions.astro";
 
 // Obtener el idioma actual y las traducciones
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
-const i18n = getI18N({ currentLocale: currentLang });
 
 interface Props {
   /**
@@ -37,13 +35,18 @@ interface Props {
 }
 
 const {
-  totalValueSecured = 986000000,
+  totalValueSecured,
+  title = t("nav.btnPrimary"),
+  subtitle = t("nav.btnPrimary"),
   ctaText = t("nav.btnPrimary"),
   ctaUrl = "https://wa.me/573006214037?text=Quiero%20Invertir",
 } = Astro.props;
 
-// Formatear el valor total asegurado con separadores de miles
-const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
+// Formatear el valor total asegurado con separadores de miles solo si existe
+const formattedValue =
+  totalValueSecured !== undefined
+    ? new Intl.NumberFormat("es-ES").format(totalValueSecured)
+    : null;
 ---
 
 <section class="hero-moderno">
@@ -55,16 +58,20 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
 
   <!-- Contenedor principal que agrupa el contador y el contenido -->
   <div class="hero-main-container">
-    <!-- Contador de valor asegurado -->
-    <div class="value-counter">
-      <span class="counter-value">${formattedValue}</span>
-      <span class="counter-label">Total Value Secured</span>
-    </div>
+    <!-- Contador de valor asegurado (solo se muestra si hay un valor) -->
+    {
+      formattedValue && (
+        <div class="value-counter">
+          <span class="counter-value">${formattedValue}</span>
+          <span class="counter-label">Total Value Secured</span>
+        </div>
+      )
+    }
 
     <!-- Contenido principal -->
     <div class="hero-content">
-      <h1 class="hero-title">{i18n.HERO_SMALL}</h1>
-      <p class="hero-subtitle">{i18n.HERO_H2}</p>
+      <h1 class="hero-title" set:html={title} />
+      <p class="hero-subtitle text-white" set:html={subtitle} />
 
       <div class="cta-container">
         <CallActions
@@ -204,14 +211,13 @@ const formattedValue = new Intl.NumberFormat("es-ES").format(totalValueSecured);
     color: var(--color-blanco);
     margin-bottom: var(--espacio-s);
     line-height: 1.1;
-    max-width: 800px;
+    max-width: 100%;
   }
 
   .hero-subtitle {
     font-size: var(--font-1);
-    color: var(--hero-text-color);
-    opacity: 0.8;
-    max-width: 800px;
+    color: #ffffff9c;
+    max-width: 100%;
     margin: 0 auto var(--espacio-l);
     line-height: 1.5;
   }
