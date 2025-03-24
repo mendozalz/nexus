@@ -28,33 +28,6 @@
       }
     }
   },
-  "ABOUT_US": {
-    "TITLE": "Más que un Equipo,",
-    "ESLOGAN": "Somos tu Aliado Financiero",
-    "WELCOME": {
-      "PARRAGRAPH1": "Nos dedicamos a ayudar a las personas a alcanzar sus objetivos financieros mediante soluciones personalizadas y un servicio al cliente excepcional, respaldados por años de experiencia y un equipo de planificadores financieros certificados.",
-      "PARRAGRAPH2": {
-        "LIST1": "Diversificación de inversiones.",
-        "LIST2": "Gestión profesional y experimentada.",
-        "LIST3": "Accesibilidad a mercados internacionales."
-      }
-    }
-  },
-  "PLANIFICAR": {
-    "TITLE": "Empieza a planificar tu futuro",
-    "SUBTITLE": "hoy mismo",
-    "DESCRIPTION": "Contáctanos para programar una cita y saber más sobre <br />nuestros servicios financieros."
-  },
-  "TU_MEJOR_OPCION": {
-    "TITLE": "Porqué Somos Tu Mejor Opción",
-    "DESCRIPTION": "Contamos con una amplia experiencia en comercio internacional y economía local, respaldada por una red de contactos de alta calidad en diversos sectores.",
-    "OPCION_LIST": {
-      "LIST1": "Diversificación de inversiones.",
-      "LIST2": "Gestión profesional y experimentada.",
-      "LIST3": "Accesibilidad a mercados internacionales."
-    }
-  },
-
   "NUESTRA_PROMESA": {
     "TITLE": "Our Promise",
     "OPCION_LIST": {
@@ -65,10 +38,53 @@
     },
     "CUSTOMER_SATIFACTION": "Customer Satisfaction"
   },
-
+  "NUESTRO_EQUIPO": {
+    "TITLE": "Our Team",
+    "DESCRIPTION": "Leadership with Strategic Vision"
+  },
   "OUR_SERVICES": {
-    "TITLE": "Soluciones estratégicas para un crecimiento financiero seguro.",
-    "DESCRIPTION": "En <b>Nexus Private Capital,</b> ofrecemos <b>modelos de inversión diversificados y optimizados,</b> diseñados para maximizar la rentabilidad y reducir riesgos. Nos enfocamos en <b>tres áreas clave de inversión.</b>"
+    "TITLE": "Strategic solutions for <br/>secure financial growth.",
+    "DESCRIPTION": "At <b>Nexus Private Capital,</b> we offer <b>diversified and optimized investment models designed</b> <br/>to maximize profitability while reducing risk. We focus on <b>three key investment areas.</b>",
+    "FINANCIAL_MARKETS": {
+      "TITLE": "Financial Markets",
+      "SERVICES1": {
+        "TITLE": "Advanced management of diversified portfolios.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES2": {
+        "TITLE": "Advanced management of diversified portfolios.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES3": {
+        "TITLE": "Advanced management of diversified portfolios.",
+        "DESCRIPTION": ""
+      },
+      "OPERATION": {
+        "TITLE": "Sectors in which we operate:",
+        "SERVICES1": {
+          "TITLE": "Forex and Commodities:",
+          "DESCRIPTION": "Investment in highly liquid markets with risk mitigation strategies."
+        },
+        "SERVICES2": {
+          "TITLE": "Bonds and Options:",
+          "DESCRIPTION": "Sustained profitability strategies with controlled exposure."
+        }
+      }
+    },
+    "REAL_ESTATE": {
+      "TITLE": "Real Estate",
+      "SERVICES": {
+        "TITLE": "Strategies designed to minimize market volatility.",
+        "DESCRIPTION": ""
+      }
+    },
+    "LARGE_CAP_ASSETS": {
+      "TITLE": "Large Cap Assets",
+      "SERVICES": {
+        "TITLE": "Data-driven analysis models and advanced technology.",
+        "DESCRIPTION": ""
+      }
+    }
   },
   "SUCCESS_STORIES": {
     "TITLE": "Resultados tangibles y clientes satisfechos.",

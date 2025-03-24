@@ -12,36 +12,18 @@ const i18n = getI18N({ currentLocale: currentLang });
 const services = [
   {
     iconType: "cloud-upload",
-    title:
-      lang === "en"
-        ? "Advanced management of diversified portfolios."
-        : "Gestión avanzada de portafolios diversificados.",
-    /* description:
-      lang === "en"
-        ? "Changes sync across all devices in real-time, ensuring your team always has the latest information at their fingertips."
-        : "Los cambios se sincronizan en todos los dispositivos en tiempo real, asegurando que tu equipo siempre tenga la información más reciente a su alcance.", */
+    title: i18n.OUR_SERVICES.FINANCIAL_MARKETS.SERVICES1.TITLE,
+    description: i18n.OUR_SERVICES.FINANCIAL_MARKETS.SERVICES1.DESCRIPTION,
   },
   {
     iconType: "lock",
-    title:
-      lang === "en"
-        ? "Strategies designed to minimize market volatility."
-        : "Estrategias diseñadas para minimizar la volatilidad del mercado.",
-    /* description:
-      lang === "en"
-        ? "Your data is protected with enterprise-grade encryption and customizable access controls, giving you peace of mind."
-        : "Tus datos están protegidos con encriptación de nivel empresarial y controles de acceso personalizables, brindándote tranquilidad.", */
+    title: i18n.OUR_SERVICES.FINANCIAL_MARKETS.SERVICES2.TITLE,
+    description: i18n.OUR_SERVICES.FINANCIAL_MARKETS.SERVICES2.DESCRIPTION,
   },
   {
     iconType: "database",
-    title:
-      lang === "en"
-        ? "Data-driven analysis models and advanced technology."
-        : "Modelos de análisis basados en datos y tecnología avanzada.",
-    /* description:
-      lang === "en"
-        ? "Our analytics engine provides actionable data on team performance, helping you optimize workflows and boost productivity."
-        : "Nuestro motor de análisis proporciona datos accionables sobre el rendimiento del equipo, ayudándote a optimizar flujos de trabajo y aumentar la productividad.", */
+    title: i18n.OUR_SERVICES.FINANCIAL_MARKETS.SERVICES3.TITLE,
+    description: i18n.OUR_SERVICES.FINANCIAL_MARKETS.SERVICES3.DESCRIPTION,
   },
 ];
 
@@ -74,7 +56,7 @@ const operacion = [
           {lang === "en" ? "Financial Markets" : "Mercados Financieros"}
         </p> -->
         <h1 class="headline">
-          {lang === "en" ? "Financial Markets" : "Mercados Financieros"}
+          {i18n.OUR_SERVICES.FINANCIAL_MARKETS.TITLE}
         </h1>
         <!-- <p class="description">
           {

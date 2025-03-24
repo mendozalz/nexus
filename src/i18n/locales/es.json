@@ -28,33 +28,6 @@
       }
     }
   },
-  "ABOUT_US": {
-    "TITLE": "Más que un Equipo,",
-    "ESLOGAN": "Somos tu Aliado Financiero",
-    "WELCOME": {
-      "PARRAGRAPH1": "Nos dedicamos a ayudar a las personas a alcanzar sus objetivos financieros mediante soluciones personalizadas y un servicio al cliente excepcional, respaldados por años de experiencia y un equipo de planificadores financieros certificados.",
-      "PARRAGRAPH2": {
-        "LIST1": "Diversificación de inversiones.",
-        "LIST2": "Gestión profesional y experimentada.",
-        "LIST3": "Accesibilidad a mercados internacionales."
-      }
-    }
-  },
-  "PLANIFICAR": {
-    "TITLE": "Empieza a planificar tu futuro",
-    "SUBTITLE": "hoy mismo",
-    "DESCRIPTION": "Contáctanos para programar una cita y saber más sobre <br />nuestros servicios financieros."
-  },
-  "TU_MEJOR_OPCION": {
-    "TITLE": "Porqué Somos Tu Mejor Opción",
-    "DESCRIPTION": "Contamos con una amplia experiencia en comercio internacional y economía local, respaldada por una red de contactos de alta calidad en diversos sectores.",
-    "OPCION_LIST": {
-      "LIST1": "Diversificación de inversiones.",
-      "LIST2": "Gestión profesional y experimentada.",
-      "LIST3": "Accesibilidad a mercados internacionales."
-    }
-  },
-
   "NUESTRA_PROMESA": {
     "TITLE": "Nuestra Promesa",
     "OPCION_LIST": {
@@ -65,11 +38,41 @@
     },
     "CUSTOMER_SATIFACTION": "Clientes <br/>Satifechos"
   },
-
+  "NUESTRO_EQUIPO": {
+    "TITLE": "Nuestro equipo",
+    "DESCRIPTION": "Liderazgo con Visión Estratégica"
+  },
   "OUR_SERVICES": {
     "TITLE": "Soluciones estratégicas para un crecimiento financiero seguro.",
-    "DESCRIPTION": "En <b>Nexus Private Capital,</b> ofrecemos <b>modelos de inversión diversificados y optimizados,</b> diseñados para maximizar la rentabilidad y reducir riesgos. Nos enfocamos en <b>tres áreas clave de inversión.</b>"
+    "DESCRIPTION": "En <b>Nexus Private Capital,</b> ofrecemos <b>modelos de inversión diversificados y optimizados,</b> diseñados para maximizar la rentabilidad y reducir riesgos. Nos enfocamos en <b>tres áreas clave de inversión.</b>",
+    "FINANCIAL_MARKETS": {
+      "TITLE": "Mercados Financieros",
+      "SERVICES1": {
+        "TITLE": "Gestión avanzada de portafolios diversificados.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES2": {
+        "TITLE": "Estrategias diseñadas para minimizar la volatilidad del mercado.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES3": {
+        "TITLE": "Modelos de análisis basados en datos y tecnología avanzada.",
+        "DESCRIPTION": ""
+      },
+      "OPERATION": {
+        "TITLE": "Sectors in which we operate:",
+        "SERVICES1": {
+          "TITLE": "Forex and Commodities:",
+          "DESCRIPTION": "Investment in highly liquid markets with risk mitigation strategies."
+        },
+        "SERVICES2": {
+          "TITLE": "Bonds and Options:",
+          "DESCRIPTION": "Sustained profitability strategies with controlled exposure."
+        }
+      }
+    }
   },
+
   "SUCCESS_STORIES": {
     "TITLE": "Resultados tangibles y clientes satisfechos.",
     "DESCRIPTION": "En <b>Nexus Private Capital,</b> nuestra trayectoria está respaldada por <b>  casos de éxito comprobados,</b> con inversiones estratégicas que han generado <b>crecimiento y rentabilidad</b> para nuestros clientes."
