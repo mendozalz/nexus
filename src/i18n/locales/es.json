@@ -134,10 +134,73 @@
       }
     }
   },
-
   "SUCCESS_STORIES": {
     "TITLE": "Resultados tangibles y clientes satisfechos.",
-    "DESCRIPTION": "En <b>Nexus Private Capital,</b> nuestra trayectoria está respaldada por <b>  casos de éxito comprobados,</b> con inversiones estratégicas que han generado <b>crecimiento y rentabilidad</b> para nuestros clientes."
+    "DESCRIPTION": "En <b>Nexus Private Capital,</b> nuestra trayectoria está respaldada por <b>  casos de éxito comprobados,</b> con inversiones estratégicas que han generado <b>crecimiento y rentabilidad</b> para nuestros clientes.",
+    "LIST": {
+      "TITLE1": "+85% de nuestros clientes han obtenido retornos por encima de sus expectativas.",
+      "TITLE2": "Inversiones inmobiliarias con plusvalías de hasta un 30% anual.",
+      "TITLE3": "Participación en proyectos de alto crecimiento con retornos sostenidos en el tiempo."
+    },
+    "TESTIMONIAL": {
+      "TITLE": "Testimonio:"
+    },
+    "CASES": {
+      "CASE1": {
+        "TITLE": "Expansión de Patrimonio para un Empresario de Alto Nivel",
+        "LIST1": {
+          "TITLE": "Perfil:",
+          "DESCRIPTION": "Inversionista con alta capacidad de capital, empresario del sector tecnológico."
+        },
+        "LIST2": {
+          "TITLE": "Inversión:",
+          "DESCRIPTION": "Capital inicial de <b>$500,000 USD</b> en <b>mercados financieros y bienes raíces comerciales</b>."
+        },
+        "LIST3": {
+          "TITLE": "Resultados:",
+          "DESCRIPTION": "En <b>3 años</b>, logró un <b>retorno del 150%</b>, diversificando su portafolio y asegurando ingresos pasivos en bienes raíces."
+        },
+        "TESTIMONIAL": {
+          "QUOTE": "Mi experiencia con Nexus Private Capital ha sido excepcional. Su enfoque estratégico y la transparencia en cada operación me han permitido expandir mi patrimonio sin asumir riesgos innecesarios."
+        }
+      },
+      "CASE2": {
+        "TITLE": "Profesional que Buscaba Seguridad Financiera",
+        "LIST1": {
+          "TITLE": "Perfil:",
+          "DESCRIPTION": "Médico con interés en inversiones a largo plazo."
+        },
+        "LIST2": {
+          "TITLE": "Inversión:",
+          "DESCRIPTION": "<b>$80,000 USD</b> en <b>bienes raíces y activos de alta capitalización</b>."
+        },
+        "LIST3": {
+          "TITLE": "Resultados:",
+          "DESCRIPTION": "<b>Valorización del 35% en 2 años</b>, con ingresos pasivos por alquiler de propiedades adquiridas."
+        },
+        "TESTIMONIAL": {
+          "QUOTE": "Siempre pensé que las inversiones eran complejas y arriesgadas, pero Nexus me mostró que con una estrategia adecuada, podía generar ingresos adicionales y asegurar mi futuro financiero."
+        }
+      },
+      "CASE3": {
+        "TITLE": "Pequeño Inversionista Construyendo su Futuro",
+        "LIST1": {
+          "TITLE": "Perfil:",
+          "DESCRIPTION": "Empleado con ahorros personales buscando crecimiento progresivo."
+        },
+        "LIST2": {
+          "TITLE": "Inversión:",
+          "DESCRIPTION": "<b>$10,000 USD</b> en <b>mercados financieros con estrategia de bajo riesgo</b>."
+        },
+        "LIST3": {
+          "TITLE": "Resultados:",
+          "DESCRIPTION": "Crecimiento del <b>60% en 2 años</b>, permitiéndole reinvertir y escalar su portafolio."
+        },
+        "TESTIMONIAL": {
+          "QUOTE": "Gracias a Nexus, aprendí que no se necesita ser millonario para invertir. Con una estrategia clara y acompañamiento experto, pude hacer crecer mis ahorros de forma segura."
+        }
+      }
+    }
   },
   "FAQ": {
     "TITLE": "Todo lo que necesitas saber<br/> antes de invertir.",

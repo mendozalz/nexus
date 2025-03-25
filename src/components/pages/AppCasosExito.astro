@@ -23,14 +23,14 @@ const i18n = getI18N({ currentLocale: currentLang });
       <Sections
         _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-3xl);"
       >
-        <CasosDeExito />
+        <CasosDeExito i18n={i18n} />
       </Sections>
     </section>
     <section class="about">
       <Sections
         _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
       >
-        <HistoriaCrecimientoFinanciero client:only="react" />
+        <HistoriaCrecimientoFinanciero i18n={i18n} client:only="react" />
       </Sections>
     </section>
   </main>

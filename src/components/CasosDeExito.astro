@@ -1,26 +1,33 @@
 ---
+interface Props {
+  i18n: {
+    SUCCESS_STORIES: {
+      LIST: {
+        TITLE1: string;
+        TITLE2: string;
+        TITLE3: string;
+      };
+    };
+  };
+}
+
+const { i18n } = Astro.props;
+
 const approaches = [
   {
     icon: "rocket",
-    title:
-      "+85% de nuestros clientes han obtenido retornos por encima de sus expectativas.",
-    description:
-      "+85% de nuestros clientes han obtenido retornos por encima de sus expectativas.",
+    title: i18n.SUCCESS_STORIES.LIST.TITLE1,
   },
   {
     icon: "lightbulb",
-    title: "Inversiones inmobiliarias con plusvalías de hasta un 30% anual.",
-    description:
-      "Nuestra cultura prospera con el pensamiento creativo y fuera de lo común. Alentamos ideas audaces y las convertimos en realidad.",
+    title: i18n.SUCCESS_STORIES.LIST.TITLE2,
   },
   {
     icon: "users",
-    title:
-      "Participación en proyectos de alto crecimiento con retornos sostenidos en el tiempo.",
-    description:
-      "Creemos en el poder de equipos diversos trabajando juntos. Nuestras herramientas están diseñadas para potenciar el talento humano.",
+    title: i18n.SUCCESS_STORIES.LIST.TITLE3,
   },
 ];
+
 ---
 
 <seccion>
