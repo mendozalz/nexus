@@ -70,6 +70,68 @@
           "DESCRIPTION": "Sustained profitability strategies with controlled exposure."
         }
       }
+    },
+    "REAL_STATE": {
+      "TITLE": "Bienes Raíces",
+      "SERVICES1": {
+        "TITLE": "Inversión en propiedades estratégicas con alto potencial de valorización.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES2": {
+        "TITLE": "Análisis de mercado y selección de activos con <b>alta plusvalía.</b>",
+        "DESCRIPTION": ""
+      },
+      "SERVICES3": {
+        "TITLE": "Modelos de renta y compra para diversificación del portafolio.",
+        "DESCRIPTION": ""
+      },
+      "OPERATION": {
+        "TITLE": "Estrategias inmobiliarias:",
+        "SERVICES1": {
+          "TITLE": "Compra y venta estratégica:",
+          "DESCRIPTION": "Adquisición de propiedades en zonas de valorización acelerada."
+        },
+        "SERVICES2": {
+          "TITLE": "Rentas cortas y largas:",
+          "DESCRIPTION": "Generación de ingresos pasivos a través de alquileres bien estructurados."
+        }
+      }
+    },
+    "LARGE_CAP_ASSETS": {
+      "TITLE": "Activos de Alta Capitalización",
+      "SERVICES1": {
+        "TITLE": "Participación en startups y proyectos de alto impacto.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES2": {
+        "TITLE": "Análisis de riesgo y oportunidades en negocios innovadores.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES3": {
+        "TITLE": "Modelos de inversión a largo plazo en sectores emergentes.",
+        "DESCRIPTION": ""
+      },
+      "OPERATION": {
+        "TITLE": "Áreas de inversión en esta categoría:",
+        "SERVICES1": {
+          "TITLE": "Startups de alto crecimiento."
+        },
+        "SERVICES2": {
+          "TITLE": "Infraestructura y tecnología."
+        }
+      },
+      "CHOOSE_US": {
+        "TITLE": "¿Por qué elegirnos?",
+        "SERVICES1": {
+          "TITLE": "Modelos de inversión optimizados con mitigación de riesgos."
+        },
+        "SERVICES2": {
+          "TITLE": "Análisis estratégico con expertos en cada sector."
+        },
+        "SERVICES3": {
+          "TITLE": "Transparencia en cada proceso de inversión."
+        }
+      }
     }
   },
 

@@ -71,18 +71,66 @@
         }
       }
     },
-    "REAL_ESTATE": {
+    "REAL_STATE": {
       "TITLE": "Real Estate",
-      "SERVICES": {
-        "TITLE": "Strategies designed to minimize market volatility.",
+      "SERVICES1": {
+        "TITLE": "Investment in strategic properties with high appreciation potential.",
         "DESCRIPTION": ""
+      },
+      "SERVICES2": {
+        "TITLE": "Market analysis and asset selection with high added value.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES3": {
+        "TITLE": "Rental and purchase models for portfolio diversification.",
+        "DESCRIPTION": ""
+      },
+      "OPERATION": {
+        "TITLE": "Real estate strategies:",
+        "SERVICES1": {
+          "TITLE": "Strategic buying and selling:",
+          "DESCRIPTION": "Acquisition of properties in areas of accelerated appreciation."
+        },
+        "SERVICES2": {
+          "TITLE": "Short and long term rents:",
+          "DESCRIPTION": "Generating passive income through well-structured rentals."
+        }
       }
     },
     "LARGE_CAP_ASSETS": {
-      "TITLE": "Large Cap Assets",
-      "SERVICES": {
-        "TITLE": "Data-driven analysis models and advanced technology.",
+      "TITLE": "High-Capital Assets",
+      "SERVICES1": {
+        "TITLE": "Participation in startups and high-impact projects.",
         "DESCRIPTION": ""
+      },
+      "SERVICES2": {
+        "TITLE": "Risk analysis and opportunities in innovative businesses.",
+        "DESCRIPTION": ""
+      },
+      "SERVICES3": {
+        "TITLE": "Long-term investment models in emerging sectors.",
+        "DESCRIPTION": ""
+      },
+      "OPERATION": {
+        "TITLE": "Investment areas in this category:",
+        "SERVICES1": {
+          "TITLE": "High-growth startups."
+        },
+        "SERVICES2": {
+          "TITLE": "Infrastructure and technology."
+        }
+      },
+      "CHOOSE_US": {
+        "TITLE": "Why choose us?",
+        "SERVICES1": {
+          "TITLE": "Optimized investment models with risk mitigation."
+        },
+        "SERVICES2": {
+          "TITLE": "Strategic analysis with industry experts."
+        },
+        "SERVICES3": {
+          "TITLE": "Transparency in every investment process."
+        }
       }
     }
   },

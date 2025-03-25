@@ -12,59 +12,28 @@ const i18n = getI18N({ currentLocale: currentLang });
 const services = [
   {
     iconType: "cloud-upload",
-    title:
-      lang === "en"
-        ? "Investment in strategic properties with high appreciation potential."
-        : "Inversión en propiedades estratégicas con alto potencial de valorización.",
-    /* description:
-      lang === "en"
-        ? "Changes sync across all devices in real-time, ensuring your team always has the latest information at their fingertips."
-        : "Los cambios se sincronizan en todos los dispositivos en tiempo real, asegurando que tu equipo siempre tenga la información más reciente a su alcance.", */
+    title: i18n.OUR_SERVICES.REAL_STATE.SERVICES1.TITLE,
   },
   {
     iconType: "lock",
-    title:
-      lang === "en"
-        ? "Market analysis and selection of assets with high capital gains."
-        : "Análisis de mercado y selección de activos con alta plusvalía.",
-    /* description:
-      lang === "en"
-        ? "Your data is protected with enterprise-grade encryption and customizable access controls, giving you peace of mind."
-        : "Tus datos están protegidos con encriptación de nivel empresarial y controles de acceso personalizables, brindándote tranquilidad.", */
+    title: i18n.OUR_SERVICES.REAL_STATE.SERVICES2.TITLE,
   },
   {
     iconType: "database",
-    title:
-      lang === "en"
-        ? "Rental and purchase models for portfolio diversification."
-        : "Modelos de renta y compra para diversificación del portafolio.",
-    /* description:
-      lang === "en"
-        ? "Our analytics engine provides actionable data on team performance, helping you optimize workflows and boost productivity."
-        : "Nuestro motor de análisis proporciona datos accionables sobre el rendimiento del equipo, ayudándote a optimizar flujos de trabajo y aumentar la productividad.", */
+    title: i18n.OUR_SERVICES.REAL_STATE.SERVICES3.TITLE,
   },
 ];
 
 const operacion = [
   {
     iconType: "cloud-upload",
-    title:
-      lang === "en"
-        ? "Strategic buying and selling:"
-        : "Compra y venta estratégica:",
-    description:
-      lang === "en"
-        ? "Acquisition of properties in areas of accelerated appreciation."
-        : "Adquisición de propiedades en zonas de valorización acelerada.",
+    title: i18n.OUR_SERVICES.REAL_STATE.OPERATION.SERVICES1.TITLE,
+    description: i18n.OUR_SERVICES.REAL_STATE.OPERATION.SERVICES1.DESCRIPTION,
   },
   {
     iconType: "lock",
-    title:
-      lang === "en" ? "Short and long term rents:" : "Rentas cortas y largas:",
-    description:
-      lang === "en"
-        ? "Generating passive income through well-structured rentals."
-        : "Generación de ingresos pasivos a través de alquileres bien estructurados.",
+    title: i18n.OUR_SERVICES.REAL_STATE.OPERATION.SERVICES2.TITLE,
+    description: i18n.OUR_SERVICES.REAL_STATE.OPERATION.SERVICES2.DESCRIPTION,
   },
 ];
 ---
@@ -87,11 +56,7 @@ const operacion = [
           />
           <div class="image-caption">
             <p class="caption-title">
-              {
-                lang === "en"
-                  ? "Real Estate"
-                  : "Revoluciona tu flujo de trabajo"
-              }
+              {i18n.OUR_SERVICES.REAL_STATE.TITLE}
             </p>
             <p class="caption-subtitle">
               {
@@ -104,11 +69,8 @@ const operacion = [
         </div>
       </div>
       <div class="text-content">
-        <!-- <p class="tagline">
-          {lang === "en" ? "Streamline Your Process" : "Optimiza Tu Proceso"}
-        </p> -->
         <h1 class="headline">
-          {lang === "en" ? "Real estate" : "Bienes Raíces"}
+          {i18n.OUR_SERVICES.REAL_STATE.TITLE}
         </h1>
         <!-- <p class="description">
           {

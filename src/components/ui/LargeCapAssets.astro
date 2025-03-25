@@ -12,95 +12,41 @@ const i18n = getI18N({ currentLocale: currentLang });
 const services = [
   {
     iconType: "cloud-upload",
-    title:
-      lang === "en"
-        ? "Participation in startups and high-impact projects."
-        : "Participación en startups y proyectos de alto impacto.",
-    /* description:
-      lang === "en"
-        ? "Changes sync across all devices in real-time, ensuring your team always has the latest information at their fingertips."
-        : "Los cambios se sincronizan en todos los dispositivos en tiempo real, asegurando que tu equipo siempre tenga la información más reciente a su alcance.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.SERVICES1.TITLE,
   },
   {
     iconType: "lock",
-    title:
-      lang === "en"
-        ? "Risk and opportunity analysis in innovative businesses."
-        : "Análisis de riesgo y oportunidades en negocios innovadores.",
-    /* description:
-      lang === "en"
-        ? "Your data is protected with enterprise-grade encryption and customizable access controls, giving you peace of mind."
-        : "Tus datos están protegidos con encriptación de nivel empresarial y controles de acceso personalizables, brindándote tranquilidad.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.SERVICES2.TITLE,
   },
   {
     iconType: "database",
-    title:
-      lang === "en"
-        ? "Long-term investment models in emerging sectors."
-        : "Modelos de inversión a largo plazo en sectores emergentes.",
-    /* description:
-      lang === "en"
-        ? "Our analytics engine provides actionable data on team performance, helping you optimize workflows and boost productivity."
-        : "Nuestro motor de análisis proporciona datos accionables sobre el rendimiento del equipo, ayudándote a optimizar flujos de trabajo y aumentar la productividad.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.SERVICES3.TITLE,
   },
 ];
 
 const operacion = [
   {
     iconType: "cloud-upload",
-    title:
-      lang === "en" ? "High-growth startups." : "Startups de alto crecimiento.",
-    /* description:
-      lang === "en"
-        ? "Inversión en mercados de alta liquidez con estrategias de mitigación de riesgo."
-        : "Investment in highly liquid markets with risk mitigation strategies.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.OPERATION.SERVICES1.TITLE,
   },
   {
     iconType: "lock",
-    title:
-      lang === "en"
-        ? "Infrastructure and technology."
-        : "Infraestructura y tecnología.",
-    /* description:
-      lang === "en"
-        ? "Estrategias de rentabilidad sostenida con exposición controlada."
-        : "Sustained profitability strategies with controlled exposure.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.OPERATION.SERVICES2.TITLE,
   },
 ];
 
 const elegirnos = [
   {
     iconType: "cloud-upload",
-    title:
-      lang === "en"
-        ? "Optimized investment models with risk mitigation."
-        : "Modelos de inversión optimizados con mitigación de riesgos.",
-    /* description:
-      lang === "en"
-        ? "Inversión en mercados de alta liquidez con estrategias de mitigación de riesgo."
-        : "Investment in highly liquid markets with risk mitigation strategies.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.CHOOSE_US.SERVICES1.TITLE,
   },
   {
     iconType: "lock",
-    title:
-      lang === "en"
-        ? "Strategic analysis with experts in each sector."
-        : "Análisis estratégico con expertos en cada sector.",
-    /* description:
-      lang === "en"
-        ? "Estrategias de rentabilidad sostenida con exposición controlada."
-        : "Sustained profitability strategies with controlled exposure.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.CHOOSE_US.SERVICES2.TITLE,
   },
   {
     iconType: "database",
-    title:
-      lang === "en"
-        ? "Transparency in every investment process."
-        : "Transparencia en cada proceso de inversión.",
-    /* description:
-      lang === "en"
-        ? "Estrategias de rentabilidad sostenida con exposición controlada."
-        : "Sustained profitability strategies with controlled exposure.", */
+    title: i18n.OUR_SERVICES.LARGE_CAP_ASSETS.CHOOSE_US.SERVICES3.TITLE,
   },
 ];
 ---
@@ -114,11 +60,7 @@ const elegirnos = [
           {lang === "en" ? "Financial Markets" : "Mercados Financieros"}
         </p> -->
         <h1 class="headline">
-          {
-            lang === "en"
-              ? "Large Cap Assets"
-              : "Activos de Alta Capitalización"
-          }
+          {i18n.OUR_SERVICES.LARGE_CAP_ASSETS.TITLE}
         </h1>
         <!-- <p class="description">
           {
@@ -205,11 +147,7 @@ const elegirnos = [
           </ul>
 
           <h2 class="secondary-headline">
-            {
-              lang === "en"
-                ? "Investment areas in this category:"
-                : "Áreas de inversión en esta categoría:"
-            }
+            {i18n.OUR_SERVICES.LARGE_CAP_ASSETS.OPERATION.TITLE}
           </h2>
           <ul>
             {
@@ -287,7 +225,7 @@ const elegirnos = [
           </ul>
           <!-- Segunda sección -->
           <h2 class="secondary-headline">
-            {lang === "en" ? "Why choose us?" : "¿Por qué elegirnos?"}
+            {i18n.OUR_SERVICES.LARGE_CAP_ASSETS.CHOOSE_US.TITLE}
           </h2>
           <ul>
             {
@@ -380,11 +318,7 @@ const elegirnos = [
           />
           <div class="image-caption">
             <p class="caption-title">
-              {
-                lang === "en"
-                  ? "Large Cap Assets"
-                  : "Revoluciona tu flujo de trabajo"
-              }
+              {i18n.OUR_SERVICES.LARGE_CAP_ASSETS.TITLE}
             </p>
             <p class="caption-subtitle">
               {
