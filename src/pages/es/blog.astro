@@ -1,0 +1,14 @@
+---
+import LayoutNavOscuro from "../../layouts/Layout-nav-oscuro.astro";
+import { Blog } from "../../components/ui/blog";
+import spanish from "../../i18n/locales/es.json";
+
+// Usamos directamente el objeto de traducción en español
+const i18n = spanish;
+---
+
+<LayoutNavOscuro title="Blog | Nexus Private Capital">
+  <main>
+    <Blog client:load />
+  </main>
+</LayoutNavOscuro>

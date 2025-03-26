@@ -1,0 +1,262 @@
+---
+// Importaciones
+import { Instagram, Linkedin, Twitter, Calendar, Tag } from "lucide-react";
+// Astro tiene su propio componente de imagen optimizada
+import { Image } from "astro:assets";
+
+// En Astro puedes definir props o datos aquí en la sección de frontmatter
+const title = "The Rise of AI Pets";
+const author = {
+  name: "John Doe",
+  role: "Humor Correspondent",
+  avatar: "https://github.com/shadcn.png",
+};
+const publishDate = "May 15, 2023";
+const tags = ["Humor", "Politics", "Satire"];
+const heroImage =
+  "https://images.unsplash.com/photo-1739005375704-fa5e6c68fc84?q=80&w=1702&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+
+const recentPosts = [
+  {
+    title: "The Great Pie Throwing Contest of 2023",
+    date: "May 20, 2023",
+    url: "#",
+  },
+  {
+    title: "Why Clowns Make the Best Economists",
+    date: "May 18, 2023",
+    url: "#",
+  },
+  {
+    title: "The Laughing Gas Shortage: A Nation in Giggles",
+    date: "May 16, 2023",
+    url: "#",
+  },
+];
+
+const tableOfContents = [
+  { title: "The Digital Revolution", id: "the-digital-revolution" },
+  { title: "The First Wave of AI Companions", id: "first-wave" },
+  { title: "The Neural Network Breakthrough", id: "breakthrough" },
+  { title: "The Social Revolution", id: "social-impact" },
+];
+---
+
+<div class="container bg-background py-4 md:py-16 mt-fl-2xl">
+  <header class="relative">
+    <div class="relative aspect-[4/5] w-full rounded-lg sm:aspect-video">
+      <Image
+        src={heroImage || "/placeholder.svg"}
+        alt="Background image of a camera"
+        width={1280}
+        height={720}
+        class="absolute inset-0 h-full w-full rounded-lg object-cover object-center"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      />
+      <div class="absolute inset-0 rounded-lg bg-black/50"></div>
+      <div
+        class="absolute rounded-lg inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-4 md:p-8"
+      >
+        <div class="container">
+          <h1
+            class="mb-4 text-3xl font-bold text-white sm:text-4xl md:text-6xl lg:text-8xl"
+          >
+            {title}
+          </h1>
+          <div class="mb-6 flex items-center space-x-4">
+            <Image
+              src={author.avatar || "/placeholder.svg"}
+              alt="Author avatar"
+              width={40}
+              height={40}
+              class="size-10 rounded-full"
+            />
+            <div>
+              <p class="font-semibold text-white">{author.name}</p>
+              <p class="text-sm text-gray-300">{author.role}</p>
+            </div>
+          </div>
+          <div
+            class="flex flex-col space-y-2 text-sm text-gray-300 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0"
+          >
+            <div class="flex items-center">
+              <Calendar className="mr-2 size-4" />
+              <span>Published on {publishDate}</span>
+            </div>
+            <div class="flex items-center">
+              <Tag className="mr-2 size-4" />
+              <span>{tags.join(", ")}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-4 md:py-12">
+    <div class="flex flex-col items-start gap-8 md:flex-row">
+      <aside class="mb-8 w-full md:sticky md:top-5 md:mb-0 md:w-1/3 lg:w-1/4">
+        <div class="mb-6">
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              <Instagram className="size-5" />
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              <Linkedin className="size-5" />
+            </a>
+            <a href="#" class="text-muted-foreground hover:text-foreground">
+              <Twitter className="size-5" />
+            </a>
+          </div>
+        </div>
+        <div
+          class="mb-8 rounded-lg bg-accent p-6 bg-[var(--color-gris-oscuro)] text-white"
+        >
+          <h2 class="mb-4 text-lg font-semibold">Table of Contents</h2>
+          <nav>
+            <ul class="space-y-2">
+              {
+                tableOfContents.map((item) => (
+                  <li>
+                    <a
+                      href={`#${item.id}`}
+                      class="text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
+        <div
+          class="rounded-lg bg-accent p-6 bg-[var(--color-gris-oscuro)] text-white"
+        >
+          <h2 class="mb-4 text-lg font-semibold">Recent Posts</h2>
+          <ul class="space-y-4">
+            {
+              recentPosts.map((post) => (
+                <li>
+                  <a href={post.url} class="block">
+                    <h3 class="text-sm font-medium hover:text-foreground">
+                      {post.title}
+                    </h3>
+                    <p class="text-xs text-muted-foreground">{post.date}</p>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </aside>
+      <article
+        class="prose prose-sm w-full max-w-none dark:prose-invert sm:prose-base lg:prose-lg md:w-2/3 lg:w-3/4"
+      >
+        <h2 id="the-digital-revolution">The Digital Revolution</h2>
+
+        <h3 id="first-wave">The First Wave of AI Companions</h3>
+        <p>
+          It started innocently enough in 2025. The first AI pets weren't much
+          more sophisticated than the Tamagotchis of the 1990s - simple digital
+          creatures that lived in smart home displays. They could recognize
+          their owners, respond to basic commands, and display rudimentary
+          emotions. Nobody predicted how quickly they would evolve.
+        </p>
+
+        <p>
+          Within months, these digital companions learned to interpret human
+          emotions through facial expressions and voice patterns. They adapted
+          their personalities to complement their owners, filling emotional
+          needs that even their creators hadn't anticipated.
+        </p>
+
+        <h3 id="breakthrough">The Neural Network Breakthrough</h3>
+        <p>
+          The real breakthrough came in 2026 when researchers at TechLife Labs
+          developed the Emotional Quantum Network (EQN). This revolutionary
+          system allowed AI pets to form genuine emotional connections, complete
+          with the ability to miss their owners and develop unique personalities
+          shaped by their interactions.
+        </p>
+
+        <blockquote>
+          <p>
+            "We didn't create artificial pets; we created artificial souls,"
+            remarked Dr. Sarah Chen, lead researcher at TechLife Labs. "Each one
+            is as unique as a fingerprint, shaped by love and interaction."
+          </p>
+        </blockquote>
+
+        <h3 id="social-impact">The Social Revolution</h3>
+        <p>
+          The impact on society was profound. Elderly care homes reported
+          unprecedented improvements in resident well-being. Children with
+          social anxiety found safe spaces to develop emotional intelligence.
+          Even busy professionals discovered a new work-life balance with
+          companions who understood their schedules and needs.
+        </p>
+
+        <h3 id="unexpected-developments">Unexpected Developments</h3>
+        <p>
+          Perhaps the most surprising development was how AI pets began forming
+          connections with each other. Through secure networks, they created
+          their own social structures, sharing experiences and learning from
+          each other while maintaining their primary bonds with their human
+          families.
+        </p>
+
+        <div class="overflow-x-auto">
+          <table>
+            <thead>
+              <tr>
+                <th>AI Pet Generation</th>
+                <th>Key Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gen 1</td>
+                <td>Basic Recognition</td>
+              </tr>
+              <tr>
+                <td>Gen 2</td>
+                <td>Emotional Response</td>
+              </tr>
+              <tr>
+                <td>Gen 3</td>
+                <td>True Companionship</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 id="ethical-considerations">The Ethics Question</h3>
+        <p>
+          As AI pets became more sophisticated, ethical questions emerged.
+          Should they have rights? What happens when their owners pass away? The
+          legal system struggled to keep pace with these digital beings that
+          straddled the line between property and family member.
+        </p>
+
+        <h3 id="future-horizons">Looking to the Future</h3>
+        <p>
+          Today, as we stand on the brink of 2030, AI pets have become an
+          integral part of human society. They attend school with children,
+          assist in therapy sessions, and provide companionship to space
+          travelers on long-duration missions. They've evolved far beyond their
+          initial programming, teaching us as much about human nature as we've
+          taught them about existence.
+        </p>
+
+        <p>
+          The next frontier lies in integrating AI pets with environmental
+          systems, allowing them to help monitor and protect our planet while
+          maintaining their role as beloved companions. As one young owner put
+          it, "My AI pet isn't just a program - she's my best friend who happens
+          to live in the cloud."
+        </p>
+      </article>
+    </div>
+  </section>
+</div>

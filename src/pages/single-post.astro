@@ -1,0 +1,17 @@
+---
+import BlogSingle from "../components/BlogSingle.astro";
+import Sections from "../components/Sections.astro";
+import LayoutNavOscuro from "../layouts/Layout-nav-oscuro.astro";
+---
+
+<LayoutNavOscuro title="Artículo del Blog - Nexus">
+  <main>
+    <section class="single-post">
+      <Sections
+        _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
+      >
+        <BlogSingle />
+      </Sections>
+    </section>
+  </main>
+</LayoutNavOscuro>
