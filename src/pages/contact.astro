@@ -1,10 +1,14 @@
 ---
 import AppContacto from "../components/pages/AppContacto";
 import LayoutNavOscuro from "../layouts/Layout-nav-oscuro.astro";
+import english from "../i18n/locales/en.json";
+
+// Usamos directamente el objeto de traducción en inglés
+const i18n = english;
 ---
 
 <LayoutNavOscuro title="Contact | Nexus Private Capital">
   <main>
-    <AppContacto client:load />
+    <AppContacto i18n={i18n} client:load />
   </main>
 </LayoutNavOscuro>

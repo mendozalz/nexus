@@ -203,8 +203,70 @@
     }
   },
   "FAQ": {
-    "TITLE": "Todo lo que necesitas saber<br/> antes de invertir.",
-    "DESCRIPTION": "Hemos recopilado las <b>preguntas más frecuentes</b> de nuestros inversionistas para brindarte toda la información que necesitas antes de comenzar a invertir con nosotros."
+    "TITLE": "Everything You Need to Know<br/> Before Investing",
+    "DESCRIPTION": "We have compiled the <b>most frequently asked questions</b> from our investors to provide you with all the information you need before starting your investment journey with us.",
+    "PREGUNTAS": [
+      {
+        "PREGUNTA": "What are the requirements to invest?",
+        "RESPUESTA": {
+          "TITLE": "To invest with <b>Nexus Private Capital,</b> you must meet the following requirements:",
+          "LIST1": "Be of legal age.",
+          "LIST2": "Have the minimum required capital according to the selected investment strategy.",
+          "LIST3": "Complete the registration and identity verification process.",
+          "LIST4": ""
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "",
+          "LIST1": "",
+          "LIST2": ""
+        }
+      },
+      {
+        "PREGUNTA": "How long does the capital need to stay invested?",
+        "RESPUESTA": {
+          "TITLE": "The investment period varies depending on the chosen strategy:",
+          "LIST1": "<b>Short-term:</b> From 3 months.",
+          "LIST2": "<b>Medium-term:</b> Between 6 and 12 months.",
+          "LIST3": "<b>Long-term:</b> From 1 year, with the possibility of strategic renewals.",
+          "LIST4": ""
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "",
+          "LIST1": "",
+          "LIST2": ""
+        }
+      },
+      {
+        "PREGUNTA": "How and when are returns paid out?",
+        "RESPUESTA": {
+          "TITLE": "The returns generated are paid according to the selected investment plan:",
+          "LIST1": "<b>Quarterly:</b> Accumulated returns paid every 3 months.",
+          "LIST2": "<b>Semi-Annually:</b> Returns paid every 6 months.",
+          "LIST3": "<b>Annually:</b> Full return paid at the end of the fiscal year.",
+          "LIST4": ""
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "<b>Payment Methods:</b>",
+          "LIST1": "Bank transfers to registered accounts.",
+          "LIST2": "Other payment options depending on the country and applicable regulations."
+        }
+      },
+      {
+        "PREGUNTA": "What risks exist, and how are they managed?",
+        "RESPUESTA": {
+          "TITLE": "All investments carry risks, but at <b>Nexus Private Capital,</b> we implement <b>advanced risk management strategies</b> to minimize them.",
+          "LIST1": "<b>Asset Diversification:</b> We invest in multiple sectors to mitigate volatility.",
+          "LIST2": "<b>Real-Time Analysis:</b> We constantly evaluate the market to adjust strategies.",
+          "LIST3": "<b>Optimized Investment Models:</b> Based on data analysis and financial trends.",
+          "LIST4": "<b>Contingency Plans:</b> We adjust investment positions based on the economic context."
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "<b>We have control measures and audits in place to ensure the security of the invested capital.</b>",
+          "LIST1": "",
+          "LIST2": ""
+        }
+      }
+    ]
   },
   "FOOTER": {
     "INVESTMENTS": "Investments",
@@ -217,11 +279,73 @@
     "COPYRIGHT": "Copyright NEXUS 2025 All Rights Reserved"
   },
   "CONTACT": {
-    "TITLE": "Contact",
-    "NAME": "Name",
-    "EMAIL": "Email",
-    "MESSAGE": "Message",
-    "SEND": "Submit"
+    "URL": "/contact/",
+    "TITLE": "Connect with Us and Start Investing Today",
+    "DESCRIPTION": "If you want to learn more about how we can help you <b>maximize your capital</b>, contact us, and an advisor will provide you with all the information you need.",
+    "FORM": {
+      "TITLE": "Send us a message",
+      "DESCRIPTION": "Complete the form below and we will respond as soon as possible.",
+      "FIELDS": {
+        "NOMBRE": "First Name",
+        "NOMBRE_PLACEHOLDER": "Enter your first name",
+        "APELLIDO": "Last Name",
+        "APELLIDO_PLACEHOLDER": "Enter your last name",
+        "EMAIL": "Email Address",
+        "EMAIL_PLACEHOLDER": "Enter your email address",
+        "TELEFONO": "Contact Phone Number",
+        "TELEFONO_PLACEHOLDER": "Enter your phone number",
+        "ASUNTO": "Subject",
+        "ASUNTO_PLACEHOLDER": "Enter the subject",
+        "MENSAJE": "Message or Specific Inquiry",
+        "MENSAJE_PLACEHOLDER": "How can we help you?",
+        "AGENDAR_REUNION": "I would like to schedule a meeting with an advisor",
+        "FECHA_REUNION": "Preferred date",
+        "HORA_REUNION": "Preferred time",
+        "SUBMIT_BUTTON": "Send Message",
+        "SENDING": "Sending..."
+      },
+      "MESSAGES": {
+        "ERROR": "Error sending the form. Please try again.",
+        "SUCCESS": "Message sent successfully! We will contact you soon."
+      }
+    },
+    "CONTACT_INFO": {
+      "TITLE": "Direct and Personalized Assistance",
+      "PHONE": {
+        "TITLE": "Phone",
+        "NUMBER": "+1 (555) 123-4567",
+        "HOURS": "Monday to Friday: 9:00 AM - 6:00 PM"
+      },
+      "EMAIL": {
+        "TITLE": "Email",
+        "ADDRESS": "info@nexusprivatecapital.com",
+        "DESCRIPTION": "For detailed inquiries"
+      },
+      "ADDRESS": {
+        "TITLE": "Corporate Address",
+        "LOCATION": "123 Antioquia, Medellín, Colombia",
+        "DESCRIPTION": "In-person assistance by appointment"
+      },
+      "WHATSAPP": {
+        "TITLE": "WhatsApp",
+        "NUMBER": "+1 (555) 987-6543",
+        "DESCRIPTION": "Instant support"
+      }
+    },
+    "SOCIAL_MEDIA": {
+      "TITLE": "Follow us on social media",
+      "DESCRIPTION": "Stay updated on our investment opportunities",
+      "PLATFORMS": {
+        "FACEBOOK": "Facebook",
+        "TWITTER": "Twitter",
+        "INSTAGRAM": "Instagram",
+        "LINKEDIN": "LinkedIn"
+      }
+    },
+    "MAP": {
+      "TITLE": "Nexus Private Capital Location",
+      "ARIA_LABEL": "Map showing the location of our offices"
+    }
   },
   "CALL_TO_ACTION": {
     "TITLE": "Start investing today",

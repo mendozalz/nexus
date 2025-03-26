@@ -204,7 +204,69 @@
   },
   "FAQ": {
     "TITLE": "Todo lo que necesitas saber<br/> antes de invertir.",
-    "DESCRIPTION": "Hemos recopilado las <b>preguntas más frecuentes</b> de nuestros inversionistas para brindarte toda la información que necesitas antes de comenzar a invertir con nosotros."
+    "DESCRIPTION": "Hemos recopilado las <b>preguntas más frecuentes</b> de nuestros inversionistas para brindarte toda la información que necesitas antes de comenzar a invertir con nosotros.",
+    "PREGUNTAS": [
+      {
+        "PREGUNTA": "¿Cuáles son los requisitos para invertir?",
+        "RESPUESTA": {
+          "TITLE": "Para invertir con <b>Nexus Private Capital,</b> necesitarás cumplir con los siguientes requisitos:",
+          "LIST1": "Ser mayor de edad.",
+          "LIST2": "Contar con un capital mínimo según la estrategia elegida.",
+          "LIST3": "Completar el proceso de registro y validación de identidad.",
+          "LIST4": ""
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "",
+          "LIST1": "",
+          "LIST2": ""
+        }
+      },
+      {
+        "PREGUNTA": "¿Cuánto tiempo debe permanecer el capital?",
+        "RESPUESTA": {
+          "TITLE": "El período de inversión varía según la estrategia seleccionada:",
+          "LIST1": "<b>Corto plazo:</b> Desde 3 meses",
+          "LIST2": "<b>Mediano plazo:</b> Entre 6 y 12 meses.",
+          "LIST3": "<b>Largo plazo:</b> A partir de 1 año, con posibilidad de renovaciones estratégicas.",
+          "LIST4": ""
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "",
+          "LIST1": "",
+          "LIST2": ""
+        }
+      },
+      {
+        "PREGUNTA": "¿Cómo y cuándo se pagan las rentabilidades?",
+        "RESPUESTA": {
+          "TITLE": "Las rentabilidades generadas se pagan de acuerdo con el plan de inversión seleccionado:",
+          "LIST1": "<b>Trimestral:</b> Rentabilidad acumulada cada 3 meses.",
+          "LIST2": "<b>Semestral:</b> Pago de rentabilidad cada 6 meses.",
+          "LIST3": "<b>Anual:</b> Rentabilidad total al finalizar el año fiscal.",
+          "LIST4": ""
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "<b>Métodos de pago:</b>",
+          "LIST1": "Transferencias bancarias a cuentas registradas.",
+          "LIST2": "Otras opciones de pago dependiendo del país y normativas vigentes."
+        }
+      },
+      {
+        "PREGUNTA": "¿Qué riesgos existen y cómo los manejan?",
+        "RESPUESTA": {
+          "TITLE": "Toda inversión conlleva riesgos, pero en <b>Nexus Private Capital</b> implementamos <b>estrategias avanzadas de gestión de riesgos</b> para minimizarlos.",
+          "LIST1": "<b>Diversificación de activos:</b> Invertimos en diferentes sectores para mitigar la volatilidad.",
+          "LIST2": "<b>Análisis en tiempo real:</b> Evaluamos el mercado constantemente para ajustar estrategias.",
+          "LIST3": "<b>Modelos de inversión optimizados:</b> Basados en análisis de datos y tendencias financieras.",
+          "LIST4": "<b>Planes de contingencia:</b> Ajustamos posiciones de inversión en función del contexto económico."
+        },
+        "EXTRA_ITEM": {
+          "TITLE": "<b>Contamos con medidas de control y auditoría para garantizar la seguridad del capital invertido.</b>",
+          "LIST1": "",
+          "LIST2": ""
+        }
+      }
+    ]
   },
   "FOOTER": {
     "INVESTMENTS": "Inversiones",
@@ -217,11 +279,73 @@
     "COPYRIGHT": "Copyright INVENTEK 2024 Todos los derechos reservados"
   },
   "CONTACT": {
-    "TITLE": "Contacto",
-    "NAME": "Nombre",
-    "EMAIL": "Correo electrónico",
-    "MESSAGE": "Mensaje",
-    "SEND": "Enviar"
+    "URL": "/contacto/",
+    "TITLE": "Conéctate con nosotros",
+    "DESCRIPTION": "Si deseas conocer más sobre cómo podemos ayudarte a maximizar tu capital, contáctanos y un asesor te brindará toda la información que necesitas.",
+    "FORM": {
+      "TITLE": "Envíanos un mensaje",
+      "DESCRIPTION": "Completa el formulario a continuación y te responderemos lo antes posible.",
+      "FIELDS": {
+        "NOMBRE": "Nombre",
+        "NOMBRE_PLACEHOLDER": "Ingresa tu nombre",
+        "APELLIDO": "Apellido",
+        "APELLIDO_PLACEHOLDER": "Ingresa tu apellido",
+        "EMAIL": "Correo electrónico",
+        "EMAIL_PLACEHOLDER": "Ingresa tu correo electrónico",
+        "TELEFONO": "Teléfono",
+        "TELEFONO_PLACEHOLDER": "Ingresa tu teléfono",
+        "ASUNTO": "Asunto",
+        "ASUNTO_PLACEHOLDER": "Ingresa el asunto",
+        "MENSAJE": "Mensaje",
+        "MENSAJE_PLACEHOLDER": "¿En qué podemos ayudarte?",
+        "AGENDAR_REUNION": "Deseo agendar una reunión con un asesor",
+        "FECHA_REUNION": "Fecha preferida",
+        "HORA_REUNION": "Hora preferida",
+        "SUBMIT_BUTTON": "Enviar Mensaje",
+        "SENDING": "Enviando..."
+      },
+      "MESSAGES": {
+        "ERROR": "Error al enviar el formulario. Por favor, inténtalo de nuevo.",
+        "SUCCESS": "¡Mensaje enviado con éxito! Te contactaremos pronto."
+      }
+    },
+    "CONTACT_INFO": {
+      "TITLE": "Atención directa y personalizada",
+      "PHONE": {
+        "TITLE": "Teléfono",
+        "NUMBER": "+1 (555) 123-4567",
+        "HOURS": "Lunes a Viernes: 9:00 AM - 6:00 PM"
+      },
+      "EMAIL": {
+        "TITLE": "Email",
+        "ADDRESS": "info@nexusprivatecapital.com",
+        "DESCRIPTION": "Para consultas detalladas"
+      },
+      "ADDRESS": {
+        "TITLE": "Dirección corporativa",
+        "LOCATION": "123 Antioquia, Medellín, Colombia",
+        "DESCRIPTION": "Atención presencial con cita previa"
+      },
+      "WHATSAPP": {
+        "TITLE": "WhatsApp",
+        "NUMBER": "+1 (555) 987-6543",
+        "DESCRIPTION": "Atención inmediata"
+      }
+    },
+    "SOCIAL_MEDIA": {
+      "TITLE": "Síguenos en redes sociales",
+      "DESCRIPTION": "Mantente actualizado sobre nuestras oportunidades de inversión",
+      "PLATFORMS": {
+        "FACEBOOK": "Facebook",
+        "TWITTER": "Twitter",
+        "INSTAGRAM": "Instagram",
+        "LINKEDIN": "LinkedIn"
+      }
+    },
+    "MAP": {
+      "TITLE": "Ubicación de Nexus Private Capital",
+      "ARIA_LABEL": "Mapa mostrando la ubicación de nuestras oficinas"
+    }
   },
   "CALL_TO_ACTION": {
     "TITLE": "Empieza a invertir hoy mismo",

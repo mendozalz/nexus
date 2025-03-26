@@ -55,14 +55,36 @@ interface PreguntaFrecuente {
 /**
  * Propiedades para el componente de PreguntasFrecuentes
  * @interface PreguntasFrecuentesProps
- * @property {string} titulo - Título principal del componente
- * @property {string} subtitulo - Subtítulo destacado del componente
- * @property {PreguntaFrecuente[]} preguntas - Array de preguntas y respuestas
+ * @property {string} [titulo] - Título principal del componente (opcional si se proporciona i18n)
+ * @property {string} [subtitulo] - Subtítulo destacado del componente (opcional si se proporciona i18n)
+ * @property {PreguntaFrecuente[]} [preguntas] - Array de preguntas y respuestas (opcional si se proporciona i18n)
+ * @property {Object} [i18n] - Objeto con las traducciones (opcional)
  */
 interface PreguntasFrecuentesProps {
-  titulo: string;
-  subtitulo: string;
-  preguntas: PreguntaFrecuente[];
+  titulo?: string;
+  subtitulo?: string;
+  preguntas?: PreguntaFrecuente[];
+  i18n?: {
+    FAQ: {
+      TITLE: string;
+      DESCRIPTION: string;
+      PREGUNTAS: Array<{
+        PREGUNTA: string;
+        RESPUESTA: {
+          TITLE: string;
+          LIST1: string;
+          LIST2: string;
+          LIST3: string;
+          LIST4: string;
+        };
+        EXTRA_ITEM: {
+          TITLE: string;
+          LIST1: string;
+          LIST2: string;
+        };
+      }>;
+    };
+  };
 }
 
 /**
@@ -87,97 +109,132 @@ export default function PreguntasFrecuentes({
   titulo,
   subtitulo,
   preguntas,
+  i18n,
 }: PreguntasFrecuentesProps): JSX.Element {
+  // Si se proporciona i18n, podemos usarlo directamente para obtener los textos
+  const tituloFinal =
+    i18n?.FAQ?.TITLE?.split("<br/>")[0] || titulo || "Preguntas Frecuentes";
+  const subtituloFinal =
+    i18n?.FAQ?.DESCRIPTION?.replace(/<\/?b>/g, "") ||
+    subtitulo ||
+    "Información importante";
+
+  /**
+   * Obtiene las preguntas frecuentes del archivo de internacionalización
+   * @returns {PreguntaFrecuente[]} Array con las preguntas frecuentes formateadas
+   */
+  const obtenerPreguntasDesdeI18n = (): PreguntaFrecuente[] => {
+    if (!i18n?.FAQ?.PREGUNTAS) {
+      return [];
+    }
+
+    // Mapear las preguntas del archivo de internacionalización al formato esperado
+    return i18n.FAQ.PREGUNTAS.map((pregunta) => ({
+      pregunta: pregunta.PREGUNTA,
+      respuesta: {
+        title: pregunta.RESPUESTA.TITLE,
+        list1: pregunta.RESPUESTA.LIST1,
+        list2: pregunta.RESPUESTA.LIST2,
+        list3: pregunta.RESPUESTA.LIST3,
+        list4: pregunta.RESPUESTA.LIST4 || "",
+      },
+      extraItem: {
+        title: pregunta.EXTRA_ITEM.TITLE || "",
+        list1: pregunta.EXTRA_ITEM.LIST1 || "",
+        list2: pregunta.EXTRA_ITEM.LIST2 || "",
+      },
+    }));
+  };
+
+  // Usar las preguntas proporcionadas o generarlas desde i18n
+  const preguntasFinal = preguntas || obtenerPreguntasDesdeI18n();
+
   return (
     <section className="md:py-fl-3xl lg:py-fl-4xl max-w-[var(--grid-max-width)] mx-auto px-4 mb-5">
-      <div className="container mx-auto">
-        <div className="mb-fl-xl flex flex-col items-start text-left">
-          <h2 className="text-2xl md:text-3xl font-bold mb-xs leading-none">
-            {titulo}: <span>{subtitulo}</span>
-          </h2>
-          <p className="text-fl-base">
-            Hemos recopilado las preguntas más frecuentes de nuestros
-            inversionistas para brindarte toda la información que necesitas
-            antes de comenzar a invertir con nosotros.
-          </p>
-        </div>
-        <Accordion type="single" collapsible className="w-full">
-          {preguntas.map((item, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left text-fl-lg font-semibold">
-                {item.pregunta}
-              </AccordionTrigger>
-              <AccordionContent className="text-fl-base text-muted-foreground">
-                {esContenidoRespuesta(item.respuesta) ? (
-                  <div className="space-y-4">
-                    {item.respuesta.title && (
-                      <p
-                        className="font-medium"
+      <div className="text-center mb-fl-xl">
+        <h2 className="text-fl-2xl md:text-fl-3xl font-bold mb-xs">
+          {tituloFinal}
+        </h2>
+        <p className="text-fl-lg md:text-fl-xl text-muted-foreground max-w-[60ch] mx-auto">
+          {subtituloFinal}
+        </p>
+      </div>
+      <Accordion type="single" collapsible className="w-full">
+        {preguntasFinal?.map((item, index) => (
+          <AccordionItem key={index} value={`item-${index}`}>
+            <AccordionTrigger className="text-left text-fl-lg font-semibold">
+              {item.pregunta}
+            </AccordionTrigger>
+            <AccordionContent className="text-fl-base text-muted-foreground">
+              {esContenidoRespuesta(item.respuesta) ? (
+                <div className="space-y-4">
+                  {item.respuesta.title && (
+                    <p
+                      className="font-medium"
+                      dangerouslySetInnerHTML={{
+                        __html: item.respuesta.title,
+                      }}
+                    />
+                  )}
+                  <ul className="list-disc pl-5 space-y-2">
+                    {item.respuesta.list1 && (
+                      <li
                         dangerouslySetInnerHTML={{
-                          __html: item.respuesta.title,
+                          __html: item.respuesta.list1,
                         }}
                       />
                     )}
-                    <ul className="list-disc pl-5 space-y-2">
-                      {item.respuesta.list1 && (
-                        <li
-                          dangerouslySetInnerHTML={{
-                            __html: item.respuesta.list1,
-                          }}
-                        />
-                      )}
-                      {item.respuesta.list2 && (
-                        <li
-                          dangerouslySetInnerHTML={{
-                            __html: item.respuesta.list2,
-                          }}
-                        />
-                      )}
-                      {item.respuesta.list3 && (
-                        <li
-                          dangerouslySetInnerHTML={{
-                            __html: item.respuesta.list3,
-                          }}
-                        />
-                      )}
-                      {item.respuesta.list4 && (
-                        <li
-                          dangerouslySetInnerHTML={{
-                            __html: item.respuesta.list4,
-                          }}
-                        />
-                      )}
-                    </ul>
-
-                    {item.extraItem && (
-                      <div className="mt-4 pt-4 border-t border-gray-200">
-                        {item.extraItem.title && (
-                          <p
-                            className="font-medium"
-                            dangerouslySetInnerHTML={{
-                              __html: item.extraItem.title,
-                            }}
-                          />
-                        )}
-                        <ul className="list-disc pl-5 space-y-2">
-                          {item.extraItem.list1 && (
-                            <li>{item.extraItem.list1}</li>
-                          )}
-                          {item.extraItem.list2 && (
-                            <li>{item.extraItem.list2}</li>
-                          )}
-                        </ul>
-                      </div>
+                    {item.respuesta.list2 && (
+                      <li
+                        dangerouslySetInnerHTML={{
+                          __html: item.respuesta.list2,
+                        }}
+                      />
                     )}
-                  </div>
-                ) : (
-                  <p>{item.respuesta}</p>
-                )}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </div>
+                    {item.respuesta.list3 && (
+                      <li
+                        dangerouslySetInnerHTML={{
+                          __html: item.respuesta.list3,
+                        }}
+                      />
+                    )}
+                    {item.respuesta.list4 && (
+                      <li
+                        dangerouslySetInnerHTML={{
+                          __html: item.respuesta.list4,
+                        }}
+                      />
+                    )}
+                  </ul>
+
+                  {item.extraItem && (
+                    <div className="mt-4 pt-4 border-t border-gray-200">
+                      {item.extraItem.title && (
+                        <p
+                          className="font-medium"
+                          dangerouslySetInnerHTML={{
+                            __html: item.extraItem.title,
+                          }}
+                        />
+                      )}
+                      <ul className="list-disc pl-5 space-y-2">
+                        {item.extraItem.list1 && (
+                          <li>{item.extraItem.list1}</li>
+                        )}
+                        {item.extraItem.list2 && (
+                          <li>{item.extraItem.list2}</li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <p>{item.respuesta}</p>
+              )}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </section>
   );
 }

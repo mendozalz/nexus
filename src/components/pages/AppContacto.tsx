@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react";
+import "../../styles/global.css";
 
 /**
  * Interfaz para los datos del formulario de contacto
@@ -31,10 +32,161 @@ interface FormularioContacto {
 }
 
 /**
+ * Interfaz para las propiedades del componente AppContacto
+ * @interface AppContactoProps
+ */
+interface AppContactoProps {
+  /** Objeto con las traducciones */
+  i18n: {
+    CONTACT: {
+      TITLE: string;
+      DESCRIPTION: string;
+      FORM: {
+        TITLE: string;
+        DESCRIPTION: string;
+        FIELDS: {
+          NOMBRE: string;
+          NOMBRE_PLACEHOLDER: string;
+          APELLIDO: string;
+          APELLIDO_PLACEHOLDER: string;
+          EMAIL: string;
+          EMAIL_PLACEHOLDER: string;
+          TELEFONO: string;
+          TELEFONO_PLACEHOLDER: string;
+          ASUNTO: string;
+          ASUNTO_PLACEHOLDER: string;
+          MENSAJE: string;
+          MENSAJE_PLACEHOLDER: string;
+          AGENDAR_REUNION: string;
+          FECHA_REUNION: string;
+          HORA_REUNION: string;
+          SUBMIT_BUTTON: string;
+          SENDING: string;
+        };
+        MESSAGES: {
+          ERROR: string;
+          SUCCESS: string;
+        };
+      };
+      CONTACT_INFO: {
+        TITLE: string;
+        PHONE: {
+          TITLE: string;
+          NUMBER: string;
+          HOURS: string;
+        };
+        EMAIL: {
+          TITLE: string;
+          ADDRESS: string;
+          DESCRIPTION: string;
+        };
+        ADDRESS: {
+          TITLE: string;
+          LOCATION: string;
+          DESCRIPTION: string;
+        };
+        WHATSAPP: {
+          TITLE: string;
+          NUMBER: string;
+          DESCRIPTION: string;
+        };
+      };
+      SOCIAL_MEDIA: {
+        TITLE: string;
+        DESCRIPTION: string;
+        PLATFORMS: {
+          FACEBOOK: string;
+          TWITTER: string;
+          INSTAGRAM: string;
+          LINKEDIN: string;
+        };
+      };
+      MAP: {
+        TITLE: string;
+        ARIA_LABEL: string;
+      };
+    };
+  };
+}
+
+/**
  * Componente que muestra la página de contacto con formulario y mapa
+ * @param {AppContactoProps} props - Propiedades del componente
  * @returns {JSX.Element} Componente de página de contacto
  */
-const AppContacto = (): JSX.Element => {
+const AppContacto = ({ i18n }: AppContactoProps): JSX.Element => {
+  // Verificamos que i18n.CONTACT exista para evitar errores
+  const contactData = i18n?.CONTACT || {
+    TITLE: "Conéctate con nosotros y empieza a invertir hoy",
+    DESCRIPTION:
+      "Si deseas conocer más sobre <b>cómo podemos ayudarte a maximizar tu capital,</b> contáctanos y un asesor te brindará toda la información que necesitas.",
+    FORM: {
+      TITLE: "Envíanos un mensaje",
+      DESCRIPTION: "Completa el formulario a continuación",
+      FIELDS: {
+        NOMBRE: "Nombre",
+        NOMBRE_PLACEHOLDER: "Ingresa tu nombre",
+        APELLIDO: "Apellido",
+        APELLIDO_PLACEHOLDER: "Ingresa tu apellido",
+        EMAIL: "Correo electrónico",
+        EMAIL_PLACEHOLDER: "Ingresa tu correo electrónico",
+        TELEFONO: "Teléfono",
+        TELEFONO_PLACEHOLDER: "Ingresa tu teléfono",
+        ASUNTO: "Asunto",
+        ASUNTO_PLACEHOLDER: "Ingresa el asunto",
+        MENSAJE: "Mensaje",
+        MENSAJE_PLACEHOLDER: "¿En qué podemos ayudarte?",
+        AGENDAR_REUNION: "Deseo agendar una reunión con un asesor",
+        FECHA_REUNION: "Fecha preferida",
+        HORA_REUNION: "Hora preferida",
+        SUBMIT_BUTTON: "Enviar Mensaje",
+        SENDING: "Enviando...",
+      },
+      MESSAGES: {
+        ERROR: "Error al enviar el formulario. Por favor, inténtalo de nuevo.",
+        SUCCESS: "¡Mensaje enviado con éxito! Te contactaremos pronto.",
+      },
+    },
+    CONTACT_INFO: {
+      TITLE: "Atención directa y personalizada",
+      PHONE: {
+        TITLE: "Teléfono",
+        NUMBER: "+1 (555) 123-4567",
+        HOURS: "Lunes a Viernes: 9:00 AM - 6:00 PM",
+      },
+      EMAIL: {
+        TITLE: "Email",
+        ADDRESS: "info@nexusprivatecapital.com",
+        DESCRIPTION: "Para consultas detalladas",
+      },
+      ADDRESS: {
+        TITLE: "Dirección corporativa",
+        LOCATION: "123 Antioquia, Medellín, Colombia",
+        DESCRIPTION: "Atención presencial con cita previa",
+      },
+      WHATSAPP: {
+        TITLE: "WhatsApp",
+        NUMBER: "+1 (555) 987-6543",
+        DESCRIPTION: "Atención inmediata",
+      },
+    },
+    SOCIAL_MEDIA: {
+      TITLE: "Síguenos en redes sociales",
+      DESCRIPTION:
+        "Mantente actualizado sobre nuestras oportunidades de inversión",
+      PLATFORMS: {
+        FACEBOOK: "Facebook",
+        TWITTER: "Twitter",
+        INSTAGRAM: "Instagram",
+        LINKEDIN: "LinkedIn",
+      },
+    },
+    MAP: {
+      TITLE: "Ubicación de Nexus Private Capital",
+      ARIA_LABEL: "Mapa mostrando la ubicación de nuestras oficinas",
+    },
+  };
+
   const [formData, setFormData] = useState<FormularioContacto>({
     nombre: "",
     apellido: "",
@@ -120,7 +272,7 @@ const AppContacto = (): JSX.Element => {
 
   return (
     <section className="py-12 md:py-24 lg:py-28">
-      <div className="w-full mb-12 border border-gray-300">
+      <div className="w-full mb-2 border border-gray-300">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15863.487356421934!2d-75.6091692!3d6.2805746000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1742027705606!5m2!1ses!2sco"
           width="100%"
@@ -129,8 +281,8 @@ const AppContacto = (): JSX.Element => {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Ubicación de Nexus Private Capital"
-          aria-label="Mapa mostrando la ubicación de nuestras oficinas"
+          title={contactData.MAP.TITLE}
+          aria-label={contactData.MAP.ARIA_LABEL}
         ></iframe>
       </div>
 
@@ -145,18 +297,16 @@ const AppContacto = (): JSX.Element => {
           <div className="flex flex-col justify-between space-y-8">
             <div className="space-y-6">
               <h1 className="text-fl-2xl font-bold tracking-tighter">
-                Conéctate con nosotros
+                {contactData.TITLE}
               </h1>
-              <p className="max-w-[600px] text-gray-500 text-fl-base">
-                Si deseas conocer más sobre cómo podemos ayudarte a maximizar tu
-                capital, contáctanos y un asesor te brindará toda la información
-                que necesitas.
-              </p>
+              <p
+                className="max-w-[600px] text-gray-500 text-fl-base"
+                dangerouslySetInnerHTML={{ __html: contactData.DESCRIPTION }}
+              />
             </div>
-
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold">
-                Atención directa y personalizada
+              <h2 className="text-2xl font-semibold">
+                {contactData.CONTACT_INFO.TITLE}
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
@@ -177,12 +327,14 @@ const AppContacto = (): JSX.Element => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-medium">Teléfono</h3>
+                    <h3 className="font-medium">
+                      {contactData.CONTACT_INFO.PHONE.TITLE}
+                    </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      +1 (555) 123-4567
+                      {contactData.CONTACT_INFO.PHONE.NUMBER}
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">
-                      Lunes a Viernes: 9:00 AM - 6:00 PM
+                      {contactData.CONTACT_INFO.PHONE.HOURS}
                     </p>
                   </div>
                 </div>
@@ -206,12 +358,14 @@ const AppContacto = (): JSX.Element => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-medium">Email</h3>
+                    <h3 className="font-medium">
+                      {contactData.CONTACT_INFO.EMAIL.TITLE}
+                    </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      info@nexusprivatecapital.com
+                      {contactData.CONTACT_INFO.EMAIL.ADDRESS}
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">
-                      Para consultas detalladas
+                      {contactData.CONTACT_INFO.EMAIL.DESCRIPTION}
                     </p>
                   </div>
                 </div>
@@ -234,12 +388,14 @@ const AppContacto = (): JSX.Element => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-medium">Dirección corporativa</h3>
+                    <h3 className="font-medium">
+                      {contactData.CONTACT_INFO.ADDRESS.TITLE}
+                    </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      123 Antioquia, Medellín, Colombia
+                      {contactData.CONTACT_INFO.ADDRESS.LOCATION}
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">
-                      Atención presencial con cita previa
+                      {contactData.CONTACT_INFO.ADDRESS.DESCRIPTION}
                     </p>
                   </div>
                 </div>
@@ -261,12 +417,14 @@ const AppContacto = (): JSX.Element => {
                     </svg>
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-medium">WhatsApp</h3>
+                    <h3 className="font-medium">
+                      {contactData.CONTACT_INFO.WHATSAPP.TITLE}
+                    </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      +1 (555) 987-6543
+                      {contactData.CONTACT_INFO.WHATSAPP.NUMBER}
                     </p>
                     <p className="text-xs text-gray-400 dark:text-gray-500">
-                      Atención inmediata
+                      {contactData.CONTACT_INFO.WHATSAPP.DESCRIPTION}
                     </p>
                   </div>
                 </div>
@@ -274,16 +432,18 @@ const AppContacto = (): JSX.Element => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-bold">Síguenos en redes sociales</h3>
+              <h3 className="text-xl font-bold">
+                {contactData.SOCIAL_MEDIA.TITLE}
+              </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Mantente actualizado sobre nuestras oportunidades de inversión
+                {contactData.SOCIAL_MEDIA.DESCRIPTION}
               </p>
               <div className="flex gap-4">
                 <a
                   href="https://facebook.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Facebook"
+                  aria-label={contactData.SOCIAL_MEDIA.PLATFORMS.FACEBOOK}
                   className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                 >
                   <Facebook className="size-5 text-primary" />
@@ -292,7 +452,7 @@ const AppContacto = (): JSX.Element => {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Twitter"
+                  aria-label={contactData.SOCIAL_MEDIA.PLATFORMS.TWITTER}
                   className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                 >
                   <Twitter className="size-5 text-primary" />
@@ -301,7 +461,7 @@ const AppContacto = (): JSX.Element => {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Instagram"
+                  aria-label={contactData.SOCIAL_MEDIA.PLATFORMS.INSTAGRAM}
                   className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                 >
                   <Instagram className="size-5 text-primary" />
@@ -310,7 +470,7 @@ const AppContacto = (): JSX.Element => {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="LinkedIn"
+                  aria-label={contactData.SOCIAL_MEDIA.PLATFORMS.LINKEDIN}
                   className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
                 >
                   <Linkedin className="size-5 text-primary" />
@@ -324,20 +484,21 @@ const AppContacto = (): JSX.Element => {
             className="space-y-8 rounded-lg p-6 shadow-xl dark:border-gray-800"
           >
             <div className="space-y-2">
-              <h2 className="text-2xl font-bold">Envíanos un mensaje</h2>
+              <h2 className="text-2xl font-bold">{contactData.FORM.TITLE}</h2>
               <p className="text-gray-500 dark:text-gray-400">
-                Completa el formulario a continuación y te responderemos lo
-                antes posible.
+                {contactData.FORM.DESCRIPTION}
               </p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="grid gap-2">
-                  <Label htmlFor="nombre">Nombre</Label>
+                  <Label htmlFor="nombre">
+                    {contactData.FORM.FIELDS.NOMBRE}
+                  </Label>
                   <Input
                     id="nombre"
                     name="nombre"
-                    placeholder="Ingresa tu nombre"
+                    placeholder={contactData.FORM.FIELDS.NOMBRE_PLACEHOLDER}
                     value={formData.nombre}
                     onChange={handleChange}
                     required
@@ -345,11 +506,13 @@ const AppContacto = (): JSX.Element => {
                   />
                 </div>
                 <div className="grid gap-2">
-                  <Label htmlFor="apellido">Apellido</Label>
+                  <Label htmlFor="apellido">
+                    {contactData.FORM.FIELDS.APELLIDO}
+                  </Label>
                   <Input
                     id="apellido"
                     name="apellido"
-                    placeholder="Ingresa tu apellido"
+                    placeholder={contactData.FORM.FIELDS.APELLIDO_PLACEHOLDER}
                     value={formData.apellido}
                     onChange={handleChange}
                     required
@@ -358,12 +521,12 @@ const AppContacto = (): JSX.Element => {
                 </div>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="email">Correo electrónico</Label>
+                <Label htmlFor="email">{contactData.FORM.FIELDS.EMAIL}</Label>
                 <Input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="Ingresa tu correo electrónico"
+                  placeholder={contactData.FORM.FIELDS.EMAIL_PLACEHOLDER}
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -371,12 +534,14 @@ const AppContacto = (): JSX.Element => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="telefono">Teléfono</Label>
+                <Label htmlFor="telefono">
+                  {contactData.FORM.FIELDS.TELEFONO}
+                </Label>
                 <Input
                   id="telefono"
                   name="telefono"
                   type="tel"
-                  placeholder="Ingresa tu teléfono"
+                  placeholder={contactData.FORM.FIELDS.TELEFONO_PLACEHOLDER}
                   value={formData.telefono}
                   onChange={handleChange}
                   required
@@ -384,11 +549,11 @@ const AppContacto = (): JSX.Element => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="asunto">Asunto</Label>
+                <Label htmlFor="asunto">{contactData.FORM.FIELDS.ASUNTO}</Label>
                 <Input
                   id="asunto"
                   name="asunto"
-                  placeholder="Ingresa el asunto"
+                  placeholder={contactData.FORM.FIELDS.ASUNTO_PLACEHOLDER}
                   value={formData.asunto}
                   onChange={handleChange}
                   required
@@ -396,11 +561,13 @@ const AppContacto = (): JSX.Element => {
                 />
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="mensaje">Mensaje</Label>
+                <Label htmlFor="mensaje">
+                  {contactData.FORM.FIELDS.MENSAJE}
+                </Label>
                 <Textarea
                   id="mensaje"
                   name="mensaje"
-                  placeholder="¿En qué podemos ayudarte?"
+                  placeholder={contactData.FORM.FIELDS.MENSAJE_PLACEHOLDER}
                   value={formData.mensaje}
                   onChange={handleChange}
                   required
@@ -428,21 +595,25 @@ const AppContacto = (): JSX.Element => {
                     htmlFor="agendarReunion"
                     className="text-sm font-medium"
                   >
-                    Deseo agendar una reunión con un asesor
+                    {contactData.FORM.FIELDS.AGENDAR_REUNION}
                   </Label>
                 </div>
               </div>
               <Button
-                className="w-full"
+                className="w-full border-2 border-solid border-[var(--color-negro)] hover:bg-[var(--color-dorado)] hover:text-white transition-all duration-300 hover:border-[var(--color-dorado)]"
                 type="submit"
                 disabled={enviando}
-                aria-label={enviando ? "Enviando mensaje..." : "Enviar mensaje"}
+                aria-label={
+                  enviando
+                    ? contactData.FORM.FIELDS.SENDING
+                    : contactData.FORM.FIELDS.SUBMIT_BUTTON
+                }
               >
                 {enviando ? (
-                  "Enviando..."
+                  contactData.FORM.FIELDS.SENDING
                 ) : (
                   <>
-                    Enviar Mensaje
+                    {contactData.FORM.FIELDS.SUBMIT_BUTTON}
                     <Send className="ml-2 size-4" />
                   </>
                 )}
@@ -450,7 +621,9 @@ const AppContacto = (): JSX.Element => {
               {formData.agendarReunion && (
                 <div className="grid grid-cols-2 gap-4">
                   <div className="grid gap-2">
-                    <Label htmlFor="fechaReunion">Fecha preferida</Label>
+                    <Label htmlFor="fechaReunion">
+                      {contactData.FORM.FIELDS.FECHA_REUNION}
+                    </Label>
                     <Input
                       id="fechaReunion"
                       name="fechaReunion"
@@ -461,7 +634,9 @@ const AppContacto = (): JSX.Element => {
                     />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="horaReunion">Hora preferida</Label>
+                    <Label htmlFor="horaReunion">
+                      {contactData.FORM.FIELDS.HORA_REUNION}
+                    </Label>
                     <Input
                       id="horaReunion"
                       name="horaReunion"
@@ -490,69 +665,33 @@ const AppContacto = (): JSX.Element => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span>
-                      Error al enviar el formulario. Por favor, inténtalo de
-                      nuevo.
-                    </span>
+                    <span>{contactData.FORM.MESSAGES.ERROR}</span>
                   </div>
                 </div>
               )}
-              <button
-                type="submit"
-                disabled={enviando}
-                className="w-full rounded-md bg-primary py-3 font-medium text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {enviando ? (
-                  <span className="flex items-center justify-center">
-                    <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Enviando...
-                  </span>
-                ) : (
-                  <span className="flex items-center justify-center">
+              {estadoEnvio === "exitoso" && (
+                <div
+                  className="rounded-md bg-green-50 p-4 text-green-800 dark:bg-green-900/20 dark:text-green-300"
+                  role="alert"
+                >
+                  <div className="flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 mr-2"
+                      className="h-5 w-5 mr-2 text-green-600 dark:text-green-400"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
                       <path
                         fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                         clipRule="evenodd"
                       />
                     </svg>
-                    Habla con un experto
-                  </span>
-                )}
-              </button>
+                    <span>{contactData.FORM.MESSAGES.SUCCESS}</span>
+                  </div>
+                </div>
+              )}
             </form>
-            {estadoEnvio === "exitoso" && (
-              <p
-                className="text-center text-green-600 dark:text-green-400"
-                role="alert"
-              >
-                ¡Mensaje enviado exitosamente!
-              </p>
-            )}
           </div>
         </div>
       </div>

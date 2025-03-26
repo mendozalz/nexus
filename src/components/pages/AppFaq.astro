@@ -17,7 +17,7 @@ const i18n = getI18N({ currentLocale: currentLang });
   <main>
     <section class="about">
       <Sections _styles="padding-inline: var(--grid-gutter);" />
-      <FAQInversiones client:only="react" />
+      <FAQInversiones i18n={i18n} client:only="react" />
     </section>
   </main>
 </Layout>
