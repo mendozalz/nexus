@@ -1,0 +1,74 @@
+---
+import BlogSingle from "../../components/BlogSingle.astro";
+import Sections from "../../components/Sections.astro";
+import LayoutNavOscuro from "../../layouts/Layout-nav-oscuro.astro";
+import { fetchPosts, LanguageCodeEnum, type Post } from "../../lib/graphql";
+
+export async function getStaticPaths() {
+  const posts = await fetchPosts(LanguageCodeEnum.EN);
+  
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+// Obtener el post desde las props
+const { post } = Astro.props;
+
+// Obtener todos los posts en inglés para los posts recientes
+const allPosts = await fetchPosts(LanguageCodeEnum.EN);
+
+// Obtener posts recientes para mostrar en la barra lateral
+const recentPosts = allPosts
+  .filter((p) => p.id !== post.id)
+  .slice(0, 3)
+  .map((p) => ({
+    title: p.title,
+    date: p.modified,
+    url: `/blog/${p.slug}`,
+  }));
+
+// Crear un TOC básico desde el contenido HTML
+// Esto es una versión simplificada, podría mejorarse con un parser HTML más robusto
+function extractTOC(content: string) {
+  const regex = /<h[2-3][^>]*>(.*?)<\/h[2-3]>/g;
+  const toc = [];
+  let match;
+  
+  while ((match = regex.exec(content)) !== null) {
+    const title = match[1].replace(/<[^>]+>/g, '');
+    const id = title.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, '-');
+    toc.push({ title, id });
+  }
+  
+  return toc;
+}
+
+const tableOfContents = extractTOC(post.content);
+---
+
+<LayoutNavOscuro title={`${post.title} - Nexus`}>
+  <main>
+    <section class="single-post">
+      <Sections
+        _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
+      >
+        <BlogSingle 
+          title={post.title}
+          author={{
+            name: post.author?.node.name || "Autor desconocido",
+            role: "",
+            avatar: post.author?.node.avatar.url || "https://github.com/shadcn.png"
+          }}
+          publishDate={post.modified}
+          tags={post.categories?.nodes.map(cat => cat.name) || []}
+          heroImage={post.featuredImage?.node.mediaItemUrl || ""}
+          recentPosts={recentPosts}
+          tableOfContents={tableOfContents}
+          content={post.content}
+        />
+      </Sections>
+    </section>
+  </main>
+</LayoutNavOscuro>

@@ -35,8 +35,9 @@ export default {
         xl: "var(--espacio-xl)",
         "2xl": "var(--espacio-2xl)",
         "3xl": "var(--espacio-3xl)",
+        "4xl": "135px",
       },
-      
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

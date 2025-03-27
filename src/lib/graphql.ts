@@ -8,7 +8,7 @@
  */
 export enum LanguageCodeEnum {
   EN = "EN",
-  ES = "ES"
+  ES = "ES",
 }
 
 /**
@@ -22,6 +22,30 @@ interface FeaturedImage {
 }
 
 /**
+ * Interfaz para el avatar del autor
+ */
+interface Avatar {
+  url: string;
+}
+
+/**
+ * Interfaz para el autor del post
+ */
+interface Author {
+  node: {
+    name: string;
+    avatar: Avatar;
+  };
+}
+
+/**
+ * Interfaz para las categorías
+ */
+interface Category {
+  name: string;
+}
+
+/**
  * Interfaz para los posts de WordPress
  */
 export interface Post {
@@ -31,6 +55,11 @@ export interface Post {
   slug: string;
   title: string;
   link: string;
+  modified: string;
+  author: Author | null;
+  categories: {
+    nodes: Category[];
+  } | null;
   featuredImage: FeaturedImage | null;
   content: string;
 }
@@ -60,20 +89,34 @@ export async function fetchPosts(language: LanguageCodeEnum): Promise<Post[]> {
     query PostQuery($language: String!) {
       posts(where: {categoryName: $language}) {
         nodes {
-          id
-          guid
-          uri
-          slug
-          title
-          link
-          featuredImage {
-            node {
-              altText
-              mediaItemUrl
-            }
+      id
+      guid
+      uri
+      slug
+      title
+      link
+      modified
+      author {
+        node {
+          avatar {
+            url
           }
-          content
+          name
         }
+      }
+      categories {
+        nodes {
+          name
+        }
+      }
+      featuredImage {
+        node {
+          altText
+          mediaItemUrl
+        }
+      }
+      content
+    }
       }
     }
   `;
@@ -95,11 +138,13 @@ export async function fetchPosts(language: LanguageCodeEnum): Promise<Post[]> {
 
     // Verificar si la respuesta es exitosa
     if (!response.ok) {
-      throw new Error(`Error al realizar la consulta GraphQL: ${response.statusText}`);
+      throw new Error(
+        `Error al realizar la consulta GraphQL: ${response.statusText}`,
+      );
     }
 
     // Parsear la respuesta como JSON
-    const result = await response.json() as PostQueryResponse;
+    const result = (await response.json()) as PostQueryResponse;
 
     // Retornar los nodos de posts
     return result.data.posts.nodes;

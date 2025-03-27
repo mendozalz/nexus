@@ -4,10 +4,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Badge } from "./badge";
 
 /**
- * Props para el componente BlogPosts
- * @interface BlogPostsProps
+ * Props para el componente BlogPostsEs
+ * @interface BlogPostsEsProps
  */
-interface BlogPostsProps {
+interface BlogPostsEsProps {
   posts: Post[];
   isLoading: boolean;
   error: string | null;
@@ -38,16 +38,16 @@ const cleanCategoryName = (categoryName: string | undefined): string => {
 };
 
 /**
- * Componente que muestra los posts del blog desde WordPress
+ * Componente que muestra los posts del blog desde WordPress (versión española)
  * @component
- * @param {BlogPostsProps} props - Props del componente
+ * @param {BlogPostsEsProps} props - Props del componente
  * @returns {React.ReactElement} - Componente de posts del blog
  */
-export function BlogPosts({
+export function BlogPostsEs({
   posts,
   isLoading,
   error,
-}: BlogPostsProps): React.ReactElement {
+}: BlogPostsEsProps): React.ReactElement {
   if (isLoading) {
     return (
       <div className="w-full py-fl-3xl bg-black text-white">
@@ -98,15 +98,6 @@ export function BlogPosts({
               alt={mainPost.featuredImage?.node.altText || mainPost.title}
               className="w-full h-full object-cover rounded-lg"
             />
-            {/* {mainPost.categories?.nodes && mainPost.categories.nodes.length > 0 && (
-              <div className="absolute top-4 left-4 flex gap-2">
-                {mainPost.categories.nodes.map((category, index) => (
-                  <Badge key={index} className="bg-dorado text-black">
-                    {category.name}
-                  </Badge>
-                ))}
-              </div>
-            )} */}
           </div>
           <div className="flex flex-col space-y-3">
             <Badge className="w-fit" variant="outline">
@@ -114,7 +105,7 @@ export function BlogPosts({
             </Badge>
             <h2 className="text-3xl font-bold">
               <a
-                href={`/blog/${mainPost.slug}`}
+                href={`/es/blog/${mainPost.slug}`}
                 className="hover:text-dorado transition-colors"
               >
                 {mainPost.title}
@@ -164,20 +155,6 @@ export function BlogPosts({
                   alt={post.featuredImage?.node.altText || post.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
-                {/* {post.categories?.nodes && post.categories.nodes.length > 0 && (
-                  <div className="absolute top-3 left-3 flex gap-2">
-                    {post.categories.nodes
-                      .slice(0, 2)
-                      .map((category, index) => (
-                        <Badge
-                          key={index}
-                          className="bg-dorado text-black text-xs"
-                        >
-                          {cleanCategoryName(category.name)}
-                        </Badge>
-                      ))}
-                  </div>
-                )} */}
               </div>
               <div className="flex flex-col space-y-2 mb-12">
                 <Badge className="w-fit" variant="outline">
@@ -185,7 +162,7 @@ export function BlogPosts({
                 </Badge>
                 <h3 className="text-xl font-bold">
                   <a
-                    href={`/blog/${post.slug}`}
+                    href={`/es/blog/${post.slug}`}
                     className="hover:text-dorado transition-colors"
                   >
                     {post.title}
@@ -204,22 +181,16 @@ export function BlogPosts({
                       {post.author?.node.name?.substring(0, 2) || "AU"}
                     </AvatarFallback>
                   </Avatar>
-                  <div>
-                    <p className="font-medium text-sm">
-                      {post.author?.node.name || "Autor desconocido"}
-                    </p>
-                    <p className="text-xs text-gray-400">
-                      Publicado{" "}
-                      {post.modified
-                        ? formatDate(post.modified)
-                        : "recientemente"}
-                    </p>
-                  </div>
+                  <p className="text-sm text-gray-400">
+                    {post.author?.node.name || "Autor desconocido"} • {post.modified
+                      ? formatDate(post.modified)
+                      : "Recientemente"}
+                  </p>
                 </div>
                 <div
-                  className="text-gray-300 text-sm mt-1 line-clamp-2"
+                  className="text-gray-300 mt-1 line-clamp-2"
                   dangerouslySetInnerHTML={{
-                    __html: post.content.substring(0, 120) + "...",
+                    __html: post.content.substring(0, 150) + "...",
                   }}
                 />
               </div>
@@ -227,80 +198,52 @@ export function BlogPosts({
           ))}
         </div>
 
-        {/* Posts adicionales si hay más de 3 */}
-        {posts.length > 3 && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold mb-8">Más artículos</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {posts.slice(3).map((post) => (
-                <article key={post.id} className="flex flex-col">
-                  <div className="relative w-full h-[180px] mb-4">
-                    <img
+        {/* Posts Adicionales */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+          {posts.slice(3, 6).map((post) => (
+            <article key={post.id} className="flex flex-col">
+              <div className="relative w-full h-[180px] mb-3">
+                <img
+                  src={post.featuredImage?.node.mediaItemUrl}
+                  alt={post.featuredImage?.node.altText || post.title}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+              <div className="flex flex-col space-y-2">
+                <Badge className="w-fit" variant="outline">
+                  {cleanCategoryName(post.categories?.nodes?.[0]?.name || "")}
+                </Badge>
+                <h3 className="text-lg font-bold">
+                  <a
+                    href={`/es/blog/${post.slug}`}
+                    className="hover:text-dorado transition-colors"
+                  >
+                    {post.title}
+                  </a>
+                </h3>
+                <div className="flex items-center gap-2">
+                  <Avatar className="size-6">
+                    <AvatarImage
                       src={
-                        post.featuredImage?.node.mediaItemUrl ||
-                        "https://images.unsplash.com/photo-1504711434969-e33886168f5c"
+                        post.author?.node.avatar.url ||
+                        "https://github.com/shadcn.png"
                       }
-                      alt={post.featuredImage?.node.altText || post.title}
-                      className="w-full h-full object-cover rounded-lg"
+                      alt={post.author?.node.name || "Autor"}
                     />
-                    {post.categories?.nodes &&
-                      post.categories.nodes.length > 0 && (
-                        <div className="absolute top-2 left-2 flex gap-1">
-                          {post.categories.nodes
-                            .slice(0, 1)
-                            .map((category, index) => (
-                              <Badge
-                                key={index}
-                                className="bg-dorado text-black text-xs"
-                              >
-                                {cleanCategoryName(category.name)}
-                              </Badge>
-                            ))}
-                        </div>
-                      )}
-                  </div>
-                  <h3 className="text-lg font-bold">
-                    <a
-                      href={`/blog/${post.slug}`}
-                      className="hover:text-dorado transition-colors"
-                    >
-                      {post.title}
-                    </a>
-                  </h3>
-                  <div className="flex items-center gap-2 mt-1 mb-2">
-                    <Avatar className="size-6">
-                      <AvatarImage
-                        src={
-                          post.author?.node.avatar.url ||
-                          "https://github.com/shadcn.png"
-                        }
-                        alt={post.author?.node.name || "Autor"}
-                      />
-                      <AvatarFallback>
-                        {post.author?.node.name?.substring(0, 2) || "AU"}
-                      </AvatarFallback>
-                    </Avatar>
-                    <p className="text-xs text-gray-300">
-                      {post.author?.node.name || "Autor desconocido"}
-                    </p>
-                    <span className="text-xs text-gray-400">•</span>
-                    <p className="text-xs text-gray-400">
-                      {post.modified
-                        ? formatDate(post.modified)
-                        : "Publicado recientemente"}
-                    </p>
-                  </div>
-                  <div
-                    className="text-gray-300 text-sm mt-1 line-clamp-2"
-                    dangerouslySetInnerHTML={{
-                      __html: post.content.substring(0, 100) + "...",
-                    }}
-                  />
-                </article>
-              ))}
-            </div>
-          </div>
-        )}
+                    <AvatarFallback>
+                      {post.author?.node.name?.substring(0, 2) || "AU"}
+                    </AvatarFallback>
+                  </Avatar>
+                  <p className="text-xs text-gray-400">
+                    {post.author?.node.name || "Autor desconocido"} • {post.modified
+                      ? formatDate(post.modified)
+                      : "Recientemente"}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </div>
   );

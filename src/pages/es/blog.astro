@@ -1,7 +1,7 @@
 ---
 import LayoutNavOscuro from "../../layouts/Layout-nav-oscuro.astro";
 import { fetchPosts, LanguageCodeEnum } from "../../lib/graphql";
-import { BlogPosts } from "../../components/ui/BlogPosts";
+import { BlogPostsEs } from "../../components/ui/BlogPostsEs";
 import spanish from "../../i18n/locales/es.json";
 
 // Usamos directamente el objeto de traducción en español
@@ -13,7 +13,7 @@ const posts = await fetchPosts(LanguageCodeEnum.ES);
 
 <LayoutNavOscuro title="Blog | Nexus Private Capital">
   <main>
-    <BlogPosts 
+    <BlogPostsEs 
       posts={posts} 
       isLoading={false} 
       error={null} 
