@@ -7,7 +7,7 @@ import { Badge } from "./badge";
  * @component
  * @returns {React.ReactElement} - Componente de blog con artículos
  */
-function Blog(): React.ReactElement {
+function BlogPages(): React.ReactElement {
   return (
     <div className="w-full py-fl-3xl bg-black text-white">
       <div className="container mx-auto max-w-[var(--grid-max-width)] px-[var(--grid-gutter)]">
@@ -119,4 +119,4 @@ function Blog(): React.ReactElement {
   );
 }
 
-export { Blog };
+export default BlogPages;
