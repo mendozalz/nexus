@@ -1,0 +1,124 @@
+---
+/**
+ * Componente Astro para mostrar posts de WordPress en tiempo real
+ * @component
+ */
+import { LanguageCodeEnum } from "../lib/graphql";
+import BlogFeed from "./react/BlogFeed";
+import { getLangFromUrl } from "../i18n/utils";
+
+interface Props {
+  /**
+   * Número de posts a mostrar
+   */
+  postCount?: number;
+  /**
+   * Título de la sección
+   */
+  title?: string;
+  /**
+   * Descripción de la sección
+   */
+  description?: string;
+  /**
+   * Idioma de los posts (sobrescribe el idioma detectado automáticamente)
+   */
+  language?: LanguageCodeEnum;
+}
+
+// Obtener el idioma actual de la URL
+const currentLang = getLangFromUrl(Astro.url);
+
+// Asignar valores por defecto a las propiedades
+const {
+  postCount = 6,
+  title = currentLang === "es"
+    ? "Últimos artículos del blog"
+    : "Latest Blog Posts",
+  description = currentLang === "es"
+    ? "Mantente al día con nuestras últimas publicaciones y noticias"
+    : "Stay up to date with our latest publications and news",
+  language = currentLang === "es" ? LanguageCodeEnum.ES : LanguageCodeEnum.EN,
+} = Astro.props;
+---
+
+<section
+  class="blog-feed-section py-16 px-4 md:px-6 bg-gray-50 dark:bg-gray-900"
+>
+  <div class="container mx-auto max-w-7xl">
+    <div class="text-center mb-12">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+      >
+        {title}
+      </h2>
+      {
+        description && (
+          <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            {description}
+          </p>
+        )
+      }
+    </div>
+
+    <!-- Componente React con client:load para cargar datos en tiempo real -->
+    <BlogFeed client:load language={language} postCount={postCount} />
+
+    <div class="text-center mt-12">
+      <a
+        href={currentLang === "es" ? "/es/blog" : "/blog"}
+        class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+      >
+        {currentLang === "es" ? "Ver todos los artículos" : "View all articles"}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 ml-2"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .blog-feed-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Estilos para tema oscuro */
+  :global(.dark) .blog-feed-section {
+    background-color: var(--color-bg-dark, #111827);
+    color: var(--color-text-dark, #f9fafb);
+  }
+
+  /* Animación de carga para el componente React */
+  :global(.animate-spin) {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Limitar líneas de texto (line-clamp) */
+  :global(.line-clamp-3) {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

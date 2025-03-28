@@ -6,7 +6,7 @@ import { fetchPosts, LanguageCodeEnum, type Post } from "../../../lib/graphql";
 
 export async function getStaticPaths() {
   const posts = await fetchPosts(LanguageCodeEnum.ES);
-  
+
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
@@ -35,13 +35,16 @@ function extractTOC(content: string) {
   const regex = /<h[2-3][^>]*>(.*?)<\/h[2-3]>/g;
   const toc = [];
   let match;
-  
+
   while ((match = regex.exec(content)) !== null) {
-    const title = match[1].replace(/<[^>]+>/g, '');
-    const id = title.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, '-');
+    const title = match[1].replace(/<[^>]+>/g, "");
+    const id = title
+      .toLowerCase()
+      .replace(/[^\w\s]/g, "")
+      .replace(/\s+/g, "-");
     toc.push({ title, id });
   }
-  
+
   return toc;
 }
 
@@ -54,15 +57,16 @@ const tableOfContents = extractTOC(post.content);
       <Sections
         _styles="padding-inline: var(--grid-gutter); padding-block: var(--espacio-l);"
       >
-        <BlogSingle 
+        <BlogSingle
           title={post.title}
           author={{
             name: post.author?.node.name || "Autor desconocido",
             role: "",
-            avatar: post.author?.node.avatar.url || "https://github.com/shadcn.png"
+            avatar:
+              post.author?.node.avatar.url || "https://github.com/shadcn.png",
           }}
           publishDate={post.modified}
-          tags={post.categories?.nodes.map(cat => cat.name) || []}
+          tags={post.categories?.nodes.map((cat) => cat.name) || []}
           heroImage={post.featuredImage?.node.mediaItemUrl || ""}
           recentPosts={recentPosts}
           tableOfContents={tableOfContents}

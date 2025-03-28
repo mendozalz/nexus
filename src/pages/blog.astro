@@ -1,19 +1,11 @@
 ---
 import LayoutNavOscuro from "../layouts/Layout-nav-oscuro.astro";
-import { fetchPosts, LanguageCodeEnum } from "../lib/graphql";
-import { BlogPosts } from "../components/ui/BlogPosts";
-
-// Obtener los posts en inglés desde WordPress
-const posts = await fetchPosts(LanguageCodeEnum.EN);
+import { LanguageCodeEnum } from "../lib/graphql";
+import { BlogPostsLoader } from "../components/react/BlogPostsLoader";
 ---
 
 <LayoutNavOscuro title="Blog | Nexus Private Capital">
   <main>
-    <BlogPosts 
-      posts={posts} 
-      isLoading={false} 
-      error={null} 
-      client:load 
-    />
+    <BlogPostsLoader client:load language={LanguageCodeEnum.EN} postCount={9} />
   </main>
 </LayoutNavOscuro>

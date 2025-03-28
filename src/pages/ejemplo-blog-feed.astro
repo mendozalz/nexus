@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogFeedAstro from "../components/BlogFeedAstro.astro";
+import { getI18N } from "../i18n";
+import { getLangFromUrl } from "../i18n/utils";
+
+// Obtener el idioma actual
+const currentLang = getLangFromUrl(Astro.url);
+const i18n = getI18N({ currentLocale: currentLang });
+---
+
+<Layout title="Ejemplo Blog Feed | Nexus">
+  <main>
+    <div class="py-12 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-8">
+          Ejemplo de Feed de Blog en Tiempo Real
+        </h1>
+        <p class="text-lg text-gray-700 dark:text-gray-300 text-center max-w-3xl mx-auto mb-16">
+          Este es un ejemplo de cómo implementar el componente BlogFeedAstro para mostrar posts de WordPress en tiempo real usando la API GraphQL.
+        </p>
+      </div>
+    </div>
+
+    <!-- Implementación del componente BlogFeedAstro -->
+    <BlogFeedAstro 
+      title="Artículos destacados" 
+      description="Descubre nuestros artículos más recientes sobre finanzas, inversiones y tecnología blockchain"
+      postCount={6}
+    />
+
+    <div class="py-16 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
+          Características del componente
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-blue-700 dark:text-blue-300 mb-3">Carga en tiempo real</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Los datos se obtienen directamente desde WordPress mediante GraphQL en el momento de la carga de la página.
+            </p>
+          </div>
+          <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-green-700 dark:text-green-300 mb-3">Diseño responsive</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              El componente se adapta perfectamente a diferentes tamaños de pantalla, desde móviles hasta escritorio.
+            </p>
+          </div>
+          <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+            <h3 class="text-xl font-semibold text-purple-700 dark:text-purple-300 mb-3">Soporte multiidioma</h3>
+            <p class="text-gray-700 dark:text-gray-300">
+              Detecta automáticamente el idioma actual y muestra los posts correspondientes en español o inglés.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

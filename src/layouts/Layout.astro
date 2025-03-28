@@ -169,7 +169,7 @@ import { ClientRouter } from "astro:transitions";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/src/assets/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Capital</title>
+    <title>NEXUS</title>
     <ClientRouter />
   </head>
   <body>
@@ -186,52 +186,55 @@ import { ClientRouter } from "astro:transitions";
         </section>
       </section>
     </main>
-    
+
     <!-- Script global para scroll suave -->
     <script>
       // Función para manejar el scroll suave
       function setupSmoothScroll() {
         // Seleccionar todos los enlaces con hash
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
             // Obtener el ID del target
-            const targetId = this.getAttribute('href').substring(1);
-            
+            const targetId = this.getAttribute("href").substring(1);
+
             // Si no hay ID o es vacío, no hacer nada
             if (!targetId) return;
-            
+
             // Buscar el elemento target
             const targetElement = document.getElementById(targetId);
-            
+
             // Si encontramos el elemento, hacer scroll suave
             if (targetElement) {
               e.preventDefault();
-              
+
               // Obtener altura del navbar para compensar
-              const navbar = document.querySelector('#navbar');
+              const navbar = document.querySelector("#navbar");
               const navbarHeight = navbar ? navbar.offsetHeight : 0;
-              
+
               // Calcular posición del elemento
-              const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
-              
+              const targetPosition =
+                targetElement.getBoundingClientRect().top +
+                window.scrollY -
+                navbarHeight;
+
               // Hacer scroll suave
               window.scrollTo({
                 top: targetPosition,
-                behavior: 'smooth'
+                behavior: "smooth",
               });
-              
+
               // Actualizar URL (opcional)
-              history.pushState(null, '', `#${targetId}`);
+              history.pushState(null, "", `#${targetId}`);
             }
           });
         });
       }
-      
+
       // Ejecutar cuando el DOM esté listo
-      document.addEventListener('DOMContentLoaded', setupSmoothScroll);
-      
+      document.addEventListener("DOMContentLoaded", setupSmoothScroll);
+
       // Ejecutar después de navegación con Astro
-      document.addEventListener('astro:page-load', setupSmoothScroll);
+      document.addEventListener("astro:page-load", setupSmoothScroll);
     </script>
   </body>
 </html>
