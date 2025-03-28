@@ -82,7 +82,7 @@ interface PostQueryResponse {
  */
 export async function fetchPosts(language: LanguageCodeEnum): Promise<Post[]> {
   // Obtener la URL de la API de WordPress desde las variables de entorno
-  const apiUrl = import.meta.env.PUBLIC_WORDPRESS_API_URL;
+  const apiUrl = "https://nexuspcgroup.com/graphql";
 
   // Construir la consulta GraphQL
   const query = `

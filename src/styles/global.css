@@ -106,7 +106,7 @@
 
   /* Una estructura de 12 columnas */
 
-  --grid-max-width: 85.125rem; /* Ancho máximo */
+  --grid-max-width: 95.125rem; /* Ancho máximo */
   /* 18px - 40px */
   --grid-gutter: var(
     --espacio-s-l,

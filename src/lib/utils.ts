@@ -24,12 +24,10 @@ export const enviarFormulario = async ({
     throw new Error("El formulario no está disponible.");
   }
   const formData = new FormData(formRef.current);
-  
-
 
   fetch(
     "https://script.google.com/macros/s/AKfycbzGkTvB_I75QVKxf6mvrBDy3Sa-j-zDxAKD2V1P1Hp_q2ZDZRjgw_01TaK4evVcNG3dNw/exec",
-    { method: "POST", body: formData }
+    { method: "POST", body: formData },
   )
     .then((res) => {
       const contentType = res.headers.get("Content-Type");
@@ -44,11 +42,14 @@ export const enviarFormulario = async ({
       setBtnEnviar("Continuar");
       const formSubmitted = true;
       window.dispatchEvent(
-        new CustomEvent("formSubmitted", { detail: formSubmitted })
+        new CustomEvent("formSubmitted", { detail: formSubmitted }),
       );
     })
     .catch((error) => {
-      console.error("Error al enviar formulario:", JSON.stringify(error, null, 2));
+      console.error(
+        "Error al enviar formulario:",
+        JSON.stringify(error, null, 2),
+      );
       setBtnEnviar("Continuar");
     });
 };

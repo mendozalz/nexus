@@ -94,7 +94,10 @@ export function BlogPosts({
         <article className="flex flex-col mb-16">
           <div className="relative w-full h-[400px] mb-6">
             <img
-              src={mainPost.featuredImage?.node.mediaItemUrl}
+              src={
+                mainPost.featuredImage?.node.mediaItemUrl ||
+                "https://nexuspcgroup.com/wp-content/uploads/2025/03/img-test.avif"
+              }
               alt={mainPost.featuredImage?.node.altText || mainPost.title}
               className="w-full h-full object-cover rounded-lg"
             />
@@ -146,7 +149,7 @@ export function BlogPosts({
               </div>
             </div>
             <div
-              className="text-gray-300 mt-2 line-clamp-3"
+              className="text-gray-300 mt-2 line-clamp-3 text-base"
               dangerouslySetInnerHTML={{
                 __html: mainPost.content.substring(0, 200) + "...",
               }}
@@ -160,7 +163,10 @@ export function BlogPosts({
             <article key={post.id} className="flex flex-col">
               <div className="relative w-full h-[220px] mb-4">
                 <img
-                  src={post.featuredImage?.node.mediaItemUrl}
+                  src={
+                    post.featuredImage?.node.mediaItemUrl ||
+                    "https://nexuspcgroup.com/wp-content/uploads/2025/03/img-test.avif"
+                  }
                   alt={post.featuredImage?.node.altText || post.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -229,8 +235,8 @@ export function BlogPosts({
 
         {/* Posts adicionales si hay más de 3 */}
         {posts.length > 3 && (
-          <div className="mt-16">
-            <h2 className="text-2xl font-bold mb-8">Más artículos</h2>
+          <div className="mt-16 pb-20">
+            <h2 className="text-2xl font-bold mb-8">More articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {posts.slice(3).map((post) => (
                 <article key={post.id} className="flex flex-col">
@@ -243,7 +249,7 @@ export function BlogPosts({
                       alt={post.featuredImage?.node.altText || post.title}
                       className="w-full h-full object-cover rounded-lg"
                     />
-                    {post.categories?.nodes &&
+                    {/* {post.categories?.nodes &&
                       post.categories.nodes.length > 0 && (
                         <div className="absolute top-2 left-2 flex gap-1">
                           {post.categories.nodes
@@ -257,7 +263,7 @@ export function BlogPosts({
                               </Badge>
                             ))}
                         </div>
-                      )}
+                      )} */}
                   </div>
                   <h3 className="text-lg font-bold">
                     <a
@@ -280,15 +286,16 @@ export function BlogPosts({
                         {post.author?.node.name?.substring(0, 2) || "AU"}
                       </AvatarFallback>
                     </Avatar>
-                    <p className="text-xs text-gray-300">
-                      {post.author?.node.name || "Autor desconocido"}
-                    </p>
-                    <span className="text-xs text-gray-400">•</span>
-                    <p className="text-xs text-gray-400">
-                      {post.modified
-                        ? formatDate(post.modified)
-                        : "Publicado recientemente"}
-                    </p>
+                    <div>
+                      <p className="text-xs text-gray-300">
+                        {post.author?.node.name || "Autor desconocido"}
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        {post.modified
+                          ? formatDate(post.modified)
+                          : "Publicado recientemente"}
+                      </p>
+                    </div>
                   </div>
                   <div
                     className="text-gray-300 text-sm mt-1 line-clamp-2"

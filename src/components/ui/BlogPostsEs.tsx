@@ -94,7 +94,10 @@ export function BlogPostsEs({
         <article className="flex flex-col mb-16">
           <div className="relative w-full h-[400px] mb-6">
             <img
-              src={mainPost.featuredImage?.node.mediaItemUrl}
+              src={
+                mainPost.featuredImage?.node.mediaItemUrl ||
+                "https://nexuspcgroup.com/wp-content/uploads/2025/03/img-test.avif"
+              }
               alt={mainPost.featuredImage?.node.altText || mainPost.title}
               className="w-full h-full object-cover rounded-lg"
             />
@@ -137,7 +140,7 @@ export function BlogPostsEs({
               </div>
             </div>
             <div
-              className="text-gray-300 mt-2 line-clamp-3"
+              className="text-gray-300 mt-2 line-clamp-3 text-base"
               dangerouslySetInnerHTML={{
                 __html: mainPost.content.substring(0, 200) + "...",
               }}
@@ -151,7 +154,10 @@ export function BlogPostsEs({
             <article key={post.id} className="flex flex-col">
               <div className="relative w-full h-[220px] mb-4">
                 <img
-                  src={post.featuredImage?.node.mediaItemUrl}
+                  src={
+                    post.featuredImage?.node.mediaItemUrl ||
+                    "https://nexuspcgroup.com/wp-content/uploads/2025/03/img-test.avif"
+                  }
                   alt={post.featuredImage?.node.altText || post.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
@@ -182,7 +188,8 @@ export function BlogPostsEs({
                     </AvatarFallback>
                   </Avatar>
                   <p className="text-sm text-gray-400">
-                    {post.author?.node.name || "Autor desconocido"} • {post.modified
+                    {post.author?.node.name || "Autor desconocido"} •{" "}
+                    {post.modified
                       ? formatDate(post.modified)
                       : "Recientemente"}
                   </p>
@@ -199,51 +206,80 @@ export function BlogPostsEs({
         </div>
 
         {/* Posts Adicionales */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
-          {posts.slice(3, 6).map((post) => (
-            <article key={post.id} className="flex flex-col">
-              <div className="relative w-full h-[180px] mb-3">
-                <img
-                  src={post.featuredImage?.node.mediaItemUrl}
-                  alt={post.featuredImage?.node.altText || post.title}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-              <div className="flex flex-col space-y-2">
-                <Badge className="w-fit" variant="outline">
-                  {cleanCategoryName(post.categories?.nodes?.[0]?.name || "")}
-                </Badge>
-                <h3 className="text-lg font-bold">
-                  <a
-                    href={`/es/blog/${post.slug}`}
-                    className="hover:text-dorado transition-colors"
-                  >
-                    {post.title}
-                  </a>
-                </h3>
-                <div className="flex items-center gap-2">
-                  <Avatar className="size-6">
-                    <AvatarImage
+        {posts.length > 3 && (
+          <div className="mt-16 pb-20">
+            <h2 className="text-2xl font-bold mb-8">Más Artículos</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {posts.slice(3).map((post) => (
+                <article key={post.id} className="flex flex-col">
+                  <div className="relative w-full h-[180px] mb-4">
+                    <img
                       src={
-                        post.author?.node.avatar.url ||
-                        "https://github.com/shadcn.png"
+                        post.featuredImage?.node.mediaItemUrl ||
+                        "https://images.unsplash.com/photo-1504711434969-e33886168f5c"
                       }
-                      alt={post.author?.node.name || "Autor"}
+                      alt={post.featuredImage?.node.altText || post.title}
+                      className="w-full h-full object-cover rounded-lg"
                     />
-                    <AvatarFallback>
-                      {post.author?.node.name?.substring(0, 2) || "AU"}
-                    </AvatarFallback>
-                  </Avatar>
-                  <p className="text-xs text-gray-400">
-                    {post.author?.node.name || "Autor desconocido"} • {post.modified
-                      ? formatDate(post.modified)
-                      : "Recientemente"}
-                  </p>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
+                    {/* {post.categories?.nodes &&
+                      post.categories.nodes.length > 0 && (
+                        <div className="absolute top-2 left-2 flex gap-1">
+                          {post.categories.nodes
+                            .slice(0, 1)
+                            .map((category, index) => (
+                              <Badge
+                                key={index}
+                                className="bg-dorado text-black text-xs"
+                              >
+                                {cleanCategoryName(category.name)}
+                              </Badge>
+                            ))}
+                        </div>
+                      )} */}
+                  </div>
+                  <h3 className="text-lg font-bold">
+                    <a
+                      href={`/es/blog/${post.slug}`}
+                      className="hover:text-dorado transition-colors"
+                    >
+                      {post.title}
+                    </a>
+                  </h3>
+                  <div className="flex items-center gap-2 mt-1 mb-2">
+                    <Avatar className="size-6">
+                      <AvatarImage
+                        src={
+                          post.author?.node.avatar.url ||
+                          "https://github.com/shadcn.png"
+                        }
+                        alt={post.author?.node.name || "Autor"}
+                      />
+                      <AvatarFallback>
+                        {post.author?.node.name?.substring(0, 2) || "AU"}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="text-xs text-gray-300">
+                        {post.author?.node.name || "Autor desconocido"}
+                      </p>
+                      <p className="text-xs text-gray-400">
+                        {post.modified
+                          ? formatDate(post.modified)
+                          : "Publicado recientemente"}
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    className="text-gray-300 text-sm mt-1 line-clamp-2"
+                    dangerouslySetInnerHTML={{
+                      __html: post.content.substring(0, 100) + "...",
+                    }}
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

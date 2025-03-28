@@ -9,11 +9,6 @@ const posts = await fetchPosts(LanguageCodeEnum.EN);
 
 <LayoutNavOscuro title="Blog | Nexus Private Capital">
   <main>
-    <BlogPosts 
-      posts={posts} 
-      isLoading={false} 
-      error={null} 
-      client:load 
-    />
+    <BlogPosts posts={posts} isLoading={false} error={null} client:load />
   </main>
 </LayoutNavOscuro>
