@@ -161,8 +161,8 @@ const AppContacto = ({ i18n }: AppContactoProps): JSX.Element => {
       },
       ADDRESS: {
         TITLE: "Dirección corporativa",
-        LOCATION: "123 Antioquia, Medellín, Colombia",
-        DESCRIPTION: "Atención presencial con cita previa",
+        LOCATION: "Le Mont Comercio, Av. Las Palmas #Km 15 990",
+        DESCRIPTION: "Oficina 347, Envigado",
       },
       WHATSAPP: {
         TITLE: "WhatsApp",
@@ -274,7 +274,7 @@ const AppContacto = ({ i18n }: AppContactoProps): JSX.Element => {
     <section className="py-12 md:py-24 lg:py-28">
       <div className="w-full mb-2 border border-gray-300">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15863.487356421934!2d-75.6091692!3d6.2805746000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1742027705606!5m2!1ses!2sco"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.833264887981!2d-75.54123838873683!3d6.153080027329909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e468330132b7c5f%3A0xdabc6280a5f13a40!2sLe%20Mont%20Comercio!5e0!3m2!1ses!2sco!4v1743715061241!5m2!1ses!2sco"
           width="100%"
           height="600"
           style={{ border: 0 }}
