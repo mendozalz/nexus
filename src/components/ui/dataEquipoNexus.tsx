@@ -52,16 +52,6 @@ function AnimatedTestimonialsData() {
   const testimonialsEN = [
     {
       quote:
-        "Dr. Jaime Marulanda is a distinguished leader in investment management and the development of innovative financial strategies. With a strong academic background and a strategic vision focused on capital optimization, he has been instrumental in establishing Nexus Private Capital as a leading firm in the industry. His leadership is centered on implementing advanced investment models and integrating technology to maximize profitability while minimizing risk exposure.",
-      perfilList1: "✔ Corporate strategy and market expansion.",
-      perfilList2: "✔ Investment management and capital optimization.",
-      perfilList3: "✔ Innovation and digital transformation in the financial sector.",
-      name: "Dr. Jaime Marulanda, PhD",
-      designation: "Chief Executive Officer (CEO) | Executive Director",
-      src: "https://media.istockphoto.com/id/1940987682/photo/suited-asian-executive-standing-by-corporate-structure-with-arms-crossed.jpg?s=1024x1024&w=is&k=20&c=3SE47KvkY1EhabesR9Xqxo6vbU_m3AVi1EcEbfPE0JY=",
-    },
-    {
-      quote:
         "Jose Gaviria is an executive with extensive experience in financial structuring, business development, and commercial strategies. As Chief Business Officer (CBO), he leads the expansion of Nexus Private Capital by identifying strategic growth opportunities and key partnerships. As Chief Financial Officer (CFO), he oversees financial planning and resource management, ensuring the company's financial stability.",
       perfilList1: "✔ Financial management and capital structuring.",
       perfilList2: "✔ Commercial strategy development and expansion.",
@@ -80,17 +70,6 @@ function AnimatedTestimonialsData() {
       name: "Nicolás Echeverri",
       designation: "Chief Relationship Officer (CRO) | Director of Relations",
       src: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      quote:
-        "Juan Lopera specializes in operational optimization and technological development, with a solid track record in implementing innovative solutions for efficient capital management. As Chief Operating Officer (COO), he oversees the development and execution of internal processes, ensuring Nexus Private Capital's operational efficiency. As Chief Technology Officer (CTO), he leads the integration of advanced technology into investment strategies, keeping the company at the forefront of the industry.",
-      perfilList1: "✔ Operational process optimization and scalability.",
-      perfilList2: "✔ Implementation of technology applied to investments.",
-      perfilList3: "✔ Development of financial automation models.",
-      name: "Juan Lopera",
-      designation:
-        "Chief Operating Officer (COO) & Chief Technology Officer (CTO)",
-      src: "https://images.unsplash.com/photo-1543132220-4bf3de6e10ae?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
